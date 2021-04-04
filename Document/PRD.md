@@ -161,7 +161,8 @@ create table TimeTableLv1(
 create table TimeTableLv2(
 	TableID varchar(20) NOT NULL auto increment COMMENT 'TableID Level 2'
     Name varchar(20) NOT NULL COMMENT 'Name of Table',
-    Status int NOT NULL COMMENT 'Status of the table listed in the following'
+    Status int NOT NULL COMMENT 'Status of the table listed in the following',
+    
     primary key(TableID)
 )
 ```
@@ -190,7 +191,7 @@ create table User_TimeTablev1_Relation(
 
 ```sql
 create table TimeTablev1_v2_Relation(
-
+	
 )
 ```
 
