@@ -145,10 +145,10 @@ create table User(
 
 
 
-TimeTable
+TimeTableClass
 
 ```sql
-create table TimeTableLv1(
+create table TimeTableLClass(
 	TableID int NOT NULL auto increment COMMENT 'TableID Level 1'
     Name varchar(20) NOT NULL COMMENT 'Name of Table'
     primary key(TableID)
@@ -157,12 +157,16 @@ create table TimeTableLv1(
 
 
 
+TimeTable
+
 ```sql
-create table TimeTableLv2(
+create table TimeTable(
 	TableID varchar(20) NOT NULL auto increment COMMENT 'TableID Level 2'
     Name varchar(20) NOT NULL COMMENT 'Name of Table',
+    Context varchar(100) NOT NULL comment 'Context',
     Status int NOT NULL COMMENT 'Status of the table listed in the following',
-    
+    Days varchar(20) NOT NULL comment 'up to 5 days selected stored in string',
+    CreateTime datetime not null comment 'Create Time',
     primary key(TableID)
 )
 ```
@@ -178,8 +182,10 @@ create table TimeTableLv2(
 
 关系：
 
+一个用户 对应 多个表Class
+
 ```sql
-create table User_TimeTablev1_Relation(
+create table User_TimeTableClass_Relation(
 	ID int not null auto increment COMMENT 'ID'，
     UserID varchar(20) not null comment 'user open id',
     TableID int not null comment 'Time Table v1 ID',
@@ -187,13 +193,26 @@ create table User_TimeTablev1_Relation(
 )
 ```
 
-
+一个表Class对应多个TimeTable
 
 ```sql
-create table TimeTablev1_v2_Relation(
-	
+create table TimeTableClass_TimeTable_Relation(
+	ID int not null auto increment COMMENT 'ID',
+    ClassID int not null comment 'Time Table Class ID',
+    TableID int not null comment 'Time Table ID',
+    primary key(ID)
 )
 ```
 
+一个Table对应多个用户
 
+```sql
+create table TimeTable_Member_Relation(
+    ID INT NOT NULL AUTO INCREMENT COMMENT 'ID',
+    TableID int not null comment 'Time Table ID',
+    UserID varchar(20) not null comment 'User open id',
+    SelectTime varchar(100) not null comment 'Selected time in json',
+    primary key(ID)
+)
+```
 

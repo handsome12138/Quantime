@@ -1,0 +1,18 @@
+[
+  {
+    "name": "debug: AlterTimeSelected",
+    "value": {
+      "TableID": "test",
+      "UserID": "test",
+      "SelectTime": [
+        {
+          "2020-5-5": [
+            1,
+            2,
+            3
+          ]
+        }
+      ]
+    }
+  }
+]

@@ -8,7 +8,7 @@ exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
 
   var ClassName = event.ClassName;
-  console.log('Here is AddTimeTableClass');
+  // console.log('Here is AddTimeTableClass');
   const db = cloud.database()
   db.collection('TimeTableClass').add({
     data: {
