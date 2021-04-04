@@ -149,7 +149,7 @@ TimeTable
 
 ```sql
 create table TimeTableLv1(
-	TableID varchar(20) NOT NULL auto increment COMMENT 'TableID Level 1'
+	TableID int NOT NULL auto increment COMMENT 'TableID Level 1'
     Name varchar(20) NOT NULL COMMENT 'Name of Table'
     primary key(TableID)
 )
@@ -166,7 +166,33 @@ create table TimeTableLv2(
 )
 ```
 
-| statu code bit  | 状态 |
-| --------------- | ---- |
-| 0x00000000**1** | 是否 |
+| statu code bit  | 状态                 |
+| --------------- | -------------------- |
+| 0b00000000**1** | 是否发布             |
+| 0b0000000**1**0 | 是否允许用户查看结果 |
+
+
+
+
+
+关系：
+
+```sql
+create table User_TimeTablev1_Relation(
+	ID int not null auto increment COMMENT 'ID'，
+    UserID varchar(20) not null comment 'user open id',
+    TableID int not null comment 'Time Table v1 ID',
+    primary key(ID)
+)
+```
+
+
+
+```sql
+create table TimeTablev1_v2_Relation(
+
+)
+```
+
+
 
