@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/Aboutus/Aboutus",
     "pages/Demo/index/index",
     "pages/Demo/userConsole/userConsole",
     "pages/Demo/storageConsole/storageConsole",
@@ -29,7 +30,7 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTitleText": "Quantime",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",

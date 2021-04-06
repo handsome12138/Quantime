@@ -13,7 +13,8 @@ exports.main = async (event, context) => {
   }
   const db = cloud.database();
   var flag = 0;
-  await db.collection('TimeTableClass_TimeTable_Relation').where({
+  // 先在TimeTableClass中确认ClassID是存在的
+  await db.collection('TimeTableClass').where({
     _id: event.NewBelongClassID
   }).get().then(res => {
     // console.log("[DEBUG]: ", res)
