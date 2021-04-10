@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/test/test",
     "pages/Aboutus/Aboutus",
     "pages/Demo/index/index",
     "pages/Demo/userConsole/userConsole",
@@ -24,7 +25,8 @@
     "pages/TimeSelect/TimeSelect",
     "pages/Stat/Stat",
     "pages/TeamMain/TeamMain",
-    "pages/StatDetail/StatDetail"
+    "pages/StatDetail/StatDetail",
+    "pages/Index/Index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

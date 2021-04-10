@@ -1,0 +1,28 @@
+<!--components/UserAlphabet/UserAlphabet.wxml-->
+<text>components/UserAlphabet/UserAlphabet.wxml</text>
+
+
+<scroll-view class="contact_list" scroll-into-view="{{toViewId}}" style="height:{{windowHeight}}px;" scroll-y>
+  <view wx:for="{{contactsList}}" wx:for-item="item" wx:key="kind" id="{{item.kind}}">
+    <view class="tit">
+      {{item.kind}}
+    </view>
+    <!-- <view class="tit" id="{{item.kind}}">{{item.kind}}</view> -->
+    <view class='box'>
+      <!--li-->
+      <view class="item" wx:for="{{item.entitys}}" wx:for-item="itemJ" wx:key="*this">
+        {{itemJ.name}}
+        <!-- <navigator url="./contact-detail/contact-detail?managerCode={{itemJ.managerCode}}"  hover-class='none'>
+          <view class="item_left">
+            <image src="{{itemJ.img ? itemJ.img : '../../resources/images/user_head.png'}}" class="img"/>
+          </view>
+          <view class="item_info">{{itemJ.name}}</view>
+        </navigator> -->
+      </view>
+      <!--li-->
+    </view>
+  </view>
+</scroll-view>
+
+<!-- 字母排序 -->
+<index-list bind:onChange="handleLetterOrder"></index-list>
