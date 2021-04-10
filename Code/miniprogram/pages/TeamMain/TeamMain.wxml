@@ -1,2 +1,4 @@
 <!--pages/Quantime/TeamMain/TeamMain.wxml-->
-<text>pages/Quantime/TeamMain/TeamMain.wxml</text>
+<!-- <text>pages/Quantime/TeamMain/TeamMain.wxml</text> -->
+<Formlist display="{{false}}"></Formlist>
+<Formlist display="{{true}}"></Formlist>

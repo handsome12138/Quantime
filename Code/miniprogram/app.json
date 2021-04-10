@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/TeamMain/TeamMain",
     "pages/Aboutus/Aboutus",
     "pages/Demo/index/index",
     "pages/Demo/userConsole/userConsole",
@@ -23,7 +24,6 @@
     "pages/FormShared/FormShared",
     "pages/TimeSelect/TimeSelect",
     "pages/Stat/Stat",
-    "pages/TeamMain/TeamMain",
     "pages/StatDetail/StatDetail"
   ],
   "window": {

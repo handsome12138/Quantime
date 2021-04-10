@@ -1,0 +1,55 @@
+/* components/Formunit/Formunit.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  /* padding: 50rpx; */
+  background-color: white;
+  margin: 10rpx;
+  border-radius: 22px;
+  height: 200rpx;
+  justify-content: space-between;
+  /* padding-bottom: 40px; */
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 325px;
+}
+
+.headline{
+  margin-top:16px;
+  font-size:18px;
+}
+.content{
+  font-size:13px;
+}
+.status {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.flag {
+  display: flex;
+  flex-direction: row;
+}
+.text{
+  padding-bottom: 14px;
+  padding-left: 8px;
+  font-size:12px;
+}
+.circle-true{
+    width: 12px;
+    height: 12px;
+    background: #7fee1d;
+    border-radius: 6px;
+    margin-top:2px;
+}
+.circle-false{
+    width: 12px;
+    height: 12px;
+    background: red;
+    border-radius: 6px;
+    margin-top:2px;
+}
+.peoplecount{
+  font-size:12px;
+}

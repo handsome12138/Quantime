@@ -1,0 +1,16 @@
+<!--components/Formunit/Formunit.wxml-->
+<view class="container">
+    <view class="headline">{{item.title}}</view>
+    <view class="content">{{item.description}}</view>
+    <view class="status">
+      <view class="flag" wx:if="{{item.status}}">
+        <view class="circle-true"></view>
+        <view class="text">统计中</view>
+      </view>
+      <view class="flag" wx:if="{{!item.status}}">
+        <view class="circle-false"></view>
+        <view class="text">已停止</view>
+      </view>
+      <view class="peoplecount">已答人数：{{item.peoplecount}}</view>
+    </view>
+</view>

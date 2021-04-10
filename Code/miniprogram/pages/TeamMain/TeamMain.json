@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "Formunit":"../../components/Formunit/Formunit",
+    "Formlist":"../../components/Formlist/Formlist"
+  },
+  "component":true
 }
