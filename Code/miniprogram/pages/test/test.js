@@ -1,11 +1,11 @@
-// pages/Stat/Stat.js
+// miniprogram/pages/Test/test.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+
   },
 
   /**

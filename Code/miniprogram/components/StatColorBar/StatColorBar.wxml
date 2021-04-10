@@ -1,0 +1,16 @@
+<!--components/StatColorBar/StatColorBar.wxml-->
+<text>components/StatColorBar/StatColorBar.wxml</text>
+<view class="container">
+  <view wx:for="{{_array}}" class="colorarea">
+   <view class="pairpart">
+    <!-- {{index}}: {{item}} -->
+    <view class="quantum" style="background-color:{{_colorArray[index]}}">
+      量子 {{index}}
+    </view>
+    <!-- <view class="transition" style='background:linear-gradient（{{colorArray[index]}}，{{colorArray[index+1]}}）'> -->
+      <view class="transition" style='background: linear-gradient({{_colorArray[index]}},{{_colorArray[index+1]}}'>
+      
+    </view>
+   </view>
+  </view>
+</view>
