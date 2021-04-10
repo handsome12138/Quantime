@@ -1,0 +1,50 @@
+/* components/StatColorBar/StatColorBar.wxss */
+.container {
+  display: flex;
+  height: 1920rpx;
+  width: 240rpx;
+
+  margin: 60rpx;
+  /* border-radius: 60rpx; */
+  
+  background-color: #000;
+  
+  /* flex-direction: row;
+  align-items: center;
+  padding: 50rpx; */
+  flex-direction: column;
+  align-items: center;
+  /* padding-bottom: 32rpx; */
+  /* border-bottom: 32rpx; */
+  
+  /* justify-content: space-between; */
+}
+.colorarea {
+  display: flex;
+  width: 100%;
+  
+}
+
+.pairpart {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.quantum {
+  /* width: 240rpx; */
+  height: 64rpx;
+  /* background-color: #898989; */
+}
+
+.transition {
+  /* width: 240rpx; */
+  height: 32rpx;
+  /* background: linear-gradient(rgb(0,0,0),rgb(255,255,255)); */
+  /* background-color: aqua; */
+}
+
+/* .array {
+  display: flex;
+  flex-direction: row;
+} */
