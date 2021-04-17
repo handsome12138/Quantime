@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "UserAlphabet": "/components/UserAlphabet/UserAlphabet"
+    "UserAlphabet": "/components/UserAlphabet/UserAlphabet",
+    "index-list": "/components/Index_list/Index_list"
   }
 }
