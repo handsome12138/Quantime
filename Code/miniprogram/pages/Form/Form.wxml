@@ -1,2 +1,35 @@
 <!--pages/Form/Form.wxml-->
 <text>pages/Form/Form.wxml</text>
+
+<view class="container">
+    <form>
+        <view class="cu-form-group margin-top">
+            <view class="title">统计名称</view>
+            <input prompt="统计名称" placeholder="在此输入统计名称" model:value="{{formName}}"></input>
+        </view>
+        <view class="cu-form-group align-start">
+            <view class="title">备注</view>
+            <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="统计详情说明" model:value="{{formNotes}}"></textarea>
+        </view>
+        <view class="cu-form-group align-start">
+        <view class="title">统计日期</view>
+        <picker mode="date" start="{{today}}" bindchange="bindDateChange">
+            <view class="show-picker">{{date}}</view>
+        </picker>
+    </view>
+    </form>
+
+
+    <!-- <view class="choose-date">
+        <view class="picker-title">统计日期</view>
+        <picker mode="date" start="{{today}}" bindchange="bindDateChange">
+            <view class="show-picker">{{date}}</view>
+        </picker>
+    </view> -->
+    <view class="submitmodule">
+        <!-- <button class="cu-btn bg-white" bindtap="return">返回</button>
+        <view style="width: 150rpx;"></view> -->
+        <!-- 用来占位的 -->
+        <button class="cu-btn bg-blue shadow-blur round" bindtap="submit_save">保存</button>
+    </view>
+</view>
