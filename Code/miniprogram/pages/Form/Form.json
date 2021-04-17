@@ -1,3 +1,10 @@
 {
-  "usingComponents": {}
+  "usingComponents":{
+    "lin-calendar":"../../lin-ui/calendar/index",
+    "van-calendar":"../../vant-weapp/calendar/index",
+    "van-dropdown-item":"../../vant-weapp/dropdown-item/index",
+    "van-dropdown-menu":"../../vant-weapp/dropdown-menu/index",
+    "wx_calendar":"../../3partylib/wx_calendar/index"
+    
+  }
 }

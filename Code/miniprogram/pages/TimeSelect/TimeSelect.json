@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
-}
+  "usingComponents": {
+    "TimeSelectionBar":"../../components/TimeSelectionBar/TimeSelectionBar",
+    "TitleAndIntro":"../../components/TitleAndIntro/TitleAndIntro"
+  }
+} 

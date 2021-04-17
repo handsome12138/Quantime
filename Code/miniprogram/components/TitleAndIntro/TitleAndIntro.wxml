@@ -1,0 +1,12 @@
+<!--components/TitleAndIntro/TitleAndIntro.wxml-->
+<!-- <text>components/TitleAndIntro/TitleAndIntro.wxml</text> -->
+<view class="container">
+  <view class="title">
+    标题
+  </view>
+
+  <view class="intro">
+    简介
+  </view>
+
+</view>

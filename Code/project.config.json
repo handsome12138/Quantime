@@ -64,6 +64,24 @@
         {
           "name": "pages/Form/Form",
           "pathName": "pages/Form/Form",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/TimePublish/TimePublish",
+          "pathName": "pages/TimePublish/TimePublish",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/Stat/Stat",
+          "pathName": "pages/Stat/Stat",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/TimeSelect/TimeSelect",
+          "pathName": "pages/TimeSelect/TimeSelect",
           "scene": null
         }
       ]

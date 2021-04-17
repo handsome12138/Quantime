@@ -1,0 +1,21 @@
+/* components/TitleAndIntro/TitleAndIntro.wxss */
+.container {
+  margin: 60rpx;
+  border-radius: 30rpx;
+	background-color: #ffffff;
+	padding: 1rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+	align-items: center;
+	min-height: 100upx;
+	justify-content: space-between;
+}
+
+.title + .intro {
+  border-top: 1rpx solid #eee;
+  width: 100%;
+}
+
+.title {
+  
+}

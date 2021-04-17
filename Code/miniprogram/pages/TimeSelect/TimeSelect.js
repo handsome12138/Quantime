@@ -5,20 +5,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    pageName:"TimeSelect",
+    _index: [],
+    date: ["2021.4.3","2021.4.4","2021.4.5"]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("TimeSelect is onLoad.")
 
-  },
+    let o_index=[],i
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+    for( i=0; i<24; i++){
+      o_index.push(i)
+    }
+
+    this.setData({
+      _index: o_index
+    })
 
   },
 

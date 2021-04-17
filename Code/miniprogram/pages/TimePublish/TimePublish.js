@@ -5,13 +5,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    pageName:"TimePublish",
+    _index: [],
+    date: ["2021.4.3","2021.4.4","2021.4.5"]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("TimePublish is onLoad.")
+
+    let o_index=[],i
+
+    for( i=0; i<24; i++){
+      o_index.push(i)
+    }
+
+    this.setData({
+      _index: o_index
+    })
 
   },
 
