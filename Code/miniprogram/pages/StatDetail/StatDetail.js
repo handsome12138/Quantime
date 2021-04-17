@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    search_value_modal: null,
+    filter: false
   },
 
   /**
@@ -62,5 +63,20 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  ShowModal(e){
+    // 显示模态框
+    console.log("[debug]: 显示模态框");
+    this.setData({
+      modalname: e.currentTarget.dataset.target
+    })
+  },
+
+  HideModal(e){
+    this.setData({
+      modalname: null
+    })
+  },
+
 })

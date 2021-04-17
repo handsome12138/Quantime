@@ -1,2 +1,27 @@
 <!--pages/StatDetail/StatDetail.wxml-->
 <text>pages/StatDetail/StatDetail.wxml</text>
+
+<view>
+  <button bindtap="ShowModal" data-target="Filter">显示模态框</button>
+</view>
+
+
+<view class="cu-modal {{modalname=='Filter'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="grid col-1 margin-bottom">
+      <!-- <view class="cu-bar bg-white justify-end" style="padding-left:30rpx;padding-right:30rpx;">
+        <text data-filter="All" bindtap="ChangeFilter">所有人</text> <text>/</text> <text bindtap="ChangeFilter" data-filter="selected">Selected</text>
+        <view class="search-form round" style="margin-right:0;">
+          <text class="cuIcon-search"> </text>
+          <input placeholder="搜索" type="text" model:value="{{search_value_modal}}">  </input>
+        </view>
+      </view> -->
+      <scroll-view>
+        <UserAlphabet check="{{true}}" filter="{{filter}}"></UserAlphabet>
+      </scroll-view>
+      <view style="marg">
+        <button class="cu-btn line-green text-green" style="width:150px;margin-left:50px;margin-right:20px" bindtap="HideModal">返回</button>
+      </view>
+    </view>
+  </view>
+</view>
