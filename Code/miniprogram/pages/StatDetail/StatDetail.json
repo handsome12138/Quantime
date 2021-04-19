@@ -1,6 +1,8 @@
 {
   "usingComponents": {
     "Timeselect":"../../components/Timeselect/Timeselect",
-    "TimeBar_Stat":"../../components/TimeBar_Stat/TimeBar_Stat"
+    "TimeBar_Stat":"../../components/TimeBar_Stat/TimeBar_Stat",
+    "UserAlphabet": "/components/UserAlphabet/UserAlphabet",
+    "index-list": "/components/Index_list/Index_list"
   }
 }

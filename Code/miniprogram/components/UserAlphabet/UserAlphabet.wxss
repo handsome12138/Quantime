@@ -1,4 +1,7 @@
 /* components/UserAlphabet/UserAlphabet.wxss */
+@import "/colorui/main.wxss";
+@import "/colorui/icon.wxss";
+
 .contact_list .box {
   /* padding: 0 18px 0 10px; */
   padding-left: 18rpx;
