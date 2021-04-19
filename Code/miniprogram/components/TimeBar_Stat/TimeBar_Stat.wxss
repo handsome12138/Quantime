@@ -1,0 +1,82 @@
+/* components/TimeBar_Stat/TimeBar_Stat.wxss */
+@import "../../colorui/main.wxss";
+@import "../../colorui/icon.wxss";
+.left-arr{
+  border-radius: 60px 0 0 60px;
+  background-color: #fff;
+  width: 40px;
+  font-size:35px;
+  position: fixed;
+  bottom: 90px;
+  height: 40px;
+  border-style:solid;
+  border-width:1px;
+  left: 25px;
+  z-index: 10;
+}
+.Date{
+  position: fixed;
+  bottom: 70px;
+  left: 30px;
+}
+.page-section-spacing{
+  position: fixed;
+  bottom: 10px;
+  width:90%;
+}
+.scroll-view_H{
+  white-space: nowrap;
+  padding-left: 65px;
+  width: 92%;
+}
+
+.Mainpart{
+  display: flex;
+  flex-direction: column;
+}
+
+.timebar{
+  height: 40px;
+  /* border-style: none solid none solid; */
+  /* border-block-color: gray; */
+  border-width:1px;
+}
+.timeitem{
+  background-color: #fff;
+  border-style: solid none solid;
+  border-block-color: gray;
+  border-width:1px;
+}
+
+.arrow{
+  height: 35px;
+  /* position: absolute; */
+  position: fixed;
+  bottom: 52px;
+  left:18px;
+}
+
+.timeindex{
+  /* padding-top:40px; */
+  padding-top:40px;
+}
+
+.scroll-view-item_H{
+  display: inline-block !important;
+  width: 10%;
+  height: 40px;
+  /* background-color: rgb(19, 144, 167); */
+}
+
+.right-arr{
+  border-radius: 0 60px 60px 0;
+  background-color: #fff;
+  width: 40px;
+  font-size:35px;
+  position: fixed;
+  bottom: 90px;
+  height: 40px;
+  border-style:solid;
+  border-width:1px;
+  right: 25px;
+}

@@ -1,0 +1,8 @@
+<!--components/Timeselect/Timeselect.wxml-->
+<!-- <text>components/Timeselect/Timeselect.wxml</text> -->
+<scroll-view scroll-x class="scroll-x">
+  <view wx:for="{{timeList}}" wx:key="{{index}}" class="view_item" >
+    <view class="view_item_time" bindtap="clickItem" data-item="{{item}}">{{item.time}}</view>
+    <view class="view_item_hint" bindtap="clickItem" data-item="{{item}}">{{item.hint}}</view>
+  </view>
+</scroll-view>

@@ -1,0 +1,40 @@
+/* components/Timeselect/Timeselect.wxss */
+.scroll-x{
+  white-space:nowrap;
+  display:flex;
+  background: #333;
+}
+
+.view_item{
+  display:inline-block;
+  padding: 20rpx;
+}
+
+.view_item_time{
+  width:100rpx;
+  height:50rpx;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:0.8rem;
+  color:#FFFFFF;
+  background:#000;
+}
+
+.view_item_hint{
+  width:100rpx;
+  height:50rpx;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:0.5rem;
+  color:#FFFFFF;
+  background:#000;
+}
+
+/* 隐藏scrollbar */
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}

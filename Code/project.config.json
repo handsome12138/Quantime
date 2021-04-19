@@ -39,21 +39,18 @@
   },
   "appid": "wx43e8ff20d56ab9e1",
   "projectname": "Quantime",
-  "libVersion": "2.14.1",
+  "libVersion": "2.14.4",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
     "plugin": {
       "list": []
     },
     "game": {
+      "list": []
+    },
+    "gamePlugin": {
       "list": []
     },
     "miniprogram": {
@@ -61,7 +58,20 @@
         {
           "id": -1,
           "name": "db guide",
-          "pathName": "pages/databaseGuide/databaseGuide"
+          "pathName": "pages/databaseGuide/databaseGuide",
+          "query": ""
+        },
+        {
+          "name": "pages/StatDetail/StatDetail",
+          "pathName": "pages/StatDetail/StatDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/Stat/Stat",
+          "pathName": "pages/Stat/Stat",
+          "query": "",
+          "scene": null
         }
       ]
     }

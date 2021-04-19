@@ -1,0 +1,26 @@
+<!--components/TimeBar_Stat/TimeBar_Stat.wxml-->
+<!-- <text>components/TimeBar_Stat/TimeBar_Stat.wxml</text> -->
+<view class="TimeStat">
+<view class="left-arr" bindtap="handleClick">
+  <text class="cuIcon-back lg text-black icon"></text>
+</view>
+<text class="Date">{{CurrentStat.Date}}</text>
+<view class="page-section-spacing">
+  <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" enhanced="{{true}}" bounces="{{true}}">
+    <view class="Mainpart">
+    <view class="timebar" id="timedot">
+    <view wx:for="{{CurrentStat.Stat}}" wx:for-index="index" 
+    wx:key="item" class="scroll-view-item_H timeitem"style="background-color:{{_colorArray[index]}}"></view>
+    </view>
+    <image src="/images/arrow.svg" class="arrow"></image>
+    <view class="timeindex">
+    <view wx:for="{{Hour}}" wx:for-index="index" 
+    wx:key="item" class="scroll-view-item_H">{{item}}</view>
+    </view>
+    </view>
+  </scroll-view>
+</view>
+<view class="right-arr" bindtap="handlerightClick">
+  <text class="cuIcon-right lg text-black icon"></text>
+</view>
+</view>

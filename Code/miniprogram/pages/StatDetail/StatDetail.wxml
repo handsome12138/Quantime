@@ -1,2 +1,4 @@
 <!--pages/StatDetail/StatDetail.wxml-->
-<text>pages/StatDetail/StatDetail.wxml</text>
+<!-- <text>pages/StatDetail/StatDetail.wxml</text> -->
+<Timeselect></Timeselect>
+<TimeBar_Stat></TimeBar_Stat>

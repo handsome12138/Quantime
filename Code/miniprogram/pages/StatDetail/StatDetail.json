@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "Timeselect":"../../components/Timeselect/Timeselect",
+    "TimeBar_Stat":"../../components/TimeBar_Stat/TimeBar_Stat"
+  }
 }
