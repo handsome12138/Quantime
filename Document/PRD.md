@@ -151,6 +151,7 @@ TimeTableClass
 create table TimeTableLClass(
 	TableID int NOT NULL auto increment COMMENT 'TableID Level 1'
     Name varchar(20) NOT NULL COMMENT 'Name of Table'
+    OpenID varchar(20) NOT NULL COMMENT 'User OpenID belonged to'
     primary key(TableID)
 )
 ```
@@ -167,6 +168,7 @@ create table TimeTable(
     Status int NOT NULL COMMENT 'Status of the table listed in the following',
     Days varchar(20) NOT NULL comment 'up to 5 days selected stored in string',
     CreateTime datetime not null comment 'Create Time',
+    ClassID varchar(20) not null comment 'Class ID belonged to'
     primary key(TableID)
 )
 ```
@@ -181,28 +183,6 @@ create table TimeTable(
 
 
 关系：
-
-一个用户 对应 多个表Class
-
-```sql
-create table User_TimeTableClass_Relation(
-	ID int not null auto increment COMMENT 'ID'，
-    UserID varchar(20) not null comment 'user open id',
-    TableID int not null comment 'Time Table v1 ID',
-    primary key(ID)
-)
-```
-
-一个表Class对应多个TimeTable
-
-```sql
-create table TimeTableClass_TimeTable_Relation(
-	ID int not null auto increment COMMENT 'ID',
-    ClassID int not null comment 'Time Table Class ID',
-    TableID int not null comment 'Time Table ID',
-    primary key(ID)
-)
-```
 
 一个Table对应多个用户
 

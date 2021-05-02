@@ -4,11 +4,11 @@
 <TimeBar_Stat></TimeBar_Stat>
 
 
-<view class="cu-bar bg-white justify-end" style="padding-left:30rpx;padding-right:30rpx;">
-  <!-- <view wx:if="{{check}}">
+<!-- <view class="cu-bar bg-white justify-end" style="padding-left:30rpx;padding-right:30rpx;">
+  <view wx:if="{{check}}">
     <text data-filter="All" bindtap="ChangeFilter" class="{{filter==true?'':'text-bold'}}">所有人</text> <text>/
     </text> <text bindtap="ChangeFilter" data-filter="selected" class="{{filter==true?'text-bold':''}}">Selected</text>
-  </view> -->
+  </view>
   <view class="flex p-xs align-center" style="width:100%;margin-top:20rpx;">
     <view class="flex-sub radius padding-sm margin-xs">
       10/20
@@ -23,7 +23,8 @@
       筛选
     </view>
   </view>
-</view>
+</view> -->
+
 <scroll-view class="contact_list" scroll-into-view="{{toViewId}}" style="height:{{windowHeight-150}}px;" scroll-y>
   <block wx:for="{{contactsList}}" wx:for-item="item" wx:key="kind" wx:for-index="kindindex" wx:if="{{(!filter || !fn.CheckEmptyKind(item.entitys)) && !fn.CheckSearchKind(item.entitys, search_string)}}">
     <view class="padding" style="text-align:left;" id="{{item.kind}}">{{item.kind}}</view>
