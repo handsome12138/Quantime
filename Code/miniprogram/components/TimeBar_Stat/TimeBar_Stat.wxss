@@ -66,6 +66,7 @@
   width: 10%;
   height: 40px;
   /* background-color: rgb(19, 144, 167); */
+  vertical-align: middle;
 }
 
 .right-arr{

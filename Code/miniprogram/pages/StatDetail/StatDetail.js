@@ -5,6 +5,37 @@ Page({
    * 页面的初始数据
    */
   data: {
+    Select:false,
+    NowPeopleCount:[
+    ],
+    SelectPeopleCount:[
+      {
+        Date:"2020.4.3",
+        Stat:[2,3,4,5,0,0,0,0,9,0,11,0,0,0,0,0,17,18,0,20,21,22,23,0]
+      },
+      {
+        Date:"2020.4.4",
+        Stat:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,21,22,23,0]
+      },
+      {
+        Date:"2020.4.5",
+        Stat:[0,0,0,0,0,0,0,8,9,10,0,0,0,0,0,0,0,0,0,0,0,0,23,0]
+      }
+    ],
+    TotalPeopleCount:[
+      {
+        Date:"2020.4.3",
+        Stat:[0,0,0,0,0,6,0,0,9,0,11,0,0,0,0,0,17,18,0,20,21,22,23,0]
+      },
+      {
+        Date:"2020.4.4",
+        Stat:[0,0,0,0,0,0,0,0,0,0,0,0,0,14,0,0,0,0,0,20,21,22,23,0]
+      },
+      {
+        Date:"2020.4.5",
+        Stat:[0,0,0,0,0,0,0,8,9,10,0,0,0,0,0,0,0,0,0,0,0,0,23,0]
+      }
+    ],
     contactsList: [
       {
         "kind": "1",
@@ -440,7 +471,11 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.setData({
+      NowPeopleCount:this.data.TotalPeopleCount
+    }, ()=>{
+      console.log('debug', this.data.NowPeopleCount)
+    })
   },
 
   /**
@@ -522,7 +557,20 @@ Page({
       }
     })
   },
-  
-
-
+  ShowSelected:function(){
+    this.setData({
+      Select:!this.data.Select
+    })
+    console.log(this.data.Select)
+    if(this.data.Select)
+    {
+      this.setData({
+        NowPeopleCount:this.data.SelectPeopleCount
+    })
+    }else{
+      this.setData({
+        NowPeopleCount:this.data.TotalPeopleCount
+      })
+    }
+  }
 })
