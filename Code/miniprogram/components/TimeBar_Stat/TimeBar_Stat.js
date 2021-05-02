@@ -12,6 +12,13 @@ Component({
         this.Prepare()
       }
     },
+    Select:{
+      type:Boolean,
+      value:false,
+      observer:function(){
+        this.Prepare()
+      }
+    }
     // 真实的数据结构
     // {
     //   "2020-04-01": [0,0,1,2,3, ...],
@@ -82,7 +89,13 @@ Component({
         max = Math.max(...this.properties.PeopleCount[i].Stat);
         for(var j = 0;j<this.properties.PeopleCount[i].Stat.length;j++){
           _array.push(this.properties.PeopleCount[i].Stat[j]/max)
-          tempColorArray.push(`rgb(255,255,${255-Math.round(_array[j]*255)})`)//根据百分比计算RGB数组
+          if(!this.data.Select)
+            {
+              tempColorArray.push(`rgb(255,255,${255-Math.round(_array[j]*255)})`)//根据百分比计算RGB数组
+            }else{
+              console.log(this.data.Select)
+              tempColorArray.push(`rgb(255,${255-Math.round(_array[j]*255)},255)`)//根据百分比计算RGB数组
+            }
         }
         Colorndarray.push(tempColorArray)
         _array = []
@@ -138,6 +151,9 @@ Component({
       CurrentStat:this.properties.PeopleCount[this.data.date],
       _colorArray:this.data.ndColorAarray[this.data.date]
     })
+  },
+  Stopmerge:function(){
+    console.log("StopMerge!")
   }
   }
 })
