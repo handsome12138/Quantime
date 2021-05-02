@@ -1,6 +1,6 @@
 <!--pages/StatDetail/StatDetail.wxml-->
 <!-- <text>pages/StatDetail/StatDetail.wxml</text> -->
-<Timeselect></Timeselect>
+<!-- <Timeselect></Timeselect> -->
 <TimeBar_Stat></TimeBar_Stat>
 
 

@@ -51,7 +51,6 @@
       "list": []
     },
     "gamePlugin": {
-      "current": -1,
       "list": []
     },
     "miniprogram": {
@@ -83,6 +82,13 @@
         {
           "name": "pages/TimeSelect/TimeSelect",
           "pathName": "pages/TimeSelect/TimeSelect",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/StatDetail/StatDetail",
+          "pathName": "pages/StatDetail/StatDetail",
+          "query": "",
           "scene": null
         }
       ]
