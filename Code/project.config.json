@@ -19,22 +19,22 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
-    "useMultiFrameRuntime": true,
+    "useMultiFrameRuntime": false,
     "useApiHook": true,
-    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
-    "enableEngineNative": false,
     "bundle": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
-    "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
+    "useApiHostProcess": true,
+    "enableEngineNative": false,
+    "userConfirmedBundleSwitch": false,
     "minifyWXSS": true
   },
   "appid": "wx43e8ff20d56ab9e1",
@@ -75,15 +75,9 @@
           "scene": null
         },
         {
-          "name": "pages/TimeSelect/TimeSelect",
-          "pathName": "pages/TimeSelect/TimeSelect",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/StatDetail/StatDetail",
-          "pathName": "pages/StatDetail/StatDetail",
-          "query": "",
+          "id": -1,
+          "name": "pages/TeamMain/TeamMain",
+          "pathName": "pages/TeamMain/TeamMain",
           "scene": null
         }
       ]

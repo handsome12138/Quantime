@@ -33,10 +33,11 @@ exports.main = async (event, context) => {
   })
   return {
     openid: wxContext.OPENID,
-    // appid: wxContext.APPID,
-    // unionid: wxContext.UNIONID,
-    // env: wxContext.ENV,
-    RegisterStatus: RegisterStatus
+    appid: wxContext.APPID,
+    unionid: wxContext.UNIONID,
+    env: wxContext.ENV,
+    RegisterStatus: RegisterStatus,
+    event: event
   }
 }
 

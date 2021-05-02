@@ -1,4 +1,5 @@
 <!--pages/Quantime/TeamMain/TeamMain.wxml-->
 <!-- <text>pages/Quantime/TeamMain/TeamMain.wxml</text> -->
-<Formlist display="{{false}}"></Formlist>
-<Formlist display="{{true}}"></Formlist>
+
+<Formlist display="{{false}}" itemlist="{{item.TimeTables}}" title="{{item.ClassName}}" wx:for="{{tblist}}" wx:key="ClassID"></Formlist>
+<!-- <Formlist display="{{true}}"></Formlist> -->

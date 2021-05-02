@@ -1,5 +1,6 @@
 //app.js
 App({
+  globalData:{},
   onLaunch: function () {
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
@@ -22,7 +23,17 @@ App({
     //     this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
     //   }
     // })
-
-    this.globalData = {}
+    // this.globalData = {}
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {
+        // test:'test'
+      }
+    }).then(res =>{
+      // console.log('App.js call login:', res);
+      this.globalData['openid'] = res.result.openid;
+      this.globalData['RegisterStatus'] = res.result.RegisterStatus;
+      // console.log('App.js global data:', this.globalData);
+    })
   }
 })

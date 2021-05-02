@@ -1,24 +1,27 @@
 // pages/Quantime/TeamMain/TeamMain.js
+var app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    tblist: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    setTimeout(this.GetTableInfo, 1000);
+    // this.GetTableInfo();
   },
 
   /**
@@ -61,5 +64,22 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  GetTableInfo: function(){
+    // 这里可能app.globalData还没有初始化ok
+    wx.cloud.callFunction({
+      name: 'GetTableInfo',
+      data:{
+        OpenID: app.globalData.openid,
+      }
+    }).then(res=>{
+      console.log('[debug][TeamMain] call cloud:', res);
+      this.setData({
+        tblist: res.result.tblist
+      }, ()=>{
+        console.log(this.data.tblist);
+      })
+    })
   }
 })

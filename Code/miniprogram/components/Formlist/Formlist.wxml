@@ -3,7 +3,7 @@
 <!-- <Formunit></Formunit> -->
 <view class="mainpart" bindtap="teamclick">
   <view class="headline">
-  <view class="team">求是潮</view>
+  <view class="team">{{title}}</view>
   <text class="{{flag?'cuIcon-unfold':'cuIcon-right'}} lg text-black icon"></text>
   </view>
   <view class="list">
