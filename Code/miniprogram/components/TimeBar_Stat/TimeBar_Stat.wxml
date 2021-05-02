@@ -1,7 +1,7 @@
 <!--components/TimeBar_Stat/TimeBar_Stat.wxml-->
 <!-- <text>components/TimeBar_Stat/TimeBar_Stat.wxml</text> -->
 <view class="TimeStat">
-<view class="left-arr" bindtap="handleClick">
+<view class="left-arr" catchtap="handleClick">
   <text class="cuIcon-back lg text-black icon"></text>
 </view>
 <text class="Date">{{CurrentStat.Date}}</text>
@@ -16,7 +16,7 @@
     <view wx:for="{{5}}" wx:for-index="index" 
     wx:key="item" class="scroll-view-item_H timeitem"style="background-color:white"></view>
     </view>
-    <image src="/images/arrow.svg" class="arrow"></image>
+    <image src="/images/arrow.svg" class="arrow" catchtap="Stopmerge"></image>
     <view class="timeindex">
     <view wx:for="{{4}}" wx:for-index="index" 
     wx:key="item" class="scroll-view-item_H"></view>
@@ -28,7 +28,7 @@
     </view>
   </scroll-view>
 </view>
-<view class="right-arr" bindtap="handlerightClick">
+<view class="right-arr" catchtap="handlerightClick">
   <text class="cuIcon-right lg text-black icon"></text>
 </view>
 </view>
