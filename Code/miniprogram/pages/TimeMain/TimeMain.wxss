@@ -1,1 +1,82 @@
 /* pages/TimeMain/TimeMain.wxss */
+.container {
+  /* display: flex;
+  flex-direction: column; */
+}
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
+
+.arrow{
+  width: 20rpx;
+  height: 20rpx;
+  border-top: 4rpx solid #999;
+  border-right: 4rpx solid #999;
+  transform: rotate(45deg);
+}
+
+.display {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  /* padding: 50rpx; */
+  background-color: white;
+  /* margin: 10rpx; */
+  /* border-radius: 22px; */
+  /* height: 200rpx; */
+  justify-content: space-around;
+  /* padding-bottom: 40px; */
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100vw;
+}
+
+.headline_status {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.headline{
+  /* margin-top:16px; */
+  font-size:18px;
+  font-weight: bold;
+}
+.content{
+  font-size:13px;
+  /* margin-top: 30rpx; */
+  margin-bottom: 20rpx;
+}
+.status {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.flag {
+  display: flex;
+  flex-direction: row;
+}
+.text{
+  padding-bottom: 14px;
+  padding-left: 8px;
+  font-size:12px;
+}
+.circle-true{
+    width: 12px;
+    height: 12px;
+    background: #7fee1d;
+    border-radius: 6px;
+    margin-top:2px;
+}
+.circle-false{
+    width: 12px;
+    height: 12px;
+    background: red;
+    border-radius: 6px;
+    margin-top:2px;
+}
+.peoplecount{
+  font-size:12px;
+}

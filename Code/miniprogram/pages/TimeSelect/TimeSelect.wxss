@@ -1,8 +1,16 @@
 /* pages/TimeSelect/TimeSelect.wxss */
 
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50rpx;
+}
+
 .TimeSelectionTable {
   display: flex;
   flex-direction: row;
+  margin-top: 20rpx;
+  margin-bottom: 50rpx;
 }
 
 ._24hour {

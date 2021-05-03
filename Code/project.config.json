@@ -19,22 +19,22 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
-    "useMultiFrameRuntime": false,
+    "useMultiFrameRuntime": true,
     "useApiHook": true,
+    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
+    "enableEngineNative": false,
     "bundle": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "useApiHostProcess": true,
-    "enableEngineNative": false,
-    "userConfirmedBundleSwitch": false,
     "minifyWXSS": true
   },
   "appid": "wx43e8ff20d56ab9e1",
@@ -44,12 +44,6 @@
   "simulatorPluginLibVersion": {},
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
     "plugin": {
       "list": []
     },
@@ -75,9 +69,33 @@
           "scene": null
         },
         {
-          "id": -1,
           "name": "pages/TeamMain/TeamMain",
           "pathName": "pages/TeamMain/TeamMain",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/TimePublish/TimePublish",
+          "pathName": "pages/TimePublish/TimePublish",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/TimeSelect/TimeSelect",
+          "pathName": "pages/TimeSelect/TimeSelect",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/Form/Form",
+          "pathName": "pages/Form/Form",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/TimeMain/TimeMain",
+          "pathName": "pages/TimeMain/TimeMain",
+          "query": "",
           "scene": null
         }
       ]

@@ -7,14 +7,16 @@ Page({
   data: {
     pageName:"TimePublish",
     _index: [],
-    date: ["2021.4.3","2021.4.4","2021.4.5"]
+    date: ["2021.4.3","2021.4.4","2021.4.5"],
+    title:"属于TimePublish的标题",
+    intro:"属于TimePublish的简介，简介和标题都在页面内在生命周期函数中用this.setData获取\n之后传值给组件TitleAndIntor进行显示",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("TimePublish is onLoad.")
+    console.log("Page:TimePublish is onLoad.")
 
     let o_index=[],i
 

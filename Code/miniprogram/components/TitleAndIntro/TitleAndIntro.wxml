@@ -2,11 +2,11 @@
 <!-- <text>components/TitleAndIntro/TitleAndIntro.wxml</text> -->
 <view class="container">
   <view class="title">
-    标题
+    标题:{{title}} 
   </view>
 
   <view class="intro">
-    简介
+    简介:{{intro}} 
   </view>
 
 </view>

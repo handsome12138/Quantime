@@ -7,7 +7,9 @@ Page({
   data: {
     pageName:"TimeSelect",
     _index: [],
-    date: ["2021.4.3","2021.4.4","2021.4.5"]
+    date: ["2021.4.3","2021.4.4","2021.4.5"],
+    title:"属于TimeSelect的标题",
+    intro:"属于TimeSelect的简介，简介和标题都在页面内在生命周期函数中用this.setData获取\n之后传值给组件TitleAndIntor进行显示",
   },
 
   /**
