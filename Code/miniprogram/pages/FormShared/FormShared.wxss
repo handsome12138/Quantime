@@ -1,1 +1,32 @@
 /* pages/FormShared/FormShared.wxss */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.invitation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 17px;
+}
+
+.avatar_nickname {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 17px;
+}
+
+.nickname {
+  font-size: 17px;
+  color:  #595959;
+}
+
+.text {
+  font-size: 17px;
+  color:  #898989;
+}
+

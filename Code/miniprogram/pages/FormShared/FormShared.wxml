@@ -1,2 +1,20 @@
 <!--pages/FormShared/FormShared.wxml-->
-<text>pages/FormShared/FormShared.wxml</text>
+<!-- <text>pages/FormShared/FormShared.wxml</text> -->
+
+<view class="container">
+  <view class="invitation margin-top">
+    
+    <view class="avatar_nickname ">
+      
+      <view class="cu-avatar round margin" style="background-image:url({{inviter.avatar}});"></view>
+      <view class="nickname margin-right">{{inviter.nickname}}</view>
+    </view>
+    <view class="text">邀请您参加时间统计</view>
+  </view>
+  <TitleAndIntro title="{{item.Name}}" intro="{{item.Context}}"></TitleAndIntro>
+  <view class="button_zone margin-top">
+    <button class="bg-green accept">接受</button>
+  
+    <button class="bg-green accept_save margin-top" wx:if="{{item.SaveFlag}}">接受并保存到我的</button>
+  </view>
+</view>

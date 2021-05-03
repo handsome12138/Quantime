@@ -2,8 +2,8 @@
 <!-- <text>pages/TimePublish/TimePublish.wxml</text> -->
 
 <view class="container">
-  <TitleAndIntro title="{{title}}" intro="{{intro}}"></TitleAndIntro>
-
+  <!-- <TitleAndIntro title="{{title}}" intro="{{intro}}"></TitleAndIntro> -->
+  <TitleAndIntro title="{{item.Name}}" intro="{{item.Context}}"></TitleAndIntro>
   <view class="TimeSelectionTable">
     <view class = "_24hour">
       <view wx:for="{{_index}}" wx:key="index" wx:for-index="index" class="_24hour_part">{{index}}</view>
@@ -20,7 +20,7 @@
   
   <button class="bg-green laststep">上一步</button>
   
-  <button class="bg-green finish ">完成</button>
+  <button class="bg-green finish " >完成</button>
   
 </view>
 
