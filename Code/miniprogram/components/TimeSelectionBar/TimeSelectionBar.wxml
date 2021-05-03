@@ -2,9 +2,11 @@
 <!-- <text>这是TimeSelectionBar.wxml</text> -->
 
 <block view wx:for="{{_particle}}" wx:key="index" wx:for-index="index">
+  <!-- <block view wx:for="{{particle}}" wx:key="index" wx:for-index="index"> -->
   
   <!-- <view class="{{'particle_'+_particle[index]}}" bindtap="catchParticle" data-id='{{index}}' data-target="{{item}}">{{index}}</view> -->
   <view class="{{'particle_'+_particle[index]}}" bindtap="catchParticle" data-id='{{index}}' data-target="{{item}}"></view>
+  <!-- <view class="{{'particle_'+particle[index]}}" bindtap="catchParticle" data-id='{{index}}' data-target="{{item}}"></view> -->
   
   <!-- <image hidden="{{pick[index]}}" class="particle" bindtap="catchParticle" data-id='{{index}}' data-target="{{item}}" src='../../images/RoundedRect_white_white1.svg'> </image>
   <image hidden="{{!pick[index]}}" class="particle" bindtap="catchParticle" data-id='{{index}}' data-target="{{item}}" src='../../images/RoundedRect_lightblue_skyblue1.svg'> </image> -->

@@ -17,6 +17,11 @@ Page({
     // title:"属于TimeSelect的标题",
     // intro:"属于TimeSelect的简介，简介和标题都在页面内在生命周期函数中用this.setData获取\n之后传值给组件TitleAndIntor进行显示",
   },
+  test: function(){
+    console.log("[debug] test")
+    const bar1 = this.selectComponent("#Bar-1").data
+    console.log("[debug] bar1",bar1)
+  },
 
   /**
    * 生命周期函数--监听页面加载

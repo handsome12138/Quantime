@@ -10,6 +10,8 @@ Page({
     pageName:"TimePublish",
     _index: [],
     date: ["2021.4.3","2021.4.4","2021.4.5"],
+    // quant:[[0,0,0,0,0],[]],
+    quant:[],
     item:{
       Name:"属于TimePublish的标题",
       Context:"属于TimePublish的简介，简介和标题都在页面内在生命周期函数中用this.setData获取\n之后传值给组件TitleAndIntor进行显示",
@@ -18,6 +20,12 @@ Page({
     },
     // title:"属于TimePublish的标题",
     // intro:"属于TimePublish的简介，简介和标题都在页面内在生命周期函数中用this.setData获取\n之后传值给组件TitleAndIntor进行显示",
+  },
+
+  test: function(){
+    console.log("[debug] test")
+    const bar1 = this.selectComponent("#Bar-1").data
+    console.log("[debug] bar1",bar1)
   },
 
   /**
@@ -37,7 +45,8 @@ Page({
       })
     })
 
-    let o_index=[],i
+    //初始化_index
+    let o_index=[],i,j
 
     for( i=0; i<24; i++){
       o_index.push(i)
@@ -46,6 +55,24 @@ Page({
     this.setData({
       _index: o_index
     })
+
+    //初始化quant
+    let tempArray=[]
+    let date = this.data.date
+    for( i=0; i<date.length; i++){
+      let tempSubArray=[]
+      for( j=0; j<24; j++){
+        // tempArray.push( Math.round(Math.random()*2)-1)
+        tempSubArray.push(0)
+      }
+      tempArray.push(tempSubArray)
+    }
+    
+    this.setData({
+      quant:tempArray
+    })
+    // console.log("[debug] this.data.quant", this.data.quant)
+    // console.log("[debug] this.onShow()",this.onShow())
 
   },
 

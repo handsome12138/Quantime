@@ -50,6 +50,12 @@
           "pathName": "pages/TimePublish/TimePublish",
           "query": "TableID=79550af26069c27b0d5acb9346bd36b7",
           "scene": null
+        },
+        {
+          "name": "pages/TimeSelect/TimeSelect",
+          "pathName": "pages/TimeSelect/TimeSelect",
+          "query": "",
+          "scene": null
         }
       ]
     }

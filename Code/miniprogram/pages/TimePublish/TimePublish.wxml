@@ -12,7 +12,8 @@
     <view wx:for="{{date}}" wx:key="index" wx:for-index="index">
       <view class="DateAndBar">
         <view class = "date">{{date[index]}}</view>
-        <TimeSelectionBar pageName="{{pageName}}" class="TimeSelectionBar"></TimeSelectionBar>
+        <TimeSelectionBar id="Bar-{{index}}" pageName="{{pageName}}"  class="TimeSelectionBar"></TimeSelectionBar>
+        <!-- <TimeSelectionBar pageName="{{pageName}}" particle="{{quant[index]}}" class="TimeSelectionBar"></TimeSelectionBar> -->
       </view>
       
     </view>
@@ -20,7 +21,7 @@
   
   <button class="bg-green laststep">上一步</button>
   
-  <button class="bg-green finish " >完成</button>
+  <button class="bg-green finish" bindtap="test" >完成</button>
   
 </view>
 
