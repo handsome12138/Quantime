@@ -1,4 +1,5 @@
 // pages/FormShared/FormShared.js
+var app = getApp();
 Page({
 
   /**
@@ -51,6 +52,17 @@ Page({
         InviterInfo: res.data[0]
       })
     })
+    // 以下是检验是否注册过了
+    db.collection('TimeTable_Member_Relation').where({
+      TableID: options.TableID,
+      UserID: app.globalData.openid
+    }).get().then(res => {
+      if(res.data.length > 0){
+        wx.navigateTo({
+          url: '/pages/TimeSelect/TimeSelect?TableID='+options.TableID,
+        })
+      }
+    })
 
   },
 
@@ -101,5 +113,16 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  RegisterJoin: function(){
+    wx.cloud.callFunction({
+      name:'JoinTimeTable',
+      data:{
+        TableID: this.data.TableID
+      }
+    })
+    wx.navigateTo({
+      url: '/pages/TimeSelect/TimeSelect',
+    })
   }
 })

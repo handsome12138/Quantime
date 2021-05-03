@@ -164,4 +164,9 @@ Page({
       index: e.detail.value
     })
   },
+  GotoForm: function(){
+    wx.navigateTo({
+      url: '/pages/Form/Form',
+    })
+  }
 })

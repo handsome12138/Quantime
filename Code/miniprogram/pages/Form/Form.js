@@ -14,6 +14,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    ClassIDList: [],
+    ClassNameList: [],
+    ClassIndex: 0,
     option_classify: [
       { text: '分类1', value: 0 },
       { text: '分类2', value: 1 },
@@ -138,7 +141,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    wx.cloud.callFunction({
+      name: 'GetClassList'
+    }).then(res=>{
+      console.log('[debug] Form Clist', res);
+      this.setData({
+        ClassIDList: res.result.ClassIDList,
+        ClassNameList: res.result.ClassNameList
+      })
+    })
   },
 
   /**

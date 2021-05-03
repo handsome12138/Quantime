@@ -107,5 +107,10 @@ Page({
       title: '邀请你加入时间统计',
       path: '/pages/FormShared/FormShared?TableID='+this.data.TableID + '&InviterID=' + app.globalData.openid
     }
+  },
+  GotoStat: function(){
+    wx.navigateTo({
+      url: '/pages/Stat/Stat',
+    })
   }
 })

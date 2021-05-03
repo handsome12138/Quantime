@@ -1,6 +1,14 @@
 <view class="container">
     <form>
         <view class="cu-form-group margin-top">
+            <view class="title">类别</view>
+            <picker value="{{ClassIndex}}" range="{{ClassNameList}}">
+                <view class="picker">
+                {{ClassNameList[ClassIndex]}}
+                </view>
+            </picker>
+        </view>
+        <view class="cu-form-group align-start">
             <view class="title">标题</view>
             <input prompt="标题" placeholder="请输入标题" model:value="{{formName}}"></input>
         </view>
@@ -30,14 +38,14 @@
             <van-dropdown-item value="{{ value_classify }}" options="{{ option_classify }}" />         
         </van-dropdown-menu>  -->
         <!-- </view> -->
-        <view class="cu-bar bg-white margin-top">
-            <!-- <view class="action"> -->
+        <!-- <view class="cu-bar bg-white margin-top">
+            <view class="action">
                 <text class="title text-orange "></text> 选择所属分类:
-            <!-- </view> -->
+            </view>
             <view class="action">
                 <button class="cu-btn  shadow" bindtap="showModal" data-target="RadioModal">{{option_classify[value_classify].text}}</button>
             </view>
-        </view>
+        </view> -->
     </form>
 
     <view class="submitmodule">

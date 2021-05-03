@@ -7,7 +7,8 @@
       <input type="text" placeholder="搜索类、表单" confirm-type="search"></input>
     </view>
     <view class="action_btn">
-      <button class="cu-btn bg-green shadow-blur round"  bindtap="ShowModal">新建</button>
+      <!-- <button class="cu-btn bg-green shadow-blur round"  bindtap="ShowModal">新建</button> -->
+      <button class="cu-btn bg-green shadow-blur round"  bindtap="GotoForm">新建</button>
     </view>
   </view>
 

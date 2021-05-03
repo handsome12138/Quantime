@@ -25,7 +25,7 @@
     
   </view>
 
-  <view class="cu-form-group margin-top">
+  <view class="cu-form-group margin-top" bindtap="GotoStat">
 		<view class="title">查看统计结果</view>
 		<view class="arrow"></view>
 	</view>
