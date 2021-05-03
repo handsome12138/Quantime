@@ -37,7 +37,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    flag:false
+    flag:true
   },
 
   /**
@@ -50,6 +50,13 @@ Component({
       })
       // console.log(this.data.flag)
     },
+    GotoTimeMain:function(e){
+      var id = e.currentTarget.dataset.id;
+      // console.log('go to time main:', id);
+      wx.navigateTo({
+        url: '/pages/TimeMain/TimeMain?id='+id,
+      })
+    }
     // updateRate:function(e){
     //   this.setData({
     //     flag:this.properties.display

@@ -1,2 +1,9 @@
 <!--pages/TimeMain/TimeMain.wxml-->
 <text>pages/TimeMain/TimeMain.wxml</text>
+<view>
+{{TableID}}
+</view>
+
+<view>
+{{TableInfo}}
+</view>

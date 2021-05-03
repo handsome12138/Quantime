@@ -8,7 +8,7 @@
   </view>
   <view class="list">
   <view wx:if="{{flag}}" wx:for="{{itemlist}}" wx:for-index="index" wx:for-item="item" wx:key="item">
-    <Formunit item="{{item}}"></Formunit>
+    <Formunit item="{{item}}" bindtap="GotoTimeMain" data-id="{{item._id}}"></Formunit>
   </view>
   </view>
 </view>

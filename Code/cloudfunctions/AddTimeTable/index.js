@@ -10,7 +10,7 @@ exports.main = async (event, context) => {
   if(!(event.Name && (typeof(event.Status)!="undefined") && event.Context && event.BelongClassID)){
     // 传入的参数不足
     console.log("[数据库] [新增数据] TimeTable FAIL: 参数不足", event);
-    return {};
+    return {info:'error 参数不足', event:event};
   }
   var T = new Date();
   var CreateTime = T.getFullYear() + '-' + (T.getMonth()+1) + '-' + T.getDate();
@@ -20,32 +20,22 @@ exports.main = async (event, context) => {
       Context: event.Context,
       Status: event.Status,
       Days: [],
-      CreateTime: CreateTime
+      CreateTime: CreateTime,
+      ClassID: event.BelongClassID
     },
   }).catch(res => {
     console.log("[数据库] [新增数据] TimeTable FAIL: ", res);
   }).then(res =>{
     // 回调里才有TableID
-    console.log("[数据库] [新增数据] TimeTable SUCCESS res = ", res);
-    // 新增关系
-    db.collection('TimeTableClass_TimeTable_Relation').add({
-      data: {
-        ClassID: event.BelongClassID,
-        TableID: res._id
-      }
-    }).catch(res => {
-      console.log("[数据库] [新增数据] TimeTable FAIL: ", res);
-    }).then(res => {
-      console.log("[数据库] [新增数据] TimeTableClass-TimeTable-Relation SUCCESS res = ", res)
-    })
+    console.log("[数据库] [新增数据] TimeTable SUCCESS res = ", res);    
   })
 
   
 
   return {
     event,
-    openid: wxContext.OPENID,
-    appid: wxContext.APPID,
-    unionid: wxContext.UNIONID,
+    // openid: wxContext.OPENID,
+    // appid: wxContext.APPID,
+    // unionid: wxContext.UNIONID,
   }
 }
