@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    _tblist: [],//保存this.GetTableInfo()获取的源数据
     tblist: [],
     modalname: null,
     TabCur: 0,
@@ -16,6 +17,7 @@ Page({
     TableName: '',
     TableContent: '',
     index: null,
+    subsequence:""
     
   },
 
@@ -36,7 +38,7 @@ Page({
         let new_tableList = []
         let existTableFlag = false
         for(let j=0; j<tableList.length; j++){
-          tr = tableList[j].Name
+          str = tableList[j].Name
           if(str.includes(subsequence)){
             new_tableList.push(tableList[j])
             existTableFlag = true
@@ -54,9 +56,13 @@ Page({
   },
 
   doSearch: function(e){
-    let tblist = this.data.tblist
-    let new_tblist = this.filter(tblist,"1")
+    let subsequence = this.data.subsequence
+    let tblist = this.data._tblist
+    let new_tblist = this.filter(tblist,subsequence)
     console.log("[debug]: new_tblist",new_tblist)
+    this.setData({
+      tblist: new_tblist
+    })
   },
 
 
@@ -132,6 +138,7 @@ Page({
     }).then(res=>{
       console.log('[debug][TeamMain] call cloud:', res);
       this.setData({
+        _tblist : res.result.tblist,
         tblist: res.result.tblist
       }, ()=>{
         console.log(this.data.tblist);
@@ -205,7 +212,7 @@ Page({
   PickerChange(e) {
     console.log(e);
     this.setData({
-      index: e.detail.value
+      tblist_index: e.detail.value
     })
   },
   GotoForm: function(){
