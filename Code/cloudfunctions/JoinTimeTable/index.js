@@ -5,18 +5,23 @@ cloud.init()
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  var flag = 0;
   const wxContext = cloud.getWXContext()
-  if(!(event.TableID && event.UserID)){
+  // if(!(event.TableID && event.UserID)){
+    //   console.log("[数据库] [新增数据] TimeTable-Member-Relation FAIL: 参数不足" );
+    //   // 传入的参数不足
+    //   return {};
+  // }
+  if(!(event.TableID)){
     console.log("[数据库] [新增数据] TimeTable-Member-Relation FAIL: 参数不足" );
     // 传入的参数不足
-    return {};
+    return {event:event, info:"参数不足", status:2};
   }
   const db = cloud.database()
-  
+  var flag = 0;
+  var OpenID = wxContext.OPENID;
   await db.collection('TimeTable_Member_Relation').where({
     TableID: event.TableID,
-    UserID: event.UserID, //Open ID
+    UserID: OpenID, //Open ID
   }).get().then(res => {
     // console.log("debug: ", res.data);
     if(res.data.length){
@@ -25,13 +30,13 @@ exports.main = async (event, context) => {
     }
   })
   if(flag == 1){
-    return "Already Exist";
+    return {info:"Already Exist", status: 1};
   }
   // 强行同步执行
   await db.collection('TimeTable_Member_Relation').add({
     data: {
       TableID: event.TableID,
-      UserID: event.UserID, //Open ID
+      UserID: OpenID, //Open ID
       SelectTime: [],
     }
   }).then(res => {
@@ -39,9 +44,10 @@ exports.main = async (event, context) => {
   })
 
   return {
-    event,
-    openid: wxContext.OPENID,
-    appid: wxContext.APPID,
-    unionid: wxContext.UNIONID,
+    event: event,
+    // openid: wxContext.OPENID,
+    // appid: wxContext.APPID,
+    // unionid: wxContext.UNIONID,
+    status: 0
   }
 }

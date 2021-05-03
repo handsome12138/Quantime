@@ -12,11 +12,7 @@ exports.main = async (event, context) => {
     return {};
   }
   const db = cloud.database();
-  db.collection('TimeTableClass_TimeTable_Relation').where({
-    TableID: event.TableID
-  }).remove().then(res => {
-    console.log("[数据库] [删除数据] Delete TimeTableClass_TimeTable_Relation SUCCESS: ", res);
-  })
+
   db.collection('TimeTable').where({
     _id: event.TableID
   }).remove().then(res => {

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/TeamMain/TeamMain",
     "pages/test/test",
     "pages/Stat/Stat",
     "pages/Aboutus/Aboutus",
@@ -24,8 +25,6 @@
     "pages/TimePublish/TimePublish",
     "pages/FormShared/FormShared",
     "pages/TimeSelect/TimeSelect",
-    
-    "pages/TeamMain/TeamMain",
     "pages/StatDetail/StatDetail",
     "pages/Index/Index"
   ],
