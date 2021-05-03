@@ -1,6 +1,17 @@
 <!--pages/Quantime/TeamMain/TeamMain.wxml-->
 <!-- <text>pages/Quantime/TeamMain/TeamMain.wxml</text> -->
-<button class="mini-btn" type="primary" bindtap="ShowModal"> 新建 </button>
+
+  <view class="cu-bar search bg-white topbar">
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="搜索类、表单" confirm-type="search"></input>
+    </view>
+    <view class="action_btn">
+      <button class="cu-btn bg-green shadow-blur round"  bindtap="ShowModal">新建</button>
+    </view>
+  </view>
+
+<!-- <button class="mini-btn margin-top" type="primary" bindtap="ShowModal"> 新建 </button> -->
 <Formlist display="{{true}}" itemlist="{{item.TimeTables}}" title="{{item.ClassName}}" wx:for="{{tblist}}" wx:key="ClassID"></Formlist>
 
 
@@ -13,32 +24,44 @@
         </view>
       </view>
     </scroll-view>
-      <view wx:if="{{TabCur == 0}}">
+      <view  wx:if="{{TabCur == 0}}">
         <!-- <view>请输入类名</view> -->
-        <view class="padding">
+        <view class="cu-form-group margin">
+          类名：
           <input type="text" placeholder="请输入类名" model:value="{{ClassName}}"/>
         </view>
       </view>
       <view wx:if="{{TabCur == 1}}">
-        <view class="padding">
-          <view>
-            <picker range="{{tblist_name}}" model:value="{{tblist_index}}">选择所属类</picker> 
+        <view >
+          <!-- <view class="cu-form-group margin">
+            选择所属类：
+            <picker range="{{tblist_name}}" model:value="{{tblist_index}}"></picker> 
+            
+            </picker>
+          </view> -->
+          <view class="cu-form-group margin-top">
+            <view class="title">已选择的类：</view>
+            <picker bindchange="PickerChange" value="{{tblist_index}}" range="{{tblist_name}}">
+              <view class="picker">
+                {{index?tblist_name[index]:'请选择所属类'}}
+              </view>
+            </picker>
           </view>
-          <view>
+          <!-- <view class="cu-form-group padding">
             已选择的类：{{tblist_name[tblist_index]}}
-          </view>
-          <view>
+          </view> -->
+          <view class="cu-form-group padding"> 
             名称：<input type="text" placeholder="请输入表名" model:value="{{TableName}}"/>
           </view>
-          <view>
+          <view class="cu-form-group ">
             简介: <textarea cols="20" rows="3" placeholder="请输入简介" model:value="{{TableContent}}"></textarea>
           </view>
         </view>
       </view>
 
-      <view class="flex">
-        <button class="flex-sub cu-btn line-green text-green" style="width:150px;margin-left:50px;margin-right:20px" bindtap="Submit">提交</button>
-        <button class="flex-sub cu-btn line-green text-green" style="width:150px;margin-left:50px;margin-right:20px" bindtap="HideModal">返回</button>
+      <view class="flex margin">
+        <button class="flex-sub cu-btn line-green text-green shadow" style="width:150px;margin-left:50px;margin-right:20px" bindtap="Submit">提交</button>
+        <button class="flex-sub cu-btn line-green text-green shadow" style="width:150px;margin-left:50px;margin-right:20px" bindtap="HideModal">返回</button>
       </view>
     </view>
 

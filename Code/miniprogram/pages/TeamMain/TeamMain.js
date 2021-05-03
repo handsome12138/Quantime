@@ -11,10 +11,12 @@ Page({
     modalname: null,
     TabCur: 0,
     ClassName: '',
-    tblist_index: 0,
+    tblist_index:null,
     tblist_name: [],
     TableName: '',
-    TableContent: ''
+    TableContent: '',
+    index: null,
+    picker: ['喵喵喵', '汪汪汪', '哼唧哼唧'],
   },
 
   /**
@@ -101,6 +103,7 @@ Page({
       tblist_name: tblist_name
     })
     console.log('[debug] tblist_name = ',tblist_name);
+    console.log('[debug] this.data.tblist_name = ',this.data.tblist_name);
   },
   HideModal: function(){
     this.setData({
@@ -149,5 +152,11 @@ Page({
     this.setData({
       modalname: null
     })
-  }
+  },
+  PickerChange(e) {
+    console.log(e);
+    this.setData({
+      index: e.detail.value
+    })
+  },
 })
