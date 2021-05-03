@@ -4,7 +4,7 @@
   <view class="cu-bar search bg-white topbar">
     <view class="search-form round">
       <text class="cuIcon-search"></text>
-      <input type="text" placeholder="搜索类、表单" confirm-type="search"></input>
+      <input type="text" placeholder="搜索类、表单" confirm-type="search" model:value="{{subsequence}}"></input>
     </view>
     <view class="action_btn">
       <button class="cu-btn bg-green shadow-blur round"  bindtap="doSearch">搜索</button>

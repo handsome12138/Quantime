@@ -5,6 +5,7 @@ Component({
    */
   properties: {
     pageName: String,
+    particle: Array,
   },
 
   /**
@@ -24,6 +25,7 @@ Component({
     catchParticle: function(e){
       let i = e.currentTarget.dataset.id
       let pick_i = "pick["+i+"]"
+      // this.properties[i] = 1
       this.setData({
         index: e.currentTarget.dataset.id,
         item: e.currentTarget.dataset.target,
@@ -35,6 +37,7 @@ Component({
       let e_particle = this.data._particle
       // console.log("e_particle:", e_particle)
 
+      // 方法1：在用组件的data渲染的条件下判断组件所处页面，从而决定点击形态
       switch(this.properties.pageName){
         case "TimePublish":
           if(e_particle[i] == 1){
@@ -62,6 +65,10 @@ Component({
 
             break;
       }
+
+      this.properties.particle = this.data._particle
+      // console.log("[debug] this.properties.particle",this.properties.particle)
+
       // this.triggerEvent('returnIndex',{index: this.data.index})
 
       // this.setData({
@@ -102,8 +109,12 @@ Component({
       this.setData({
         _particle:tempArray
       })
-
-      console.log("this.data._particle:",this.data._particle)
+      this.properties.particle = tempArray
+      // this.setData({
+      //   _particle:this.properties.particle
+      // })
+      // console.log("[debug] this.properties.particle:",this.properties.particle)
+      // console.log("[debug] this.data._particle:",this.data._particle)
 
     },
 

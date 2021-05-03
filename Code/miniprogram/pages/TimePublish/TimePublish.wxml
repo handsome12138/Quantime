@@ -12,7 +12,8 @@
     <view wx:for="{{TableInfo.Days}}" wx:key="index" wx:for-index="index">
       <view class="DateAndBar">
         <view class = "date">{{date[index]}}</view>
-        <TimeSelectionBar pageName="{{pageName}}" class="TimeSelectionBar"></TimeSelectionBar>
+        <TimeSelectionBar id="Bar-{{index}}" pageName="{{pageName}}"  class="TimeSelectionBar"></TimeSelectionBar>
+        <!-- <TimeSelectionBar pageName="{{pageName}}" particle="{{quant[index]}}" class="TimeSelectionBar"></TimeSelectionBar> -->
       </view>
       
     </view>
