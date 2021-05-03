@@ -11,8 +11,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    _particle:[],
-    particle:[0,1,2,3,4,5,6],
+    _particle:[],// 0:橘色（可选），-1：灰色（锁定无法在Selcet页选择），1：蓝色（选中表示有空）
+    // particle:[0,1,2,3,4,5,6],
     index: null,
     item: null,
   },
@@ -74,7 +74,7 @@ Component({
   lifetimes:{
     attached: function(e){
       console.log("Components:TimeSelectionBar is attached.")
-      console.log("_particle:",this.data._particle)
+      // console.log("_particle:",this.data._particle)
       console.log("pageName:",this.properties.pageName)
       
       //随机初始化TimeSelectionBar.wxml

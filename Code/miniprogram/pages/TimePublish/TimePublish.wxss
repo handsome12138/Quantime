@@ -1,8 +1,16 @@
 /* pages/TimePublish/TimePublish.wxss */
 
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50rpx;
+}
+
 .TimeSelectionTable {
   display: flex;
   flex-direction: row;
+  margin-top: 20rpx;
+  margin-bottom: 50rpx;
 }
 
 ._24hour {
@@ -13,4 +21,9 @@
 
 .laststep + .finish {
   border-top: 20rpx solid ;
+}
+
+.DateAndBar {
+  margin-left: 10rpx;
+  margin-right: 10rpx;
 }

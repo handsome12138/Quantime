@@ -1,2 +1,71 @@
 <!--pages/TimeMain/TimeMain.wxml-->
-<text>pages/TimeMain/TimeMain.wxml</text>
+<!-- <text>pages/TimeMain/TimeMain.wxml</text> -->
+
+<view >
+  <view class="display">
+    <view class="headline_status">
+      <view class="headline">{{item.Name}}</view>
+      <view class="status">
+        <view class="flag" wx:if="{{item.Status}}">
+          <view class="circle-true"></view>
+          <view class="text">统计中</view>
+        </view>
+        <view class="flag" wx:if="{{!item.Status}}">
+          <view class="circle-false"></view>
+          <view class="text">已停止</view>
+        </view>
+      </view>
+    </view>
+    <view class="content">{{item.Context}}</view>
+    
+    <!-- <view class="peoplecount">已答人数：{{item.peoplecount}}</view> -->
+  </view>
+
+  <view class="operational_zone1">
+    
+  </view>
+
+  <view class="cu-form-group margin-top">
+		<view class="title">查看统计结果</view>
+		<view class="arrow"></view>
+	</view>
+	<view class="cu-form-group">
+    <view class="title">查看参与人数</view>
+    <view class="arrow"></view>
+	</view>
+	<view class="cu-form-group margin-bottom">
+		<view class="title">编辑表单（新增统计时间）</view>
+		<view class="arrow"></view>
+  </view>
+  
+  <view class="margin-top margin-left">表单状态修改</view>
+  <view class="cu-form-group margin-top">
+		<view class="title">是否发布</view>
+		<switch class="green sm" checked="{{item.Status}}"></switch>
+	</view>
+	<view class="cu-form-group">
+    <view class="title">是否允许其他用户保存</view>
+    <switch class="green sm" checked></switch>
+    <!-- 这里需要数据库增加一个bool变量以设置 checked同上“是否发布” -->
+  </view>
+  
+  <view class="margin-top margin-left">表单管理</view>
+  <view class="cu-form-group margin-top">
+		<view class="title">分享表单</view>
+		<view class="arrow"></view>
+	</view>
+	<view class="cu-form-group">
+    <view class="title">拷贝表单</view>
+    <view class="arrow"></view>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">移动表单</view>
+    <view class="arrow"></view>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">删除表单</view>
+    <view class="arrow"></view>
+	</view>
+	
+</view>
+
