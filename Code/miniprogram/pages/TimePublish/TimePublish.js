@@ -24,8 +24,17 @@ Page({
 
   test: function(){
     console.log("[debug] test")
-    const bar1 = this.selectComponent("#Bar-1").data
+    const bar1 = this.selectComponent("#Bar-1")
     console.log("[debug] bar1",bar1)
+    let tempSubArray=[], j
+      for( j=0; j<24; j++){
+        // tempArray.push( Math.round(Math.random()*2)-1)
+        tempSubArray.push(0)
+      }
+    bar1.setData({
+      _particle:tempSubArray
+    })
+    // this.onShow()
   },
 
   /**

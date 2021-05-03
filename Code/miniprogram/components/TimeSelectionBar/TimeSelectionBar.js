@@ -23,6 +23,9 @@ Component({
    */
   methods: {
     catchParticle: function(e){
+      // this.setData({
+      //   _particle:this.properties.particle
+      // })
       let i = e.currentTarget.dataset.id
       let pick_i = "pick["+i+"]"
       // this.properties[i] = 1
@@ -66,9 +69,12 @@ Component({
             break;
       }
 
+      console.log("[debug] this.data._particle",this.data._particle)
+      console.log("[debug] this.properties.particle",this.properties.particle)
       this.properties.particle = this.data._particle
-      // console.log("[debug] this.properties.particle",this.properties.particle)
-
+      console.log("[debug] this.data._particle",this.data._particle)
+      console.log("[debug] this.properties.particle",this.properties.particle)
+      this.onShow
       // this.triggerEvent('returnIndex',{index: this.data.index})
 
       // this.setData({
@@ -109,7 +115,7 @@ Component({
       this.setData({
         _particle:tempArray
       })
-      this.properties.particle = tempArray
+      // this.properties.particle = tempArray
       // this.setData({
       //   _particle:this.properties.particle
       // })

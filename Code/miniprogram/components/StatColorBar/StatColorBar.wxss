@@ -1,13 +1,14 @@
 /* components/StatColorBar/StatColorBar.wxss */
 .container {
   display: flex;
-  height: 1920rpx;
+  /* height: 1920rpx; */
   width: 240rpx;
-
-  margin: 60rpx;
+  border-radius: 999px;
+  /* margin: 60rpx; */
+  z-index: 9999;
   /* border-radius: 60rpx; */
   
-  background-color: #000;
+  background-color: rgba(256, 256, 256, 0.5);
   
   /* flex-direction: row;
   align-items: center;
@@ -19,27 +20,37 @@
   
   /* justify-content: space-between; */
 }
+.box {
+  width: 100%;
+  z-index: -9999;
+}
+
 .colorarea {
   display: flex;
   width: 100%;
-  
+  /* padding: 99px; */
+  /* border-radius: 99px; */
 }
 
 .pairpart {
   display: flex;
   flex-direction: column;
   width: 100%;
+  /* border-radius: 99px; */
 }
 
 .quantum {
   /* width: 240rpx; */
-  height: 64rpx;
+  height: 15px;
+  width: 100%;
   /* background-color: #898989; */
+  /* border-radius: 99px; */
 }
 
 .transition {
   /* width: 240rpx; */
-  height: 32rpx;
+  height: 7px;
+  width: 100%;
   /* background: linear-gradient(rgb(0,0,0),rgb(255,255,255)); */
   /* background-color: aqua; */
 }

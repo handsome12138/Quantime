@@ -1,1 +1,5 @@
 /* pages/Stat/Stat.wxss */
+
+.StatColorBar {
+  /* border-top-left-radius: 99px; */
+}

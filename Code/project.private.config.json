@@ -56,6 +56,12 @@
           "pathName": "pages/TimeSelect/TimeSelect",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/Stat/Stat",
+          "pathName": "pages/Stat/Stat",
+          "query": "",
+          "scene": null
         }
       ]
     }
