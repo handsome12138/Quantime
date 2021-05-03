@@ -13,7 +13,7 @@
   </view>
   <TitleAndIntro title="{{TableInfo.Name}}" intro="{{TableInfo.Context}}"></TitleAndIntro>
   <view class="button_zone margin-top">
-    <button class="bg-green accept">接受</button>
+    <button class="bg-green accept" bindtap="RegisterJoin">接受</button>
   
     <button class="bg-green accept_save margin-top" wx:if="{{item.SaveFlag}}">接受并保存到我的</button>
   </view>
