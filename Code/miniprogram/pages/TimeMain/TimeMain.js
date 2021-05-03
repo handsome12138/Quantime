@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    TableID: '',
+    TableInfo: {},
     item:{
       Name:"属于TimeMain的标题",
       Context:"属于TimeMain的简介",
@@ -41,7 +43,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const db = wx.cloud.database();
+    this.setData({
+      TableID: options.id
+    });
+    db.collection('TimeTable').where({
+      '_id': options.id //ID
+    }).get().then(res=>{
+      console.log('timemain tableid:',this.data.TableID ,'tableinfo:', res.data);
+      this.setData({
+        TableInfo: res.data[0]
+      })
+    })
   },
 
   /**

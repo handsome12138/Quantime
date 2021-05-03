@@ -1,5 +1,45 @@
 <!--pages/Quantime/TeamMain/TeamMain.wxml-->
 <!-- <text>pages/Quantime/TeamMain/TeamMain.wxml</text> -->
+<button class="mini-btn" type="primary" bindtap="ShowModal"> 新建 </button>
+<Formlist display="{{true}}" itemlist="{{item.TimeTables}}" title="{{item.ClassName}}" wx:for="{{tblist}}" wx:key="ClassID"></Formlist>
 
-<Formlist display="{{false}}" itemlist="{{item.TimeTables}}" title="{{item.ClassName}}" wx:for="{{tblist}}" wx:key="ClassID"></Formlist>
-<!-- <Formlist display="{{true}}"></Formlist> -->
+
+<view class="cu-modal {{modalname=='Create'?'show':''}}">
+  <view class="cu-dialog">
+    <scroll-view scroll-x class="bg-white nav">
+      <view class="flex text-center">
+        <view class="cu-item flex-sub {{index==TabCur?'text-orange cur':''}}" wx:for="{{2}}" wx:key="index" bindtap="TabSelect" data-tabid="{{index}}">
+          {{index==0?'新建类':'新建表单'}}
+        </view>
+      </view>
+    </scroll-view>
+      <view wx:if="{{TabCur == 0}}">
+        <!-- <view>请输入类名</view> -->
+        <view class="padding">
+          <input type="text" placeholder="请输入类名" model:value="{{ClassName}}"/>
+        </view>
+      </view>
+      <view wx:if="{{TabCur == 1}}">
+        <view class="padding">
+          <view>
+            <picker range="{{tblist_name}}" model:value="{{tblist_index}}">选择所属类</picker> 
+          </view>
+          <view>
+            已选择的类：{{tblist_name[tblist_index]}}
+          </view>
+          <view>
+            名称：<input type="text" placeholder="请输入表名" model:value="{{TableName}}"/>
+          </view>
+          <view>
+            简介: <textarea cols="20" rows="3" placeholder="请输入简介" model:value="{{TableContent}}"></textarea>
+          </view>
+        </view>
+      </view>
+
+      <view class="flex">
+        <button class="flex-sub cu-btn line-green text-green" style="width:150px;margin-left:50px;margin-right:20px" bindtap="Submit">提交</button>
+        <button class="flex-sub cu-btn line-green text-green" style="width:150px;margin-left:50px;margin-right:20px" bindtap="HideModal">返回</button>
+      </view>
+    </view>
+
+</view>

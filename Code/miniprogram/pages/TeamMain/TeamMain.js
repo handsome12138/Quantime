@@ -7,7 +7,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tblist: []
+    tblist: [],
+    modalname: null,
+    TabCur: 0,
+    ClassName: '',
+    tblist_index: 0,
+    tblist_name: [],
+    TableName: '',
+    TableContent: ''
   },
 
   /**
@@ -20,7 +27,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    setTimeout(this.GetTableInfo, 1000);
+    setTimeout(this.GetTableInfo, 500);
     // this.GetTableInfo();
   },
 
@@ -74,12 +81,73 @@ Page({
         OpenID: app.globalData.openid,
       }
     }).then(res=>{
-      console.log('[debug][TeamMain] call cloud:', res);
+      // console.log('[debug][TeamMain] call cloud:', res);
       this.setData({
         tblist: res.result.tblist
       }, ()=>{
-        console.log(this.data.tblist);
+        // console.log(this.data.tblist);
       })
+    })
+  },
+  ShowModal: function(){
+    this.setData({
+      modalname: 'Create'
+    })
+    var tblist_name = [];
+    for(var item of this.data.tblist){
+      tblist_name.push(item.ClassName);
+    }
+    this.setData({
+      tblist_name: tblist_name
+    })
+    console.log('[debug] tblist_name = ',tblist_name);
+  },
+  HideModal: function(){
+    this.setData({
+      modalname: null
+    })
+  },
+  TabSelect: function(e){
+    this.setData({
+      TabCur: e.currentTarget.dataset.tabid
+    })
+  },
+  Submit:function(){
+    if(this.data.TabCur == 0){
+      // 新建类
+      console.log('[debug][TeamMain]: addclass:', this.data.ClassName);
+      wx.cloud.callFunction({
+        name: 'AddTimeTableClass',
+        data: {
+          ClassName: this.data.ClassName
+        }
+      }).then(res => {
+        var newtblist = this.data.tblist;
+        newtblist.push({
+          ClassID: res.id,
+          ClassName: this.data.ClassName,
+          TimeTables: []
+        })
+        this.setData({
+          tblist: newtblist
+        })
+      })
+    }else{
+      wx.cloud.callFunction({
+        name: 'AddTimeTable',
+        data: {
+          BelongClassID: this.data.tblist[this.data.tblist_index].ClassID,
+          Name: this.data.TableName,
+          Context: this.data.TableContent,
+          Status: 1
+        }
+      }).then(res =>{
+        this.GetTableInfo();
+        console.log('[debug][AddTimeTable]',res);
+      })
+    }
+    this.setData({
+      modalname: null
     })
   }
 })
