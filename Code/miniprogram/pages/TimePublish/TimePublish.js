@@ -23,9 +23,17 @@ Page({
   },
 
   test: function(){
+    var DaysChoosen = [];
+    for(var idx in this.data.TableInfo.Days){
+      var obj = {
+        date: this.data.TableInfo.Days[idx],
+        choose: this.selectComponent('#Bar-' + idx).data.particle
+      }
+      DaysChoosen.push(obj);
+    }
     console.log("[debug] test")
-    const bar1 = this.selectComponent("#Bar-1").data
-    console.log("[debug] bar1",bar1)
+    // const bar1 = this.selectComponent("#Bar-0").data
+    console.log("[debug] TimePublish Test", DaysChoosen)
   },
 
   /**
@@ -129,6 +137,23 @@ Page({
     wx.navigateBack();
   },
   GoFinish: function(){
+    // this.test();
+    var Avaliable = [];
+    for(var idx in this.data.TableInfo.Days){
+      var obj = {
+        date: this.data.TableInfo.Days[idx],
+        choose: this.selectComponent('#Bar-' + idx).data.particle
+      }
+      Avaliable.push(obj);
+    }
+    console.log('[debug]TimePublish, Avaliable list=',Avaliable);
+    wx.cloud.callFunction({
+      name: 'AlterTableDaysAvaliable',
+      data: {
+        TableID: this.data.TableID,
+        Avaliable: Avaliable
+      }
+    })
     wx.reLaunch({
       url: '/pages/TeamMain/TeamMain',
     })

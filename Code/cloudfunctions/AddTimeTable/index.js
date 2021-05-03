@@ -15,6 +15,14 @@ exports.main = async (event, context) => {
   var T = new Date();
   var CreateTime = T.getFullYear() + '-' + (T.getMonth()+1) + '-' + T.getDate();
   var addres;
+  var Avaliable = [];
+  for(var idx in event.Days){
+    var obj = {
+      date: event.Days[idx],
+      choose: Array(24).fill(0)
+    }
+    Avaliable.push(obj);
+  }
   await db.collection('TimeTable').add({
     data: {
       Name: event.Name,
@@ -22,7 +30,8 @@ exports.main = async (event, context) => {
       Status: event.Status,
       Days: event.Days,
       CreateTime: CreateTime,
-      ClassID: event.BelongClassID
+      ClassID: event.BelongClassID,
+      Avaliable: Avaliable
     },
   }).catch(res => {
     console.log("[数据库] [新增数据] TimeTable FAIL: ", res);
