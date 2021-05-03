@@ -1,4 +1,5 @@
 {
+  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -41,6 +42,13 @@
         {
           "name": "pages/Form/Form",
           "pathName": "pages/Form/Form",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/Form/Form",
+          "pathName": "pages/Form/Form",
+          "query": "",
           "scene": null
         }
       ]

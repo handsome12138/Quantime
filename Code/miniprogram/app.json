@@ -35,6 +35,19 @@
     "navigationBarTitleText": "Quantime",
     "navigationBarTextStyle": "black"
   },
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/TeamMain/TeamMain",
+        "text": "时间统计"
+      },
+      {
+        "pagePath": "pages/Mine/Mine",
+        "text": "我的信息"
+      }
+    ]
+  },
   "sitemapLocation": "sitemap.json",
   "style": "v2"
 }

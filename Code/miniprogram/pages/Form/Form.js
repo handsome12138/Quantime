@@ -7,7 +7,7 @@ import todo from '../../3partylib/wx_calendar/plugins/todo'
 
 // 按需安装插件，支持链式调用
 plugin.use(todo)
-
+// let calendar = null ;
 Page({
 
   /**
@@ -70,11 +70,22 @@ Page({
     }]
   },
 
+
+  /**
+   * testGetCalendar:测试日历获取
+   */
+  testGetCalendar(e){
+    const calendar = this.selectComponent('#calendar').calendar
+    const selectedDay = calendar.getSelectedDates(calendar)
+    console.log("[debug] 测试日历获取:",selectedDay)
+  },
   /**
    * 日历初次渲染完成后触发事件，如设置事件标记
    */
   afterCalendarRender(e) {
-    console.log('afterCalendarRender', e)
+    console.log('[debug] afterCalendarRender', e)
+    // calendar = e;
+    // console.log('[debug] this.canlendar', this.canlendar)
   },
   /**
    * 日期点击事件（此事件会完全接管点击事件），需自定义配置 takeoverTap 值为真才能生效
@@ -82,6 +93,7 @@ Page({
    */
   takeoverTap(e) {
     console.log('takeoverTap', e.detail) // => { year: 2019, month: 12, date: 3, ...}
+    // console.log('[debug] this.canlendar', this.canlendar)
   },
   /**
    * 选择日期后执行的事件
@@ -157,13 +169,15 @@ Page({
    */
   onReady: function () {
     // console.log("渲染完成calendarConfig:",this.data.calendarConfig)
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // console.log("显示calendarConfig:",this.data.calendarConfig)
+    console.log("[debug] 显示calendarConfig:",this.data.calendarConfig)
+    // calendar = this.selectComponent('.calendar')
   },
 
   /**
