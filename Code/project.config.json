@@ -81,6 +81,17 @@
           "name": "pages/TeamMain/TeamMain",
           "pathName": "pages/TeamMain/TeamMain",
           "scene": null
+        },
+        {
+          "name": "pages/FormShared/FormShared",
+          "pathName": "pages/FormShared/FormShared",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/Mine/Mine",
+          "pathName": "pages/Mine/Mine",
+          "scene": null
         }
       ]
     }

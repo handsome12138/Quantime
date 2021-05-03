@@ -1,28 +1,31 @@
 /* components/TimeSelectionBar/TimeSelectionBar.wxss */
 .particle {
-  height: 22rpx;
-  width: 100rpx;
-  margin: 11rpx;
+  height: 45rpx;
+  width: 150rpx;
+  margin: 22rpx;
   /* background: #511511511; */
 }
 
 .particle_-1 {
-  height: 22rpx;
-  width: 100rpx;
-  margin: 11rpx;
+  height: 45rpx;
+  width: 150rpx;
+  margin: 22rpx;
   background: #bebebe;
+  border-radius: 5px/10px;
 }
 
 .particle_0 {
-  height: 22rpx;
-  width: 100rpx;
-  margin: 11rpx;
+  height: 45rpx;
+  width: 150rpx;
+  margin: 22rpx;
   background: #ffbb00;
+  border-radius: 5px/10px;
 }
 
 .particle_1 {
-  height: 22rpx;
-  width: 100rpx;
-  margin: 11rpx;
+  height: 45rpx;
+  width: 150rpx;
+  margin: 22rpx;
   background: #00e5ff;
+  border-radius: 5px/10px;
 }

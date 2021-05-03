@@ -6,6 +6,19 @@ Page({
    */
   data: {
 
+    nickname:"Animagus",
+    title:"属于FormShared的标题",
+    intro:"属于FormShared的简介，简介和标题都在页面内在生命周期函数中用this.setData获取\n之后传值给组件TitleAndIntor进行显示",
+    inviter:{
+      nickname:"Animagus",
+      avatar:"https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg"
+    },
+    item:{
+      Name:"属于FormShared的标题",
+      Context:"属于FormShared的简介，简介和标题都在页面内在生命周期函数中用this.setData获取\n之后传值给组件TitleAndIntor进行显示",
+      Status:1,
+      SaveFlag:1
+    },
   },
 
   /**

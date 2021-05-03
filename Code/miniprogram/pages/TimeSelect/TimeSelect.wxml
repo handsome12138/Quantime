@@ -2,11 +2,11 @@
 <!-- <text>pages/TimeSelect/TimeSelect.wxml</text> -->
 
 <view class="container">
-  <TitleAndIntro title="{{title}}" intro="{{intro}}"></TitleAndIntro>
-
+  <!-- <TitleAndIntro title="{{title}}" intro="{{intro}}"></TitleAndIntro> -->
+  <TitleAndIntro title="{{item.Name}}" intro="{{item.Context}}"></TitleAndIntro>
   <view class="TimeSelectionTable">
     <view class = "_24hour">
-      <view wx:for="{{_index}}" wx:key="index" wx:for-index="index">{{index}}</view>
+      <view wx:for="{{_index}}" wx:key="index" wx:for-index="index" class="_24hour_part">{{index}}</view>
     </view>
     
     <view wx:for="{{date}}" wx:key="index" wx:for-index="index">

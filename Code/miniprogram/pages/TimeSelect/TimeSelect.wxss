@@ -14,7 +14,18 @@
 }
 
 ._24hour {
-  margin-top: 42rpx;
+  margin-top: 40rpx;
   display: flex;
   flex-direction: column;
-} 
+}
+
+._24hour_part {
+  margin: 17rpx;
+  font-size: 30rpx;
+}
+
+.date {
+  font-size: 30rpx;
+  font-size-adjust: 30rpx;
+  margin-left: 44rpx;
+}

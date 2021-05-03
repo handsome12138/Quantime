@@ -8,8 +8,14 @@ Page({
     pageName:"TimePublish",
     _index: [],
     date: ["2021.4.3","2021.4.4","2021.4.5"],
-    title:"属于TimePublish的标题",
-    intro:"属于TimePublish的简介，简介和标题都在页面内在生命周期函数中用this.setData获取\n之后传值给组件TitleAndIntor进行显示",
+    item:{
+      Name:"属于TimePublish的标题",
+      Context:"属于TimePublish的简介，简介和标题都在页面内在生命周期函数中用this.setData获取\n之后传值给组件TitleAndIntor进行显示",
+      Status:1,
+      SaveFlag:1
+    },
+    // title:"属于TimePublish的标题",
+    // intro:"属于TimePublish的简介，简介和标题都在页面内在生命周期函数中用this.setData获取\n之后传值给组件TitleAndIntor进行显示",
   },
 
   /**
