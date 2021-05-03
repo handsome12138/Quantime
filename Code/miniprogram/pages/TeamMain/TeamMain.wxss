@@ -1,1 +1,25 @@
 /* pages/Quantime/TeamMain/TeamMain.wxss */
+.box {  
+  /* margin: 20rpx 0;  */
+  display: flex;
+  flex-direction: row;
+
+}
+
+.box view.cu-bar {
+  /* margin-top: 20rpx;  */
+}
+
+.action_btn {
+  /* width: 10rpx; */
+  display: flex;
+	align-items: center;
+	height: 100%;
+	justify-content: center;
+	max-width: 25%;
+}
+
+.topbar{
+  display: flex;
+  flex-direction: row;
+}

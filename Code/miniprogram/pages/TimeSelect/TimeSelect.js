@@ -3,7 +3,7 @@ Page({
 
   /**
    * 页面的初始数据
-   */
+   */ 
   data: {
     pageName:"TimeSelect",
     _index: [],
