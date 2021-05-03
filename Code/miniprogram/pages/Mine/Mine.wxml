@@ -1,2 +1,5 @@
 <!--pages/Mine/Mine.wxml-->
 <text>pages/Mine/Mine.wxml</text>
+<view>{{avatarURL}}</view>
+<view>{{NickName}}</view>
+<image src="{{avatarURL}}"></image>

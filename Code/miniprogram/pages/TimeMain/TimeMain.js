@@ -5,6 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    ClassIDList: [],
+    ClassNameList: [],
+    MoveTableIdx: 0,
+    modalname: '',
     TableID: '',
     TableInfo: {},
     item:{
@@ -44,6 +48,17 @@ Page({
    */
   onLoad: function (options) {
     const db = wx.cloud.database();
+
+    wx.cloud.callFunction({
+      name: 'GetClassList'
+    }).then(res=>{
+      // console.log('[debug] TimeMain Clist', res);
+      this.setData({
+        ClassIDList: res.result.ClassIDList,
+        ClassNameList: res.result.ClassNameList
+      })
+    })
+
     this.setData({
       TableID: options.id
     });
@@ -111,6 +126,62 @@ Page({
   GotoStat: function(){
     wx.navigateTo({
       url: '/pages/Stat/Stat',
+    })
+  },
+  HandleDeleteTable:function(){
+    wx.showModal({
+      title: '提示',
+      content: '是否确认删除',
+      success(res){
+        if(res.confirm){
+          wx.cloud.callFunction({
+            name: 'DeleteTimeTable',
+            data:{
+              TableID: this.data.TableID
+            }
+          })
+          wx.showToast({
+            title: '删除成功',
+            duration: 1000,
+            success: function(){
+              wx.reLaunch({
+                url: '/pages/TeamMain/TeamMain',
+              })
+            }
+          })
+        }
+      }
+
+    })
+  },
+  ShowModal: function(e){
+    this.setData({
+      modalname: e.currentTarget.dataset.modalname
+    })
+  },
+  HideModal: function(){
+    this.setData({
+      modalname: null
+    })
+  },
+  SubmitModal: function(e){
+    var that = this;
+    if(e.currentTarget.dataset.modalname == "MoveTable"){
+      // 移动表单
+      wx.cloud.callFunction({
+        name: 'AlterTimeTableBelong',
+        data:{
+          TableID: this.data.TableID,
+          NewClassID: this.data.ClassIDList[this.data.MoveTableIdx]
+        }
+      })
+    }
+    wx.showToast({
+      title: '移动成功',
+      duration: 500,
+      success(){
+        that.HideModal();
+      }
     })
   }
 })

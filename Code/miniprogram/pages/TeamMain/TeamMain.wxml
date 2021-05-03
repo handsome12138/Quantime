@@ -8,7 +8,6 @@
     </view>
     <view class="action_btn">
       <button class="cu-btn bg-green shadow-blur round"  bindtap="doSearch">搜索</button>
-      <!-- <button class="cu-btn bg-green shadow-blur round"  bindtap="GotoForm">新建</button> -->
       <button class="cu-btn bg-green shadow-blur round"  bindtap="GotoForm">新建</button>
     </view>
   </view>
@@ -16,7 +15,7 @@
 <!-- <button class="mini-btn margin-top" type="primary" bindtap="ShowModal"> 新建 </button> -->
 <Formlist display="{{true}}" itemlist="{{item.TimeTables}}" title="{{item.ClassName}}" wx:for="{{tblist}}" wx:key="ClassID"></Formlist>
 
-
+<!-- 
 <view class="cu-modal {{modalname=='Create'?'show':''}}">
   <view class="cu-dialog">
     <scroll-view scroll-x class="bg-white nav">
@@ -27,7 +26,6 @@
       </view>
     </scroll-view>
       <view  wx:if="{{TabCur == 0}}">
-        <!-- <view>请输入类名</view> -->
         <view class="cu-form-group margin">
           类名：
           <input type="text" placeholder="请输入类名" model:value="{{ClassName}}"/>
@@ -35,12 +33,6 @@
       </view>
       <view wx:if="{{TabCur == 1}}">
         <view >
-          <!-- <view class="cu-form-group margin">
-            选择所属类：
-            <picker range="{{tblist_name}}" model:value="{{tblist_index}}"></picker> 
-            
-            </picker>
-          </view> -->
           <view class="cu-form-group margin-top">
             <view class="title">已选择的类：</view>
             <picker bindchange="PickerChange" value="{{tblist_index}}" range="{{tblist_name}}">
@@ -49,9 +41,6 @@
               </view>
             </picker>
           </view>
-          <!-- <view class="cu-form-group padding">
-            已选择的类：{{tblist_name[tblist_index]}}
-          </view> -->
           <view class="cu-form-group padding"> 
             名称：<input type="text" placeholder="请输入表名" model:value="{{TableName}}"/>
           </view>
@@ -67,4 +56,4 @@
       </view>
     </view>
 
-</view>
+</view> -->

@@ -1,7 +1,7 @@
 <!--pages/TimeMain/TimeMain.wxml-->
 <!-- <text>pages/TimeMain/TimeMain.wxml</text> -->
 
-<view >
+<view>
   <view class="display">
     <view class="headline_status">
       <view class="headline">{{TableInfo.Name}}</view>
@@ -58,14 +58,31 @@
     <view class="title">拷贝表单</view>
     <view class="arrow"></view>
   </view>
-  <view class="cu-form-group">
+  <view class="cu-form-group" bindtap="ShowModal" data-modalname="MoveTable">
     <view class="title">移动表单</view>
     <view class="arrow"></view>
   </view>
-  <view class="cu-form-group">
+  <view class="cu-form-group" bindtap="HandleDeleteTable">
     <view class="title">删除表单</view>
     <view class="arrow"></view>
 	</view>
 	
 </view>
 
+
+<view class="cu-modal {{modalname=='MoveTable'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-form-group margin-top">
+        <view class="title">移动到的类别</view>
+        <picker model:value="{{MoveTableIdx}}" range="{{ClassNameList}}">
+            <view class="picker">
+            {{ClassNameList[MoveTableIdx]}}
+            </view>
+        </picker>
+    </view>
+    <view class="flex margin">
+        <button class="flex-sub cu-btn line-green text-green shadow" style="width:150px;margin-left:50px;margin-right:20px" bindtap="SubmitModal" data-modalname="MoveTable">提交</button>
+        <button class="flex-sub cu-btn line-green text-green shadow" style="width:150px;margin-left:50px;margin-right:20px" bindtap="HideModal">返回</button>
+      </view>
+  </view>
+</view>

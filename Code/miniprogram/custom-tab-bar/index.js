@@ -32,25 +32,25 @@ Component({
   methods: {
     //底部切换
     switchTab(e) {
-      console.log("[debug] before:e.currentTarget.dataset.index", e.currentTarget.dataset.index)
-      console.log("[debug] before:this.data.curSelected", this.data.curSelected)
+      // console.log("[debug] before:e.currentTarget.dataset.index", e.currentTarget.dataset.index)
+      // console.log("[debug] before:this.data.curSelected", this.data.curSelected)
       let key = Number(e.currentTarget.dataset.index);
-      console.log("[debug] before:key", key)
+      // console.log("[debug] before:key", key)
       
       let tabList = this.data.tabList;
       let curSelected= this.data.curSelected;
       
       if(curSelected != key){
         this.setData({
-          curSelected:key
+          curSelected: key
         });
         wx.switchTab({
           url: `/${tabList[key].pagePath}`,
         })
       }
-      console.log("[debug] after:e.currentTarget.dataset.index", e.currentTarget.dataset.index)
-      console.log("[debug] after:this.data.curSelected", this.data.curSelected)
-      console.log("[debug] after:key", key)
+      // console.log("[debug] after:e.currentTarget.dataset.index", e.currentTarget.dataset.index)
+      // console.log("[debug] after:this.data.curSelected", this.data.curSelected)
+      // console.log("[debug] after:key", key)
       
     },
     
