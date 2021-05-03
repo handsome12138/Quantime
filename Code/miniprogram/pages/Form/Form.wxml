@@ -14,16 +14,17 @@
         <view class="pick-calendar">
         <view class="title-calendar">请选择日期：</view>
         <!-- <lin-calendar show="{{ true }}" type="multiple" /> -->
-        <wx_calendar class="calendar"
+        <wx_calendar id="calendar" class="calendar"
             config="{{calendarConfig}}"
             bind:takeoverTap="takeoverTap"
             bind:afterTapDate="afterTapDate"
             bind:afterCalendarRender="afterCalendarRender"
             bind:onSwipe="onSwipe"
-            bind:whenChangeMonth="whenChangeMonth"
+            bind:whenChangeMonth="whenChangeMonth" 
         />
 
         </view>
+        <button bindtap="testGetCalendar">测试日历获取</button>
         <!-- <view class="cu-form-group align-start"> -->
         <!-- <view class="title">选择所属分类</view>
         <van-dropdown-menu>

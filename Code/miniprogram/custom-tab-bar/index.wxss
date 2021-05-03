@@ -1,0 +1,16 @@
+/* custom-tab-bar/index.wxss */
+/**app.wxss**/
+@import "../colorui/main.wxss";
+@import "../colorui/icon.wxss";
+
+.tabbar{
+  background-color: white;
+}
+.active{
+  /* color: #ffe082; */
+  color: #ffe082;
+}
+.default{
+  color: #757575;
+}
+/* 在找到合适的icon进行替换之前，配色暂时只能这样先 */
