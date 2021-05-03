@@ -6,7 +6,7 @@
 
   <view class="TimeSelectionTable">
     <view class = "_24hour">
-      <view wx:for="{{_index}}" wx:key="index" wx:for-index="index">{{index}}</view>
+      <view wx:for="{{_index}}" wx:key="index" wx:for-index="index" class="_24hour_part">{{index}}</view>
     </view>
     
     <view wx:for="{{date}}" wx:key="index" wx:for-index="index">
