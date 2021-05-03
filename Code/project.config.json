@@ -27,7 +27,6 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "enableEngineNative": false,
     "bundle": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
@@ -45,11 +44,9 @@
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "search": {
-      "current": -1,
       "list": []
     },
     "conversation": {
-      "current": -1,
       "list": []
     },
     "plugin": {
@@ -80,17 +77,13 @@
           "id": -1,
           "name": "pages/TeamMain/TeamMain",
           "pathName": "pages/TeamMain/TeamMain",
-          "scene": null
-        },
-        {
-          "name": "pages/FormShared/FormShared",
-          "pathName": "pages/FormShared/FormShared",
           "query": "",
           "scene": null
         },
         {
-          "name": "pages/Mine/Mine",
-          "pathName": "pages/Mine/Mine",
+          "id": -1,
+          "name": "pages/FormShared/FormShared",
+          "pathName": "pages/FormShared/FormShared",
           "scene": null
         }
       ]

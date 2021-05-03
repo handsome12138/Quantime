@@ -21,14 +21,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // if(app.globalData.hasUserInfo == false){
+    //   wx.redirectTo({
+    //     url: '/pages/Login/Login',
+    //   })
+    // }
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    setTimeout(this.GetTableInfo, 500);
-    // this.GetTableInfo();
+    // setTimeout(this.GetTableInfo, 1500);
+    this.GetTableInfo();
   },
 
   /**
@@ -77,11 +82,11 @@ Page({
     // 这里可能app.globalData还没有初始化ok
     wx.cloud.callFunction({
       name: 'GetTableInfo',
-      data:{
-        OpenID: app.globalData.openid,
-      }
+      // data:{
+      //   OpenID: app.globalData.openid,
+      // }
     }).then(res=>{
-      // console.log('[debug][TeamMain] call cloud:', res);
+      console.log('[debug][TeamMain] call cloud:', res);
       this.setData({
         tblist: res.result.tblist
       }, ()=>{

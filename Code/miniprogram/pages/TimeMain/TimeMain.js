@@ -1,6 +1,6 @@
 // pages/TimeMain/TimeMain.js
+var app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -103,6 +103,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '邀请你加入时间统计',
+      path: '/pages/FormShared/FormShared?TableID='+this.data.TableID + '&InviterID=' + app.globalData.openid
+    }
   }
 })

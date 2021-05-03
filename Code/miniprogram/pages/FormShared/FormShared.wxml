@@ -6,12 +6,12 @@
     
     <view class="avatar_nickname ">
       
-      <view class="cu-avatar round margin" style="background-image:url({{inviter.avatar}});"></view>
-      <view class="nickname margin-right">{{inviter.nickname}}</view>
+      <view class="cu-avatar round margin" style="background-image:url({{InviterInfo.avatarURL}});"></view>
+      <view class="nickname margin-right">{{InviterInfo.NickName}}</view>
     </view>
     <view class="text">邀请您参加时间统计</view>
   </view>
-  <TitleAndIntro title="{{item.Name}}" intro="{{item.Context}}"></TitleAndIntro>
+  <TitleAndIntro title="{{TableInfo.Name}}" intro="{{TableInfo.Context}}"></TitleAndIntro>
   <view class="button_zone margin-top">
     <button class="bg-green accept">接受</button>
   

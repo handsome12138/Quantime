@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    TableID: null,
+    TableInfo: {},
+    InviterID: null,
+    InviterInfo: {},
     nickname:"Animagus",
     title:"属于FormShared的标题",
     intro:"属于FormShared的简介，简介和标题都在页面内在生命周期函数中用this.setData获取\n之后传值给组件TitleAndIntor进行显示",
@@ -25,6 +28,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
+    this.setData({
+      TableID: options.TableID,
+      InviterID: options.InviterID
+    })
+    const db = wx.cloud.database();
+    db.collection('TimeTable').where({
+      '_id': options.TableID //ID
+    }).get().then(res=>{
+      console.log('timemain tableid:',this.data.TableID ,'tableinfo:', res.data);
+      this.setData({
+        TableInfo: res.data[0]
+      })
+    })
+    
+    db.collection('User').where({
+      OpenID: options.InviterID
+    }).get().then(res => {
+      console.log('timemain inviterid:',this.data.InviterID ,'inviterinfo:', res.data);
+      this.setData({
+        InviterInfo: res.data[0]
+      })
+    })
 
   },
 

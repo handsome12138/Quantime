@@ -23,12 +23,15 @@ exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const db = cloud.database();
   var RegisterStatus = 0;
-  db.collection('User').where({
-    openid: wxContext.OPENID
+  var UserInfo = {};
+  await db.collection('User').where({
+    OpenID: wxContext.OPENID
   }).get().then(res => {
     console.log("[DEBUG]: Login Status Find in User Table: ", res);
     if(res.data.length > 0){
-      RegisterStatus = 1
+      RegisterStatus = 1;
+      UserInfo['avatarURL'] = res.data[0].avatarURL;
+      UserInfo['NickName'] = res.data[0].NickName;
     }
   })
   return {
@@ -37,6 +40,8 @@ exports.main = async (event, context) => {
     unionid: wxContext.UNIONID,
     env: wxContext.ENV,
     RegisterStatus: RegisterStatus,
+    avatarURL: UserInfo.avatarURL,
+    NickName: UserInfo.NickName,
     event: event
   }
 }

@@ -1,2 +1,4 @@
 <!--miniprogram/pages/Quantime/Login/Login.wxml-->
 <text>miniprogram/pages/Quantime/Login/Login.wxml</text>
+<!-- <button open-type="getUserInfo" hover-class="none" bindgetuserinfo="getAccessFun" type="default">获取权限</button>  -->
+<button bindtap="getAccessFun" type="default">获取权限</button> 

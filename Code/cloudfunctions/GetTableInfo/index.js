@@ -9,16 +9,16 @@ cloud.init({
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const db = cloud.database()
-  if(!(event.OpenID)){
-    // 传入的参数不足
-    console.log("[数据库] [获取数据] GetTableInfo FAIL: 参数不足", event);
-    return {'info': 'error: 参数不足', 'event': event, 'context': context};
-  }
-  
+  // if(!(event.OpenID)){
+  //   // 传入的参数不足
+  //   console.log("[数据库] [获取数据] GetTableInfo FAIL: 参数不足", event);
+  //   return {'info': 'error: 参数不足', 'event': event, 'context': context};
+  // }
+  var OpenID = wxContext.OPENID;
   var tblist = [];
   var classlist = [];
   await db.collection('TimeTableClass').where({
-    OpenID: event.OpenID
+    OpenID: OpenID
   }).get().then(res => {
     // console.log("[数据库] [获取数据] [debug] GetTableInfo Class表", res);
     classlist = res.data;
