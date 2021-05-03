@@ -44,6 +44,14 @@
   "simulatorPluginLibVersion": {},
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
     "plugin": {
       "list": []
     },
@@ -69,33 +77,9 @@
           "scene": null
         },
         {
+          "id": -1,
           "name": "pages/TeamMain/TeamMain",
           "pathName": "pages/TeamMain/TeamMain",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/TimePublish/TimePublish",
-          "pathName": "pages/TimePublish/TimePublish",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/TimeSelect/TimeSelect",
-          "pathName": "pages/TimeSelect/TimeSelect",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/Form/Form",
-          "pathName": "pages/Form/Form",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/TimeMain/TimeMain",
-          "pathName": "pages/TimeMain/TimeMain",
-          "query": "",
           "scene": null
         }
       ]

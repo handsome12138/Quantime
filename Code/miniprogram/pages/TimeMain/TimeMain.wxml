@@ -4,19 +4,19 @@
 <view >
   <view class="display">
     <view class="headline_status">
-      <view class="headline">{{item.Name}}</view>
+      <view class="headline">{{TableInfo.Name}}</view>
       <view class="status">
-        <view class="flag" wx:if="{{item.Status}}">
+        <view class="flag" wx:if="{{TableInfo.Status}}">
           <view class="circle-true"></view>
           <view class="text">统计中</view>
         </view>
-        <view class="flag" wx:if="{{!item.Status}}">
+        <view class="flag" wx:if="{{!TableInfo.Status}}">
           <view class="circle-false"></view>
           <view class="text">已停止</view>
         </view>
       </view>
     </view>
-    <view class="content">{{item.Context}}</view>
+    <view class="content">{{TableInfo.Context}}</view>
     
     <!-- <view class="peoplecount">已答人数：{{item.peoplecount}}</view> -->
   </view>
@@ -41,7 +41,7 @@
   <view class="margin-top margin-left">表单状态修改</view>
   <view class="cu-form-group margin-top">
 		<view class="title">是否发布</view>
-		<switch class="green sm" checked="{{item.Status}}"></switch>
+		<switch class="green sm" checked="{{TableInfo.Status}}"></switch>
 	</view>
 	<view class="cu-form-group">
     <view class="title">是否允许其他用户保存</view>
