@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    TableID: '',
+    TableInfo: {},
     pageName:"TimePublish",
     _index: [],
     date: ["2021.4.3","2021.4.4","2021.4.5"],
@@ -23,6 +25,17 @@ Page({
    */
   onLoad: function (options) {
     console.log("Page:TimePublish is onLoad.")
+    this.setData({
+      TableID: options.TableID
+    })
+    const db = wx.cloud.database();
+    db.collection('TimeTable').where({
+      _id: options.TableID
+    }).get().then(res => {
+      this.setData({
+        TableInfo: res.data[0]
+      })
+    })
 
     let o_index=[],i
 

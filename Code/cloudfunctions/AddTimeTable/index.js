@@ -7,19 +7,20 @@ cloud.init()
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const db = cloud.database()
-  if(!(event.Name && (typeof(event.Status)!="undefined") && event.Context && event.BelongClassID)){
+  if(!(event.Name && (typeof(event.Status)!="undefined") && event.Context && event.BelongClassID && event.Days)){
     // 传入的参数不足
     console.log("[数据库] [新增数据] TimeTable FAIL: 参数不足", event);
     return {info:'error 参数不足', event:event};
   }
   var T = new Date();
   var CreateTime = T.getFullYear() + '-' + (T.getMonth()+1) + '-' + T.getDate();
-  db.collection('TimeTable').add({
+  var addres;
+  await db.collection('TimeTable').add({
     data: {
       Name: event.Name,
       Context: event.Context,
       Status: event.Status,
-      Days: [],
+      Days: event.Days,
       CreateTime: CreateTime,
       ClassID: event.BelongClassID
     },
@@ -27,12 +28,14 @@ exports.main = async (event, context) => {
     console.log("[数据库] [新增数据] TimeTable FAIL: ", res);
   }).then(res =>{
     // 回调里才有TableID
+    addres = res._id;
     console.log("[数据库] [新增数据] TimeTable SUCCESS res = ", res);    
   })
 
   
 
   return {
+    id: addres,
     event,
     // openid: wxContext.OPENID,
     // appid: wxContext.APPID,

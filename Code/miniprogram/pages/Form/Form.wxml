@@ -2,7 +2,7 @@
     <form>
         <view class="cu-form-group margin-top">
             <view class="title">类别</view>
-            <picker value="{{ClassIndex}}" range="{{ClassNameList}}">
+            <picker model:value="{{ClassIndex}}" range="{{ClassNameList}}">
                 <view class="picker">
                 {{ClassNameList[ClassIndex]}}
                 </view>
@@ -10,11 +10,11 @@
         </view>
         <view class="cu-form-group align-start">
             <view class="title">标题</view>
-            <input prompt="标题" placeholder="请输入标题" model:value="{{formName}}"></input>
+            <input prompt="标题" placeholder="请输入标题" model:value="{{TableName}}"></input>
         </view>
         <view class="cu-form-group align-start">
             <view class="title">简介</view>
-            <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入简介" model:value="{{formNotes}}"></textarea>
+            <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入简介" model:value="{{TableContext}}"></textarea>
         </view>
 
         <!-- <view class="cut-off-line"></view> -->
@@ -32,7 +32,7 @@
         />
 
         </view>
-        <button bindtap="testGetCalendar">测试日历获取</button>
+        <!-- <button bindtap="testGetCalendar">测试日历获取</button> -->
         <!-- <view class="cu-form-group align-start"> -->
         <!-- <view class="title">选择所属分类</view>
         <van-dropdown-menu>

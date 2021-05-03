@@ -17,6 +17,8 @@ Page({
     ClassIDList: [],
     ClassNameList: [],
     ClassIndex: 0,
+    TableName: '',
+    TableContext: '',
     option_classify: [
       { text: '分类1', value: 0 },
       { text: '分类2', value: 1 },
@@ -229,5 +231,37 @@ Page({
 
    this.onLoad();
 
-}//在onrefresh中完成重新渲染
+},//在onrefresh中完成重新渲染
+submit_next:function(){
+  const calendar = this.selectComponent('#calendar').calendar
+  const selectedDay = calendar.getSelectedDates(calendar)
+  if(selectedDay.length == 0){
+    wx.showToast({
+      title: '请选择日期',
+    });
+    return ;
+  }
+
+  var SelecteDayList = [];
+  for(var day of selectedDay){
+    SelecteDayList.push(day.year + '-' + day.month + '-' + day.date);
+  }
+  console.log('[debug]Form submit', SelecteDayList);
+  wx.cloud.callFunction({
+    name: 'AddTimeTable',
+    data:{
+      Name: this.data.TableName,
+      Status: 0,
+      Context: this.data.TableContext,
+      BelongClassID: this.data.ClassIDList[this.data.ClassIndex],
+      Days: SelecteDayList
+    }
+  }).then(res => {
+    console.log('[debug] Form.js call AddTable', res);
+    wx.navigateTo({
+      url: '/pages/TimePublish/TimePublish?TableID='+res.id,
+    })
+  })
+  
+}
 })
