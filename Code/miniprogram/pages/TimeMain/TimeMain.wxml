@@ -62,7 +62,7 @@
     <view class="title">移动表单</view>
     <view class="arrow"></view>
   </view>
-  <view class="cu-form-group">
+  <view class="cu-form-group" bindtap="HandleDeleteTable">
     <view class="title">删除表单</view>
     <view class="arrow"></view>
 	</view>

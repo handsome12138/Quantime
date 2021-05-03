@@ -35,6 +35,7 @@ Page({
       this.setData({
         TableInfo: res.data[0]
       })
+      console.log('[debug]TimePublish TableInfo', res.data[0]);
     })
 
     let o_index=[],i
@@ -96,5 +97,13 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  GoBack: function(){
+    wx.navigateBack();
+  },
+  GoFinish: function(){
+    wx.reLaunch({
+      url: '/pages/TeamMain/TeamMain',
+    })
   }
 })

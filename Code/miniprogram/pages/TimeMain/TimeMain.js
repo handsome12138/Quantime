@@ -112,5 +112,22 @@ Page({
     wx.navigateTo({
       url: '/pages/Stat/Stat',
     })
+  },
+  HandleDeleteTable:function(){
+    wx.cloud.callFunction({
+      name: 'DeleteTimeTable',
+      data:{
+        TableID: this.data.TableID
+      }
+    })
+    wx.showToast({
+      title: '删除成功',
+      duration: 1000,
+      success: function(){
+        wx.reLaunch({
+          url: '/pages/TeamMain/TeamMain',
+        })
+      }
+    })
   }
 })

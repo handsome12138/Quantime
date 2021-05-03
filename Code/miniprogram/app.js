@@ -30,7 +30,7 @@ App({
         // test:'test'
       }
     }).then(res =>{
-      console.log('App.js call login:', res);
+      // console.log('App.js call login:', res);
       this.globalData['openid'] = res.result.openid;
       this.globalData['RegisterStatus'] = res.result.RegisterStatus;
       this.globalData['avatarURL'] = res.result.avatarURL;
