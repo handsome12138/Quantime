@@ -16,7 +16,7 @@
 	align-items: center;
 	height: 100%;
 	justify-content: center;
-	max-width: 25%;
+	max-width: 40%;
 }
 
 .topbar{

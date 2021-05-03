@@ -7,8 +7,8 @@
       <input type="text" placeholder="搜索类、表单" confirm-type="search"></input>
     </view>
     <view class="action_btn">
-      <!-- <button class="cu-btn bg-green shadow-blur round"  bindtap="ShowModal">新建</button> -->
-      <button class="cu-btn bg-green shadow-blur round"  bindtap="GotoForm">新建</button>
+      <button class="cu-btn bg-green shadow-blur round"  bindtap="doSearch">搜索</button>
+      <button class="cu-btn bg-green shadow-blur round"  bindtap="ShowModal">新建</button>
     </view>
   </view>
 
@@ -44,7 +44,7 @@
             <view class="title">已选择的类：</view>
             <picker bindchange="PickerChange" value="{{tblist_index}}" range="{{tblist_name}}">
               <view class="picker">
-                {{index?tblist_name[index]:'请选择所属类'}}
+                {{tblist_index?tblist_name[tblist_index]:'请选择所属类'}}
               </view>
             </picker>
           </view>

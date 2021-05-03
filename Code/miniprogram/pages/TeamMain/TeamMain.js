@@ -16,8 +16,49 @@ Page({
     TableName: '',
     TableContent: '',
     index: null,
-    picker: ['喵喵喵', '汪汪汪', '哼唧哼唧'],
+    
   },
+
+  /** 
+   * filter函数，输入classList,filter的subsequence,返回new_classList
+  */
+  filter: function (classList, subsequence){
+    let new_classList = []
+
+    let str=""
+    for( let i=0; i<classList.length; i++){
+      str = classList[i].ClassName
+      if(str.includes(subsequence)){//如果类名包括subsequence，整个类通过filter
+        new_classList.push(classList[i])
+      }
+      else{//否则，类内逐个判断表名是否包括subsequence
+        let tableList = classList[i].TimeTables
+        let new_tableList = []
+        let existTableFlag = false
+        for(let j=0; j<tableList.length; j++){
+          tr = tableList[j].Name
+          if(str.includes(subsequence)){
+            new_tableList.push(tableList[j])
+            existTableFlag = true
+          }
+        }
+        if(existTableFlag == true){
+          let newClass = classList[i]
+          newClass.tableList = new_tableList
+          new_classList.push(newClass)
+        }
+      }
+    }  
+    
+    return new_classList
+  },
+
+  doSearch: function(e){
+    let tblist = this.data.tblist
+    let new_tblist = this.filter(tblist,"1")
+    console.log("[debug]: new_tblist",new_tblist)
+  },
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -35,14 +76,15 @@ Page({
    */
   onReady: function () {
     // setTimeout(this.GetTableInfo, 1500);
-    this.GetTableInfo();
+    this.GetTableInfo()
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**
@@ -92,9 +134,10 @@ Page({
       this.setData({
         tblist: res.result.tblist
       }, ()=>{
-        // console.log(this.data.tblist);
+        console.log(this.data.tblist);
       })
     })
+    
   },
   ShowModal: function(){
     this.setData({
@@ -141,6 +184,7 @@ Page({
         })
       })
     }else{
+      console.log("[debug]: this.data.tblist_index ",this.data.tblist_index)
       wx.cloud.callFunction({
         name: 'AddTimeTable',
         data: {

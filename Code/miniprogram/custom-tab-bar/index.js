@@ -12,7 +12,7 @@ Component({
    */
   data: {
       //当前高亮项
-      selected: 0,
+      curSelected: 0,
       //tabBar页面数据
       tabList: [
         {
@@ -28,21 +28,30 @@ Component({
 
   },
   attached: function() {},
+
   methods: {
     //底部切换
     switchTab(e) {
+      console.log("[debug] before:e.currentTarget.dataset.index", e.currentTarget.dataset.index)
+      console.log("[debug] before:this.data.curSelected", this.data.curSelected)
       let key = Number(e.currentTarget.dataset.index);
-      let tabList = this.data.tabList;
-      let selected= this.data.selected;
+      console.log("[debug] before:key", key)
       
-      if(selected !== key){
+      let tabList = this.data.tabList;
+      let curSelected= this.data.curSelected;
+      
+      if(curSelected != key){
         this.setData({
-          selected:key
+          curSelected:key
         });
         wx.switchTab({
           url: `/${tabList[key].pagePath}`,
         })
       }
+      console.log("[debug] after:e.currentTarget.dataset.index", e.currentTarget.dataset.index)
+      console.log("[debug] after:this.data.curSelected", this.data.curSelected)
+      console.log("[debug] after:key", key)
+      
     },
     
   }
