@@ -62,6 +62,12 @@
           "pathName": "pages/Stat/Stat",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/Mine/Mine",
+          "pathName": "pages/Mine/Mine",
+          "query": "",
+          "scene": null
         }
       ]
     }
