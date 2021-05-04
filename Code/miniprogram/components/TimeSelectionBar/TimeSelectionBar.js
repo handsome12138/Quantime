@@ -69,11 +69,11 @@ Component({
             break;
       }
 
-      console.log("[debug] this.data._particle",this.data._particle)
-      console.log("[debug] this.properties.particle",this.properties.particle)
+      // console.log("[debug] this.data._particle",this.data._particle)
+      // console.log("[debug] this.properties.particle",this.properties.particle)
       this.properties.particle = this.data._particle
-      console.log("[debug] this.data._particle",this.data._particle)
-      console.log("[debug] this.properties.particle",this.properties.particle)
+      // console.log("[debug] this.data._particle",this.data._particle)
+      // console.log("[debug] this.properties.particle",this.properties.particle)
       this.onShow
       // this.triggerEvent('returnIndex',{index: this.data.index})
 
@@ -86,9 +86,9 @@ Component({
 
   lifetimes:{
     attached: function(e){
-      console.log("Components:TimeSelectionBar is attached.")
+      // console.log("Components:TimeSelectionBar is attached.")
       // console.log("_particle:",this.data._particle)
-      console.log("pageName:",this.properties.pageName)
+      // console.log("pageName:",this.properties.pageName)
       
       //随机初始化TimeSelectionBar.wxml
       let i,tempArray=[],temp_normal=[],tempColorArray=[]
@@ -125,7 +125,7 @@ Component({
     },
 
     ready: function(e){
-      console.log("Components:TimeSelectionBar is ready.")
+      // console.log("Components:TimeSelectionBar is ready.")
       
     }
   }

@@ -19,10 +19,9 @@
           "query": ""
         },
         {
-          "id": -1,
           "name": "pages/StatDetail/StatDetail",
           "pathName": "pages/StatDetail/StatDetail",
-          "query": "",
+          "query": "TableID=cbddf0af608ffca705da729849fec9fa",
           "scene": null
         },
         {
@@ -33,10 +32,9 @@
           "scene": null
         },
         {
-          "id": -1,
           "name": "pages/FormShared/FormShared",
           "pathName": "pages/FormShared/FormShared",
-          "query": "",
+          "query": "TableID=cbddf0af608ffca705da729849fec9fa&InviterID=oYVXc5d63E3GvanFbhfDdlW597nQ",
           "scene": null
         },
         {
@@ -54,7 +52,7 @@
         {
           "name": "pages/TimeSelect/TimeSelect",
           "pathName": "pages/TimeSelect/TimeSelect",
-          "query": "",
+          "query": "TableID=cbddf0af608ffca705da729849fec9fa",
           "scene": null
         },
         {

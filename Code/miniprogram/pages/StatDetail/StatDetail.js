@@ -5,6 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    TableID: '',
+    TableInfo: {},
+    JoinInfo: [],
+    UserObj: {},
+    PeopleCount: [],
     Select:false,
     NowPeopleCount:[
     ],
@@ -464,6 +469,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      TableID: options.TableID
+    })
+    wx.cloud.callFunction({
+      name: 'GetStat',
+      data: {
+        TableID: options.TableID
+      }
+    }).then(res => {
+      console.log('[debug]StatDetail call getstat res=',res.result);
+      this.setData({
+        TableInfo: res.result.TableInfo,
+        UserObj: res.result.UserObj,
+        JoinInfo: res.result.JoinInfo,
+        PeopleCount: res.result.PeopleCount
+      })
+    })
+    // const db = wx.cloud.database();
+    // db.collection('TimeTable').where({
+    //   '_id': options.TableID //ID
+    // }).get().then(res=>{
+    //   console.log('StatDetail tableid:',this.data.TableID ,'tableinfo:', res.data);
+    //   this.setData({
+    //     TableInfo: res.data[0]
+    //   })
+    // })
+    
     this.handleGetSystemInfo();
   },
 

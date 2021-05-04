@@ -157,7 +157,7 @@ Page({
       }
       Avaliable.push(obj);
     }
-    console.log('[debug]TimePublish, Avaliable list=',Avaliable);
+    console.log('[debug]TimePublish, TableInfo=', this.data.TableInfo, 'Avaliable list=', Avaliable);
     wx.cloud.callFunction({
       name: 'AlterTableDaysAvaliable',
       data: {
