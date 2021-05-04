@@ -1,7 +1,8 @@
 <!--pages/StatDetail/StatDetail.wxml-->
 <!-- <text>pages/StatDetail/StatDetail.wxml</text> -->
 <!-- <Timeselect></Timeselect> -->
-<TimeBar_Stat PeopleCount="{{NowPeopleCount}}" Select="{{Select}}" bindtap="ShowSelected"></TimeBar_Stat>
+<!-- <TimeBar_Stat PeopleCount="{{PeopleCount}}" Select="{{Select}}" bindtap="ShowSelected"></TimeBar_Stat> -->
+<TimeBar_Stat PeopleCount="{{PeopleCount}}" Select="{{Select}}" bindtap="ShowSelected"></TimeBar_Stat>
 
 
 <!-- <view class="cu-bar bg-white justify-end" style="padding-left:30rpx;padding-right:30rpx;">
