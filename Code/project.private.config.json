@@ -66,6 +66,18 @@
           "pathName": "pages/Mine/Mine",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/Login/Login",
+          "pathName": "pages/Login/Login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/Aboutus/Aboutus",
+          "pathName": "pages/Aboutus/Aboutus",
+          "query": "",
+          "scene": null
         }
       ]
     }

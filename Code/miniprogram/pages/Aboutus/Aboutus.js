@@ -8,6 +8,12 @@ Page({
 
   },
 
+  showQrcode:function(){
+    wx.previewImage({
+      urls: ['http://wychandsome12138.xyz:81/QRcode.png'],
+      current: 'http://wychandsome12138.xyz:81/QRcode.png' // 当前显示图片的http链接      
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

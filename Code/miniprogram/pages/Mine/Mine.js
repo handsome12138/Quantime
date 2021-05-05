@@ -7,17 +7,46 @@ Page({
    */
   data: {
     avatarURL: '',
-    NickName: 'default'
+    // avatarURL: 'https://thirdwx.qlogo.cn/mmopen/vi_32/Df6Xk0PLxDjkDndxQtjEJLcRelmHweKve3qJPiaLqhiaBlgJrODOn02gdicy1ybO1pvgj3hyeK7Vr0cVCefPpQYRA/132',
+    
+    NickName: 'default',
+    
+    recents: [],
+    collections: [],
+    motto: 'Hello World',
+    userInfo: {},
+    hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    // userInfo: '',
+    obj: '',
+    
   },
 
+  bindViewTap: function(e){
+    console.log(this.data.avatarURL)
+  },
+  GotoUser: function(){
+    wx.navigateTo({
+      url: '/pages/User/User',
+    })
+  },
+  
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      avatarURL: app.globalData.avatarURL,
-      NickName: app.globalData.NickName
-    })
+    if (app.globalData.avatarURL && app.globalData.NickName){
+      this.setData({
+        avatarURL: app.globalData.avatarURL,
+        NickName: app.globalData.NickName
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/Login/Login',
+      })
+    }
+    
   },
 
   /**
