@@ -10,8 +10,8 @@
 .arrow{
   width: 20rpx;
   height: 20rpx;
-  border-top: 4rpx solid #999;
-  border-right: 4rpx solid #999;
+  border-top: 4rpx solid  #8799a3;
+  border-right: 4rpx solid  #8799a3;
   transform: rotate(45deg);
 }
 

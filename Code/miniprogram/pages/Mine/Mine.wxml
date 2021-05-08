@@ -1,5 +1,60 @@
 <!--pages/Mine/Mine.wxml-->
-<text>pages/Mine/Mine.wxml</text>
-<view>{{avatarURL}}</view>
+<!-- <text>pages/Mine/Mine.wxml</text> -->
+<!-- <view>{{avatarURL}}</view>
 <view>{{NickName}}</view>
-<image src="{{avatarURL}}"></image>
+<image src="{{avatarURL}}"></image> -->
+
+<view class="userinfo">    
+  <view class="userinfo-header">
+    <image class="userinfo-header-bg" src="{{avatarURL}}"></image>
+    <view class="userinfo-colorfor">
+      <view class="avatar_nickname">
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{avatarURL}}" ></image>
+        <view class="nickname">{{NickName}} </view>
+      </view>
+      <view class="arrow_part" bindtap="GotoUser">
+        <view class="right_arrow"></view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="cu-list menu card-menu margin-top-xl  shadow-lg radius">
+    <view class="cu-item arrow">
+      <navigator class="content" url="../ClassManagement/ClassManagement" hover-class="none">
+        <text class="cuIcon-circlefill text-black"></text>
+        <text class="text-grey">类管理</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="../Involved/Involved" hover-class="none">
+        <text class="cuIcon-friendaddfill text-orange"></text>
+        <text class="text-grey">我参与的时间统计</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="../RecycleBin/RecycleBin" hover-class="none">
+        <text class="cuIcon-deletefill text-green"></text>
+        <text class="text-grey">回收站</text>
+      </navigator>
+    </view>
+  </view>
+
+
+  <view class="cu-list menu card-menu  shadow-lg radius">
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/Help/Help" hover-class="none">
+        <text class="cuIcon-creativefill text-yellow"></text>
+        <text class="text-grey">使用帮助</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/Aboutus/Aboutus" hover-class="none">
+        <text class="cuIcon-group_fill text-cyan"></text>
+        <text class="text-grey">关于我们</text>
+      </navigator>
+    </view>
+    
+  </view>
+  <view class="cu-tabbar-height"></view>
