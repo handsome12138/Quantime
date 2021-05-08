@@ -129,7 +129,8 @@ Component({
       this.setData({
         Current:(1 + parseInt((dist - 14)/this.data.width))%24
       })
-      console.log(this.data.Current)
+      console.log(this.data.Current);
+      // this.triggerEvent('ChangeTarget', this.data.Current) //向父组件触发事件
      }
     },
     handleClick:function(){
