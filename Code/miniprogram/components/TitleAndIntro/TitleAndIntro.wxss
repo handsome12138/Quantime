@@ -1,21 +1,30 @@
 /* components/TitleAndIntro/TitleAndIntro.wxss */
 .container {
+  width: 1000rpx;
+  max-width:80vw;
+  min-height: 100upx;
+
   margin: 60rpx;
   border-radius: 30rpx;
 	background-color: #ffffff;
-	padding: 1rpx 30rpx;
+	padding: 10px 10px 10px 10px;
   display: flex;
   flex-direction: column;
-	align-items: center;
-	min-height: 100upx;
-	justify-content: space-between;
+	align-items: flex-start;
+		justify-content: space-between;
 }
 
 .title + .intro {
+  
   border-top: 1rpx solid #eee;
   width: 100%;
 }
 
 .title {
-  
+  padding: 0 0 5px 0;
+}
+
+.intro {
+  padding: 5px 0 0 0;
+  height: 80px;
 }

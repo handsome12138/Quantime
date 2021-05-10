@@ -1,48 +1,49 @@
 /* components/StatColorBar/StatColorBar.wxss */
 .container {
   display: flex;
+  flex-direction: column;
   /* height: 1920rpx; */
-  width: 240rpx;
-  border-radius: 999px;
-  /* margin: 60rpx; */
-  z-index: 9999;
+  width: 150px;
+  max-width: 25vw;
+  margin: 10px 10px 20px 10px;
+  /* z-index: 9999; */
   /* border-radius: 60rpx; */
-  
-  background-color: rgba(256, 256, 256, 0.5);
+  /* background-color: rgba(256, 256, 256, 0.5); */
+  /* border-radius: 999px; */
   
   /* flex-direction: row;
   align-items: center;
   padding: 50rpx; */
-  flex-direction: column;
-  align-items: center;
+  
+  /* align-items: center; */
   /* padding-bottom: 32rpx; */
   /* border-bottom: 32rpx; */
   
   /* justify-content: space-between; */
 }
 .box {
-  width: 100%;
-  z-index: -9999;
+  /* width: 50vw; */
+  /* z-index: -9999; */
 }
 
 .colorarea {
-  display: flex;
-  width: 100%;
+  /* display: flex; */
+  /* width: 50vw; */
   /* padding: 99px; */
   /* border-radius: 99px; */
 }
 
 .pairpart {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
-  width: 100%;
+  /* width: 50vw; */
   /* border-radius: 99px; */
 }
 
 .quantum {
   /* width: 240rpx; */
   height: 15px;
-  width: 100%;
+  /* width: 20vw; */
   /* background-color: #898989; */
   /* border-radius: 99px; */
 }
@@ -50,7 +51,7 @@
 .transition {
   /* width: 240rpx; */
   height: 7px;
-  width: 100%;
+  /* width: 20vw; */
   /* background: linear-gradient(rgb(0,0,0),rgb(255,255,255)); */
   /* background-color: aqua; */
 }

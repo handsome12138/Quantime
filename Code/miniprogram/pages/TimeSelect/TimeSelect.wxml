@@ -6,7 +6,7 @@
   <TitleAndIntro title="{{TableInfo.Name}}" intro="{{TableInfo.Context}}"></TitleAndIntro>
   <view class="TimeSelectionTable">
     <view class = "_24hour">
-      <view wx:for="{{_index}}" wx:key="index" wx:for-index="index" class="_24hour_part">{{index}}</view>
+      <view wx:for="{{_index}}" wx:key="index" wx:for-index="index" class="_24hour_part">{{index}}:00</view>
     </view>
     
     <view wx:for="{{TableInfo.Days}}" wx:key="index" wx:for-index="index">
