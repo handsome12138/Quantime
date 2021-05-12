@@ -41,6 +41,8 @@ Page({
       {kind: 'Z', entitys: []},
     ],
     Select:false,
+    Day:0,// 这俩都是，TimeBar_Stat传回来的值，即日期(值为统计数据数组的一级索引)
+    Hour:0,//和小时(值为统计数据数组的二级索引),统计数据数组的格式见下面TotalPeopleCount等
     NowPeopleCount:[
     ],
     SelectPeopleCount:[
@@ -634,5 +636,13 @@ Page({
         NowPeopleCount:this.data.TotalPeopleCount
       })
     }
+  },
+  ChangePeople:function(e){
+    console.log("ChangePeople", e.detail.Day, e.detail.Hour)
+    this.setData({
+      Day:e.detail.Day,
+      Hour:e.detail.Hour
+    })
+    console.log("Data in StatDetail", this.data.Day, this.data.Hour)
   }
 })

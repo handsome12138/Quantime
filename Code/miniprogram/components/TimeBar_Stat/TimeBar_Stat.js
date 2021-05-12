@@ -31,13 +31,23 @@ Component({
    * 组件的初始数据
    */
   data: {
-    Hour:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,0],
+    Hour:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24],
     Current:0,
     width:0,
     date:0,
     CurrentStat:{},
     ndColorAarray:[],
     _colorArray:[],
+  },
+
+  observers:{
+    'Current, date': function(Current, date){
+      var MyDetails = {
+        'Day':date,
+        'Hour':Current
+      } 
+      this.triggerEvent('ChangePeople', MyDetails)
+    }
   },
   lifetimes:{
     // attached:function(){
@@ -79,7 +89,7 @@ Component({
     Prepare:function(){
       var windowWidth = wx.getSystemInfoSync().windowWidth
       this.setData({
-              width:(windowWidth*0.9*0.92-65)*0.1,
+              width:(windowWidth*0.9*0.92*0.83)*0.1,
               CurrentStat:this.properties.PeopleCount[this.data.date]
            })
       console.log(this.data.width)
@@ -118,26 +128,23 @@ Component({
     //    })
     //  }).exec();
     //  console.log(this.data.width)
-     var dist = e.detail.scrollLeft
+      var dist = e.detail.scrollLeft
     //  console.log(dist)
-     if(dist > 14 && dist < 14+this.data.width){
-      this.setData({
-        Current:1
-      })
-      console.log(this.data.Current)
-     }else{
-      this.setData({
-        Current:(1 + parseInt((dist - 14)/this.data.width))%24
-      })
-      console.log(this.data.Current);
-      // this.triggerEvent('ChangeTarget', this.data.Current) //向父组件触发事件
-     }
+      var Cur = (parseInt(dist/this.data.width+this.data.Current/24))%24;
+      if(Cur != this.data.Current)
+      {
+          this.setData({
+          Current:Cur
+        })
+        console.log(this.data.Current);
+        // this.triggerEvent('ChangeTarget', this.data.Current) //向父组件触发事件
+      }
     },
     handleClick:function(){
       this.setData({
        date:(this.data.date + this.properties.PeopleCount.length - 1)%this.properties.PeopleCount.length
      })
-     console.log(this.data.date)
+     console.log("Change Date",this.data.date)
      this.setData({
       CurrentStat:this.properties.PeopleCount[this.data.date],
       _colorArray:this.data.ndColorAarray[this.data.date]
@@ -147,7 +154,7 @@ Component({
     this.setData({
       date:(this.data.date + 1)%this.properties.PeopleCount.length
     })
-    console.log(this.data.date)
+    console.log("Change Date",this.data.date)
     this.setData({
       CurrentStat:this.properties.PeopleCount[this.data.date],
       _colorArray:this.data.ndColorAarray[this.data.date]
