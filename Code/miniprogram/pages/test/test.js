@@ -1,18 +1,30 @@
 // miniprogram/pages/Test/test.js
+import pinyin from 'wl-pinyin';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    JoinInfo: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // console.log('拼音test', pinyin.getFirstLetter('#$23')[0])
+    wx.cloud.callFunction({
+      name: 'GetStat',
+      data:{
+        TableID: "cbddf0af608ffca705da729849fec9fa"
+      }
+    }).then(res => {
+      console.log('test getstat',res)
+      this.setData({
+        JoinInfo: res.result.JoinInfo
+      })
+    })
   },
 
   /**

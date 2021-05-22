@@ -11,6 +11,10 @@ function addarray(array1, array2){
   }
   return array1;
 }
+function sortJoinData(a, b) {
+  return b.NickName - a.NickName
+}
+
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
@@ -21,6 +25,8 @@ exports.main = async (event, context) => {
   }
 
   const db = cloud.database();
+  var $ = db.command.aggregate;
+  
   var TableInfo, JoinInfo, idx, UserObj = {}, PeopleCount = [];
   await db.collection('TimeTable').where({
     _id: event.TableID
@@ -28,23 +34,44 @@ exports.main = async (event, context) => {
     console.log('[db]GetStat Tb data', res);
     TableInfo = res.data[0]
   })
-  // var UserIDList = [];
-  await db.collection('TimeTable_Member_Relation').where({
+  // var UserList = [];
+  // 使用聚合look up联表查询
+  await db.collection('TimeTable_Member_Relation').aggregate().match({
     TableID: event.TableID
-  }).get().then(res=>{
-    console.log('debug GetStat JoinInfo=', res.data);
-    JoinInfo = res.data;
-    for(var joinidx in res.data){
-      db.collection('User').where({
-        OpenID: res.data[joinidx].UserID
-      }).field({
-        avatarURL: true,
-        NickName: true,
-      }).get().then(res2 => {
-        UserObj[ JoinInfo[joinidx].UserID ] = res2.data[0];
-      })
-    }
+  }).lookup({
+    from: 'User',
+    localField: 'UserID',
+    foreignField: 'OpenID',
+    as: 'JoinUserInfo',
+  }).replaceRoot({
+    newRoot: $.mergeObjects([ $.arrayElemAt(['$JoinUserInfo', 0]), '$$ROOT' ])
+  }).project({
+    JoinUserInfo: 0
+  }).end().then(res => {
+    JoinInfo = res.list;
+    JoinInfo.sort(sortJoinData);
+    // console.log('lookup here', res)
+    console.log('lookup here', JoinInfo)
   })
+  .catch(err => console.error(err))
+
+  // await db.collection('TimeTable_Member_Relation').where({
+  //   TableID: event.TableID
+  // }).get().then(res=>{
+  //   console.log('debug GetStat JoinInfo=', res.data);
+  //   JoinInfo = res.data;
+  //   for(var joinidx in res.data){
+  //     await db.collection('User').where({
+  //       OpenID: res.data[joinidx].UserID
+  //     }).field({
+  //       avatarURL: true,
+  //       NickName: true,
+  //     }).get().then(res2 => {
+  //       UserList.push(res.data[0])
+  //       UserObj[ JoinInfo[joinidx].UserID ] = res2.data[0];
+  //     })
+  //   }
+  // })
   for(var t in TableInfo.Days){
     PeopleCount.push({
         Stat: Array(24).fill(0),
@@ -58,7 +85,8 @@ exports.main = async (event, context) => {
   }
   return {
     PeopleCount,
-    UserObj,
+    // UserObj,
+    // UserList,
     JoinInfo,
     TableInfo,
     event,

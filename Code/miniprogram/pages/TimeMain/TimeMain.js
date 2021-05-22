@@ -125,7 +125,7 @@ Page({
   },
   GotoStat: function(){
     wx.navigateTo({
-      url: '/pages/Stat/Stat',
+      url: '/pages/Stat/Stat?TableID=' + this.data.TableID,
     })
   },
   HandleDeleteTable:function(){
@@ -181,6 +181,21 @@ Page({
       duration: 500,
       success(){
         that.HideModal();
+      }
+    })
+  },
+  AlterTableStatus: function(){
+    const db = wx.cloud.database();
+    // console.log('Alter TimeTable Status')
+    let NewStatus = 1 - this.data.TableInfo.Status
+    this.setData({
+      'TableInfo.Status': NewStatus
+    })
+    db.collection('TimeTable').where({
+      _id: this.data.TableID
+    }).update({
+      data : {
+        Status: NewStatus
       }
     })
   }

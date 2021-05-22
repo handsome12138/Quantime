@@ -22,7 +22,6 @@ exports.main = async (event, context) => {
   }).get().then(res => {
     // console.log("[数据库] [获取数据] [debug] GetTableInfo Class表", res);
     classlist = res.data;
-    
   })
   
   for(var TClass of classlist){

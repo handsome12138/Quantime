@@ -3,6 +3,7 @@
     "Timeselect":"../../components/Timeselect/Timeselect",
     "TimeBar_Stat":"../../components/TimeBar_Stat/TimeBar_Stat",
     "UserAlphabet": "/components/UserAlphabet/UserAlphabet",
-    "index-list": "/components/Index_list/Index_list"
+    "index-list": "/components/Index_list/Index_list",
+    "PeopleShowList": "/components/PeopleShowList/PeopleShowList"
   }
 }

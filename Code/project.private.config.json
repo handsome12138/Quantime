@@ -96,6 +96,12 @@
           "pathName": "pages/ClassManagement/ClassManagement",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/test/test",
+          "pathName": "pages/test/test",
+          "query": "TableID=cbddf0af608ffca705da729849fec9fa&InviterID=oYVXc5d63E3GvanFbhfDdlW597nQ",
+          "scene": null
         }
       ]
     }

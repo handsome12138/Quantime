@@ -1,0 +1,49 @@
+/* components/PeopleShowList/PeopleShowList.wxss */
+@import "/colorui/main.wxss";
+@import "/colorui/icon.wxss";
+/* .index-list{
+  position: fixed;
+  z-index: 100;
+} */
+.contact_list .box {
+  /* padding: 0 18px 0 10px; */
+  padding-left: 18rpx;
+  padding-top: 5rpx;
+  padding-bottom: 20rpx;
+}
+.contact_list .tit{
+  /* padding:0 10px; */
+  padding-top: 20rpx;
+}
+
+.contact_list .item {
+  float: left;
+  width: 100%;
+  /* padding: 12px 0; */
+  background: #fff;
+  border-top: 1rpx solid #e5e5e5;
+  /* height: 90rpx; */
+  /* line-height: 68rpx; */
+  /* overflow: hidden; */
+}
+
+.contact_list .item .item_left {
+  float: left;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.contact_list .item .item_left .img {
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 50%;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  border: 4rpx solid #fff;
+  border-radius: 50%;
+  position: absolute;
+  left: 0rpx;
+}

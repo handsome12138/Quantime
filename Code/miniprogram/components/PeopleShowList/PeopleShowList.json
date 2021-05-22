@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "index-list": "/components/Index_list/Index_list",
+    "UserAlphabet": "/components/UserAlphabet/UserAlphabet"
+  }
+}

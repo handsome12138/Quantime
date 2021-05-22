@@ -1,7 +1,11 @@
 <!--miniprogram/pages/Test/test.wxml-->
 <text>miniprogram/pages/Test/test.wxml</text>
 
-<UserAlphabet></UserAlphabet>
+<view style="height:200px;">
+	<PeopleShowList JoinInfo="{{JoinInfo}}"></PeopleShowList>
+</view>
+
+<!-- <UserAlphabet></UserAlphabet> -->
 
 <!-- <index-list></index-list> -->
 

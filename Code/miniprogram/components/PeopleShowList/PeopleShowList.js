@@ -1,16 +1,59 @@
-// pages/StatDetail/StatDetail.js
-Page({
+// components/PeopleShowList/PeopleShowList.js
+import pinyin from 'wl-pinyin';
+Component({
+  /**
+   * 组件的属性列表
+   */
+  properties: {
+    JoinInfo:{
+      type: 'list',
+      value: []
+    },
+    SelectDay: {
+      type: 'int',
+      value: 0
+    },
+    SelectHour: {
+      type: 'int',
+      value: 0
+    }
+  },
 
   /**
-   * 页面的初始数据
+   * 组件的初始数据
    */
   data: {
-    TableID: '',
-    TableInfo: {},
-    JoinInfo: [],
-    UserObj: {},
-    PeopleCount: [],
-    //以上的数据都是来源于GetStat云函数的
+    EmptyContactObj:{
+      '#': [],
+      'A': [],
+      'B': [],
+      'C': [],
+      'D': [],
+      'E': [],
+      'F': [],
+      'G': [],
+      'H': [],
+      'I': [],
+      'J': [],
+      'K': [],
+      'L': [],
+      'M': [],
+      'N': [],
+      'O': [],
+      'P': [],
+      'Q': [],
+      'R': [],
+      'S': [],
+      'T': [],
+      'U': [],
+      'V': [],
+      'W': [],
+      'X': [],
+      'Y': [],
+      'Z': []
+    },
+    ToFillContactObj:{
+    },
     EmptyContactList: [
       {kind: '#', entitys: []},
       {kind: 'A', entitys: []},
@@ -40,9 +83,7 @@ Page({
       {kind: 'Y', entitys: []},
       {kind: 'Z', entitys: []},
     ],
-    Select:false,
-    Day:0,// 这俩都是，TimeBar_Stat传回来的值，即日期(值为统计数据数组的一级索引)
-    Hour:0,//和小时(值为统计数据数组的二级索引),统计数据数组的格式见下面TotalPeopleCount等
+    windowHeight: 0,
     NowPeopleCount:[
     ],
     SelectPeopleCount:[
@@ -490,159 +531,75 @@ Page({
         ]
       }
     ], 
-    search_value_modal: null,
-    filter: false,
-    windowHeight: 0, 
     toViewId: '', //scroll-view 跳转id
-    search_string: '',
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 组件的方法列表
    */
-  onLoad: function (options) {
-    this.setData({
-      TableID: options.TableID
-    })
-    wx.cloud.callFunction({
-      name: 'GetStat',
-      data: {
-        TableID: options.TableID
-      }
-    }).then(res => {
-      console.log('[debug]StatDetail call getstat res=',res.result);
-      this.setData({
-        TableInfo: res.result.TableInfo,
-        UserObj: res.result.UserObj,
-        JoinInfo: res.result.JoinInfo,
-        PeopleCount: res.result.PeopleCount
-      })
-    })
-    // const db = wx.cloud.database();
-    // db.collection('TimeTable').where({
-    //   '_id': options.TableID //ID
-    // }).get().then(res=>{
-    //   console.log('StatDetail tableid:',this.data.TableID ,'tableinfo:', res.data);
-    //   this.setData({
-    //     TableInfo: res.data[0]
-    //   })
-    // })
-    
-    this.handleGetSystemInfo();
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    this.setData({
-      NowPeopleCount:this.data.TotalPeopleCount
-    }, ()=>{
-      // console.log('debug', this.data.NowPeopleCount)
-    })
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-
-  ShowModal(e){
-    // 显示模态框
-    // console.log("[debug]: 显示模态框");
-    this.setData({
-      modalname: e.currentTarget.dataset.target
-    })
-  },
-
-  HideModal(e){
-    this.setData({
-      modalname: null
-    })
-  },
-
-  ChangeFilter(e){
-    this.setData({
-      filter: e.currentTarget.dataset.filter=='selected'?true:false
-    })
-  },
-  
-  handleLetterOrder(ev){
-    this.setData({
-      toViewId: ev.detail.id
-    },()=>{
-      // console.log('父-字母排序变化', this.data.toViewId, ev);
-    });
-  },
-
-  handleGetSystemInfo(){
-    wx.getSystemInfo({
-      success: (res) => {
-        this.setData({
-          windowHeight: res.windowHeight
-        });
-      }
-    })
-  },
-  ShowSelected:function(){
-    this.setData({
-      Select:!this.data.Select
-    })
-    // console.log(this.data.Select)
-    if(this.data.Select)
-    {
-      this.setData({
-        NowPeopleCount:this.data.SelectPeopleCount
-    })
-    }else{
-      this.setData({
-        NowPeopleCount:this.data.TotalPeopleCount
-      })
+  lifetimes:{
+    created: function(){
+      
+      this.handleGetSystemInfo(this);
+    },
+    attached: function(){
+      this.handleGetSystemInfo();
     }
   },
-  ChangePeople:function(e){
-    // console.log("ChangePeople", e.detail.Day, e.detail.Hour)
-    this.setData({
-      Day:e.detail.Day,
-      Hour:e.detail.Hour
-    })
-    // console.log("Data in StatDetail", this.data.Day, this.data.Hour)
+  methods: {
+    handleGetSystemInfo(){
+      let that = this;
+      wx.getSystemInfo({
+        success: (res) => {
+          that.setData({
+            windowHeight: res.windowHeight
+          });
+          // console.log('window height=', res.windowHeight, that.data.windowHeight)
+        }
+      })
+    },
+    handleLetterOrder(ev){
+      this.setData({
+        toViewId: ev.detail.id
+      },()=>{
+        // console.log('父-字母排序变化', this.data.toViewId, ev);
+      });
+    },
+  },
+  observers:{
+    'JoinInfo'(JoinInfo){
+      if( JoinInfo.length > 0){
+        let SingleJoinInfo;
+        for(SingleJoinInfo of this.data.JoinInfo){
+          let IdxLetter = pinyin.getFirstLetter(SingleJoinInfo.NickName)[0].toLocaleUpperCase(); 
+          if( IdxLetter <='Z' && IdxLetter >= 'A'){
+            let setidx = "EmptyContactObj." + IdxLetter;
+            let settarg = this.data.EmptyContactObj[IdxLetter];
+            settarg.push(SingleJoinInfo)
+            this.setData({
+              [setidx]: settarg
+            })
+            // this.data.EmptyContactObj[IdxLetter].push(SingleJoinInfo)
+          }else{
+            let setidx = "EmptyContactObj.#";
+            let settarg = this.data.EmptyContactObj['#'];
+            settarg.push(SingleJoinInfo)
+            this.setData({
+              [setidx]: settarg
+            })
+            // this.data.EmptyContactObj['#'].push(SingleJoinInfo)
+          }
+        }
+        // for(var idx = 0; idx<10;idx++){
+        //   let setidx = "EmptyContactObj.Z";
+        //   let settarg = this.data.EmptyContactObj.Z;
+        //   settarg.push({NickName: 'test'+idx})
+        //   this.setData({
+        //     [setidx]: settarg
+        //   })
+        // }
+        console.log('JoinInfo observer', this.data.SelectDay, this.data.SelectHour, JoinInfo, this.data.EmptyContactObj);
+      }
+    }
   }
 })

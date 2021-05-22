@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    TableID: '',
     TableInfo:{
       Name:"属于Stat的标题",
       Context:"属于Stat的简介，简介和标题都在页面内在生命周期函数中用this.setData获取\n之后传值给组件TitleAndIntor进行显示",
@@ -18,7 +19,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      TableID: options.TableID
+    });
+    wx.cloud.callFunction({
+      name: 'GetStat',
+      data:{
+        TableID: options.TableID
+      }
+    }).then(res => {
+      console.log('[debug] stat res data = ', res.result)
+      this.setData({
+        TableInfo: res.result.TableInfo,
+        PeopleCount: res.result.PeopleCount,
+        JoinInfo: res.result.JoinInfo,
+        UserObj: res.result.UserObj
+      })
+    })
   },
 
   /**
@@ -68,5 +85,10 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  GoToStatDetails: function(){
+    wx.navigateTo({
+      url: '/pages/StatDetail/StatDetail?TableID=' + this.data.TableID,
+    })
   }
 })

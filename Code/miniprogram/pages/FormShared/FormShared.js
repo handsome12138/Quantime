@@ -42,27 +42,31 @@ Page({
       this.setData({
         TableInfo: res.data[0]
       })
-    })
-    
-    db.collection('User').where({
-      OpenID: options.InviterID
-    }).get().then(res => {
-      console.log('timemain inviterid:',this.data.InviterID ,'inviterinfo:', res.data);
-      this.setData({
-        InviterInfo: res.data[0]
-      })
-    })
-    // 以下是检验是否注册过了
-    db.collection('TimeTable_Member_Relation').where({
-      TableID: options.TableID,
-      UserID: app.globalData.openid
-    }).get().then(res => {
-      if(res.data.length > 0){
-        wx.navigateTo({
-          url: '/pages/TimeSelect/TimeSelect?TableID='+options.TableID,
+      if(res.data[0].Status == 1){
+        db.collection('User').where({
+          OpenID: options.InviterID
+        }).get().then(res => {
+          console.log('timemain inviterid:',this.data.InviterID ,'inviterinfo:', res.data);
+          this.setData({
+            InviterInfo: res.data[0]
+          })
+        })
+        // 以下是检验是否注册过了
+        db.collection('TimeTable_Member_Relation').where({
+          TableID: options.TableID,
+          UserID: app.globalData.openid
+        }).get().then(res => {
+          if(res.data.length > 0){
+            wx.navigateTo({
+              url: '/pages/TimeSelect/TimeSelect?TableID='+options.TableID,
+            })
+          }
         })
       }
     })
+    
+
+    
 
   },
 

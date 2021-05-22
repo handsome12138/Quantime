@@ -92,8 +92,8 @@ Component({
               width:(windowWidth*0.9*0.92*0.83)*0.1,
               CurrentStat:this.properties.PeopleCount[this.data.date]
            })
-      console.log(this.data.width)
-      console.log(this.data.CurrentStat)
+      // console.log(this.data.width)
+      // console.log(this.data.CurrentStat)
       var Colorndarray = [], max = 0, _array = [], tempColorArray = []
       for(var i = 0;i<this.properties.PeopleCount.length;i++){
         max = Math.max(...this.properties.PeopleCount[i].Stat);
@@ -136,7 +136,7 @@ Component({
           this.setData({
           Current:Cur
         })
-        console.log(this.data.Current);
+        // console.log(this.data.Current);
         // this.triggerEvent('ChangeTarget', this.data.Current) //向父组件触发事件
       }
     },

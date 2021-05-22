@@ -14,7 +14,8 @@
 
 <!-- <button class="mini-btn margin-top" type="primary" bindtap="ShowModal"> 新建 </button> -->
 <Formlist display="{{true}}" itemlist="{{item.TimeTables}}" title="{{item.ClassName}}" wx:for="{{tblist}}" wx:key="ClassID"></Formlist>
-<Formlist display="{{true}}"></Formlist>
+<!-- 下面debug用 -->
+<!-- <Formlist display="{{true}}"></Formlist> -->
 <!-- 
 <view class="cu-modal {{modalname=='Create'?'show':''}}">
   <view class="cu-dialog">

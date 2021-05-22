@@ -5,53 +5,9 @@
 <TimeBar_Stat id="TimeBarStat" PeopleCount="{{PeopleCount}}" Select="{{Select}}" 
 bindtap="ShowSelected" bind:ChangePeople="ChangePeople"></TimeBar_Stat>
 
-
-<!-- <view class="cu-bar bg-white justify-end" style="padding-left:30rpx;padding-right:30rpx;">
-  <view wx:if="{{check}}">
-    <text data-filter="All" bindtap="ChangeFilter" class="{{filter==true?'':'text-bold'}}">所有人</text> <text>/
-    </text> <text bindtap="ChangeFilter" data-filter="selected" class="{{filter==true?'text-bold':''}}">Selected</text>
-  </view>
-  <view class="flex p-xs align-center" style="width:100%;margin-top:20rpx;">
-    <view class="flex-sub radius padding-sm margin-xs">
-      10/20
-    </view>
-    <view class="radius" style="margin-right:0;flex:8;">
-      <view class="search-form round ">
-        <text class="cuIcon-search"> </text>
-        <input placeholder="搜索" type="text" model:value="{{search_string}}"> </input>
-      </view>
-    </view>
-    <view class="flex-sub radius" bindtap="ShowModal" data-target="OpenFilter">
-      筛选
-    </view>
-  </view>
-</view> -->
-
-<scroll-view class="contact_list" scroll-into-view="{{toViewId}}" style="height:{{windowHeight-150}}px;" scroll-y>
-  <block wx:for="{{contactsList}}" wx:for-item="item" wx:key="kind" wx:for-index="kindindex" wx:if="{{(!filter || !fn.CheckEmptyKind(item.entitys)) && !fn.CheckSearchKind(item.entitys, search_string)}}">
-    <view class="padding" style="text-align:left;" id="{{item.kind}}">{{item.kind}}</view>
-    <view class="cu-list menu-avatar no-padding">
-      <view class="cu-item" wx:for="{{item.entitys}}" wx:for-item="itemJ" wx:key="*this" wx:if="{{(itemJ.checked || !filter) && fn.CheckSearchItem(itemJ, search_string)}}" wx:for-index="itemindex">
-        <!-- <view class="cu-avatar round lg">{{itemJ.avatar}}</view> -->
-        <view class="content">
-          <view class="text-grey" style="text-align:left;">{{itemJ.name}}
-            <!-- <text class="text-abc">{{list[sub]}}</text>君 -->
-          </view>
-          <view class="text-gray text-sm" style="text-align:left;">
-            <!-- 有{{sub+2}}个主子需要伺候 -->
-            一段test {{itemJ.checked}}
-          </view>
-        </view>
-        <!-- <view style="margin-right:50rpx;" wx:if="{{check}}">
-          <checkbox value="test" bindtap="HandleCheckBox" data-kindindex="{{kindindex}}" data-itemindex="{{itemindex}}" data-mychecked="{{itemJ.checked}}" checked="{{itemJ.checked}}"/>
-        </view> -->
-      </view>
-    </view>
-  </block>
-</scroll-view>
-
-
-<index-list bind:onChange="handleLetterOrder"></index-list>
+<view style="height:{{windowHeight-150}}px">
+  <PeopleShowList JoinInfo="{{JoinInfo}}" SelectDay="{{Day}}" SelectHour="{{Hour}}"> </PeopleShowList>
+</view>
 
 
 

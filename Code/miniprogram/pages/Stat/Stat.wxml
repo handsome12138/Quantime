@@ -12,14 +12,11 @@
     <view wx:for="{{TableInfo.Days}}" wx:key="index" wx:for-index="index">
       <view class="DateAndBar">
         <view class = "date">{{TableInfo.Days[index]}}</view>
-        
         <StatColorBar id="Bar-{{index}}" class="StatColorBar"></StatColorBar>
-        
-        
       </view>
       
     </view>
   </view>
 
-  <button class="bg-green margin-bottom" bindtap="ViewDetails">查看详细信息</button>
+  <button class="bg-green margin-bottom" bindtap="GoToStatDetails">查看详细信息</button>
 </view>

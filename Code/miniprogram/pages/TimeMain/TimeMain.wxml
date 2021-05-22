@@ -41,7 +41,7 @@
   <view class="margin-top margin-left">表单状态修改</view>
   <view class="cu-form-group margin-top">
 		<view class="title">是否发布</view>
-		<switch class="green sm" checked="{{TableInfo.Status}}"></switch>
+		<switch class="green sm" checked="{{TableInfo.Status}}" bindchange="AlterTableStatus"></switch>
 	</view>
 	<view class="cu-form-group">
     <view class="title">是否允许其他用户保存</view>
