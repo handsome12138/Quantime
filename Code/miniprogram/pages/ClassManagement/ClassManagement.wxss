@@ -1,1 +1,10 @@
 /* miniprogram/pages/ClassManagement/ClassManagement.wxss */
+
+.modal {
+  
+}
+
+.modal-content {
+  /* height: 30%;
+  width:50%; */
+}

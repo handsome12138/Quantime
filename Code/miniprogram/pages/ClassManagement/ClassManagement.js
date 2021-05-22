@@ -18,9 +18,42 @@ Page({
       {
         name:'沟通技巧'
       }
-    ]
+    ],
+    newClassName:'',
+    modalname:''
   },
 
+
+  ShowModal: function(){
+    this.setData({
+      modalname: 'Create'
+    })
+  },
+  HideModal: function(){
+    this.setData({
+      modalname: null
+    })
+  },
+  Submit: function(e){
+    // 新建类
+    console.log('[debug][ClassManagement]: addclass:', this.data.newClassName);
+    // wx.cloud.callFunction({
+    //   name: 'AddTimeTableClass',
+    //   data: {
+    //     ClassName: this.data.newClassName
+    //   }
+    // }).then(res => {
+    //   var newtblist = this.data.tblist;
+    //   newtblist.push({
+    //     ClassID: res.id,
+    //     ClassName: this.data.newClassName,
+    //     TimeTables: []
+    //   })
+    //   this.setData({
+    //     tblist: newtblist
+    //   })
+    // })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
