@@ -1,10 +1,12 @@
 // miniprogram/pages/ClassManagement/ClassManagement.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    ClassList: [],
     classGroup:[
       {
         name:'团支部'
@@ -36,29 +38,47 @@ Page({
   },
   Submit: function(e){
     // 新建类
-    console.log('[debug][ClassManagement]: addclass:', this.data.newClassName);
-    // wx.cloud.callFunction({
-    //   name: 'AddTimeTableClass',
-    //   data: {
-    //     ClassName: this.data.newClassName
-    //   }
-    // }).then(res => {
-    //   var newtblist = this.data.tblist;
-    //   newtblist.push({
-    //     ClassID: res.id,
-    //     ClassName: this.data.newClassName,
-    //     TimeTables: []
-    //   })
-    //   this.setData({
-    //     tblist: newtblist
-    //   })
-    // })
+    // console.log('[debug][ClassManagement]: addclass:', this.data.newClassName);
+    const db = wx.cloud.database();
+    db.collection('TimeTableClass').add({
+      data:{
+        ClassName: this.data.newClassName,
+        OpenID: app.globalData.openid
+      }
+    }).catch(res => {
+      console.log("Add new class FAIL: ", res);
+      wx.showToast({
+        title: '新增类失败',
+        duration: 1000
+      })
+    }).then(res => {
+      console.log('Add new class', this.data.newClassName, res)
+      var tmpclasslist = this.data.ClassList;
+      tmpclasslist.push({
+        _id: res._id,
+        ClassName: this.data.newClassName,
+        OpenID: app.globalData.openid
+      })
+      this.setData({
+        ClassList: tmpclasslist
+      })
+    })
+    this.setData({
+      modalname: null
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.cloud.callFunction({
+      name: 'GetClassList'
+    }).then(res =>{
+      console.log('GetClassList in ClassManagerment', res);
+      this.setData({
+        ClassList: res.result.ClassList
+      })
+    })
   },
 
   /**

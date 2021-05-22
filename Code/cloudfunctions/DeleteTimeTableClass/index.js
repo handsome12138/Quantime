@@ -14,7 +14,7 @@ exports.main = async (event, context) => {
   const db = cloud.database();
   const _ = db.command;
   var ObjList, TableIDList = [];
-  await db.collection('TimeTableClass_TimeTable_Relation').where({
+  await db.collection('TimeTableClass').where({
     ClassID: event.ClassID
   }).field({
     TableID: true,
@@ -28,13 +28,7 @@ exports.main = async (event, context) => {
     console.log("[DEBUG]: TableList: ", TableIDList);
   })
 
-  // 一共有四张表中相关的数据要被删除
-  // TimeTableClass 属于某个 User 的关系
-  db.collection('User_TimeTableClass_Relation').where({
-    ClassID: event.ClassID
-  }).remove().then(res => {
-    console.log("[数据库] [删除数据] Delete TimeTableClass in User_TimeTableClass_Relation SUCCESS", res);
-  })
+  // 一共有三张表中相关的数据要被删除
   // TimeTableClass本身
   db.collection('TimeTableClass').where({
     _id: event.ClassID

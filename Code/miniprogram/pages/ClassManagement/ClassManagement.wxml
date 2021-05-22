@@ -6,8 +6,9 @@
 <Class className="团支部"></Class>
  -->
 
-<view wx:for="{{classGroup}}" wx:key="{{index}}" class="view_item" >
-  <Class classData="{{classGroup[index]}}" id="class-{{index}}"></Class>
+<view wx:for="{{ClassList}}" wx:key="index" class="view_item" >
+  <Class ClassObj="{{item}}" Index="{{index}}"></Class>
+  <!-- <Class ClassObj="{{item}}" classData="{{ClassGroup[index]}}" id="class-{{index}}"></Class> -->
 </view>
 
 <button class="bg-green accept margin-xl" bindtap="ShowModal">新增类</button>
@@ -19,7 +20,7 @@
       <input type="text" placeholder="请输入类名" model:value="{{newClassName}}"/>
     </view>
     <view class="flex margin">
-      <button class="flex-sub cu-btn line-green text-green shadow" style="width:150px;margin-left:50px;margin-right:20px" bindtap="Submit">提交</button>
+      <button class="flex-sub cu-btn line-green text-green shadow" style="width:150px;margin-left:50px;margin-right:20px" bindtap="Submit" disabled="{{newClassName.length == 0}}">提交</button>
       <button class="flex-sub cu-btn line-green text-green shadow" style="width:150px;margin-left:50px;margin-right:20px" bindtap="HideModal">返回</button>
     </view>
   </view>

@@ -1,28 +1,30 @@
 <!--components/ClassBar/ClassBar.wxml-->
-<view class="container">
-  <view class="name">
-    <text class="ClassName">{{classData.name}}</text>
-  </view>
-  
-  <!-- <text class="cuIcon-creativefill text-yellow"></text> -->
-  <view class="button-group">
-    <view class="edit" bindtap="touchEdit">
-      <text class="cuIcon-writefill icon-pen-size"></text>
-    </view>
-
-    <view class="delete" bindtap="touchDelete">
-      <text class="cuIcon-deletefill icon-delete-size"></text>
+<view wx:if="{{myshow}}">
+  <view class="container">
+    <view class="name">
+      <text class="ClassName">{{ClassObj.ClassName}}</text>
     </view>
     
-    <!-- <view class='up'>
-      <text class="cuIcon-triangleupfill icon-up-size"></text>
+    <!-- <text class="cuIcon-creativefill text-yellow"></text> -->
+    <view class="button-group">
+      <view class="edit" bindtap="touchEdit">
+        <text class="cuIcon-writefill icon-pen-size"></text>
+      </view>
+  
+      <view class="delete" bindtap="HandleDelete">
+        <text class="cuIcon-deletefill icon-delete-size"></text>
+      </view>
+      
+      <!-- <view class='up'>
+        <text class="cuIcon-triangleupfill icon-up-size"></text>
+      </view>
+  
+      <view class='down'> 
+        <text class="cuIcon-triangledownfill icon-down-size"></text>
+      </view> -->
     </view>
-
-    <view class='down'> 
-      <text class="cuIcon-triangledownfill icon-down-size"></text>
-    </view> -->
+    
+    
   </view>
-  
-  
 </view>
 
