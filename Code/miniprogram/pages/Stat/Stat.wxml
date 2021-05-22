@@ -13,7 +13,7 @@
       <view class="DateAndBar">
         <view class = "date">{{TableInfo.Days[index]}}</view>
         
-        <StatColorBar id="Bar-{{index}}" class="StatColorBar"></StatColorBar>
+        <StatColorBar id="Bar-{{index}}" class="StatColorBar" num_participants="{{participants[index]}}"></StatColorBar>
         
         
       </view>
