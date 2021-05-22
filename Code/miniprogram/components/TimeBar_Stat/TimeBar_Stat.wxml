@@ -9,7 +9,7 @@
   <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" enhanced="{{true}}" bounces="{{true}}">
     <view class="Mainpart">
     <view class="timebar" id="timedot">
-    <view wx:for="{{4}}" wx:for-index="index" 
+    <view wx:for="{{5}}" wx:for-index="index" 
     wx:key="item" class="scroll-view-item_H timeitem"style="background-color:white"></view>
     <view wx:for="{{CurrentStat.Stat}}" wx:for-index="index" 
     wx:key="item" class="scroll-view-item_H timeitem"style="background-color:{{_colorArray[index]}}"></view>
@@ -18,12 +18,12 @@
     </view>
     <image src="/images/arrow.svg" class="arrow" catchtap="Stopmerge"></image>
     <view class="timeindex">
-    <view wx:for="{{4}}" wx:for-index="index" 
-    wx:key="item" class="scroll-view-item_H"></view>
+    <view wx:for="{{5}}" wx:for-index="index" 
+    wx:key="item" class="scroll-view-item_H_time"></view>
     <view wx:for="{{Hour}}" wx:for-index="index" 
-    wx:key="item" class="scroll-view-item_H">{{item}}</view>
+    wx:key="item" class="scroll-view-item_H_time">{{item}}</view>
     <view wx:for="{{4}}" wx:for-index="index" 
-    wx:key="item" class="scroll-view-item_H"></view>
+    wx:key="item" class="scroll-view-item_H_time"></view>
     </view>
     </view>
   </scroll-view>

@@ -80,12 +80,6 @@
           "scene": null
         },
         {
-          "name": "pages/Aboutus/Aboutus",
-          "pathName": "pages/Aboutus/Aboutus",
-          "query": "",
-          "scene": null
-        },
-        {
           "name": "pages/TimeMain/TimeMain",
           "pathName": "pages/TimeMain/TimeMain",
           "query": "",
