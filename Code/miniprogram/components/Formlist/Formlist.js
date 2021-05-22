@@ -16,12 +16,12 @@ Component({
           "Context":"什么是产品内建统计呢？产品内建统计就是...",
           "Status": 1,
         },
-        // {
-        //   "title":"产品内建时间统计",
-        //   "description":"什么是产品内建统计呢？产品内建统计就是...",
-        //   "status":false,
-        //   "peoplecount":25
-        // }
+        {
+          "title":"产品内建时间统计",
+          "description":"什么是产品内建统计呢？产品内建统计就是...",
+          "status":false,
+          "peoplecount":25
+        }
        ]
      },
      display:{

@@ -1,6 +1,25 @@
 <!--pages/Stat/Stat.wxml-->
 <!-- <text>pages/Stat/Stat.wxml</text> -->
 
-<view>
-  <StatColorBar class="StatColorBar"></StatColorBar>
+<view class="container">
+  <TitleAndIntro title="{{TableInfo.Name}}" intro="{{TableInfo.Context}}"></TitleAndIntro>
+  <!-- <view class="DateAndBar">
+    <StatColorBar class="StatColorBar"></StatColorBar>
+    <StatColorBar class="StatColorBar"></StatColorBar>
+    <StatColorBar class="StatColorBar"></StatColorBar>
+  </view> -->
+  <view class="VisualArea">
+    <view wx:for="{{TableInfo.Days}}" wx:key="index" wx:for-index="index">
+      <view class="DateAndBar">
+        <view class = "date">{{TableInfo.Days[index]}}</view>
+        
+        <StatColorBar id="Bar-{{index}}" class="StatColorBar"></StatColorBar>
+        
+        
+      </view>
+      
+    </view>
+  </view>
+
+  <button class="bg-green margin-bottom" bindtap="ViewDetails">查看详细信息</button>
 </view>

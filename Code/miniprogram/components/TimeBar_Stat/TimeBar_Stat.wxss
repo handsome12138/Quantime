@@ -4,14 +4,15 @@
 .left-arr{
   border-radius: 60px 0 0 60px;
   background-color: #fff;
-  width: 40px;
+  width: 80rpx;
   font-size:35px;
+  text-align:center;
   position: fixed;
   bottom: 90px;
   height: 40px;
   border-style:solid;
   border-width:1px;
-  left: 25px;
+  left: 50rpx;
   z-index: 10;
 }
 .Date{
@@ -26,7 +27,7 @@
 }
 .scroll-view_H{
   white-space: nowrap;
-  padding-left: 65px;
+  padding-left: 130rpx;
   width: 92%;
 }
 
@@ -51,9 +52,10 @@
 .arrow{
   height: 35px;
   /* position: absolute; */
+  width:80rpx;
   position: fixed;
   bottom: 52px;
-  left:18px;
+  left:338rpx;
 }
 
 .timeindex{
@@ -68,16 +70,24 @@
   /* background-color: rgb(19, 144, 167); */
   vertical-align: middle;
 }
+.scroll-view-item_H_time{
+  display: inline-block !important;
+  width: 10%;
+  height: 40px;
+  /* background-color: rgb(19, 144, 167); */
+  vertical-align: middle;
+}
 
 .right-arr{
   border-radius: 0 60px 60px 0;
   background-color: #fff;
-  width: 40px;
+  width: 80rpx;
   font-size:35px;
+  text-align:center;
   position: fixed;
   bottom: 90px;
   height: 40px;
   border-style:solid;
   border-width:1px;
-  right: 25px;
+  right: 50rpx;
 }

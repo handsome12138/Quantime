@@ -4,9 +4,11 @@ const app = getApp();
 import plugin from '../../3partylib/wx_calendar/plugins/index'
 // 引入所需插件
 import todo from '../../3partylib/wx_calendar/plugins/todo'
+import selectable from '../../3partylib/wx_calendar/plugins/selectable'
 
 // 按需安装插件，支持链式调用
 plugin.use(todo)
+      .use(selectable)
 // let calendar = null ;
 Page({
 
@@ -78,6 +80,7 @@ Page({
    */
   testGetCalendar(e){
     const calendar = this.selectComponent('#calendar').calendar
+    
     const selectedDay = calendar.getSelectedDates(calendar)
     console.log("[debug] 测试日历获取:",selectedDay)
   },
@@ -101,7 +104,58 @@ Page({
    * 选择日期后执行的事件
    */
   afterTapDate(e) {
+    let enableDays=[]
     console.log('afterTapDate', e.detail) // => { year: 2019, month: 12, date: 3, ...}
+    // const component = this.selectComponent('#calendar')
+    const calendar = this.selectComponent('#calendar').calendar
+    // console.log("[debug] component:",component)
+    // console.log("[debug] calendar:",calendar)
+    const selectedDay = calendar.getSelectedDates(calendar)
+    const data = this.selectComponent('#calendar').__data__
+    // console.log("[debug] 日历实例获取:",this.selectComponent('#calendar'))
+
+    console.log("[debug] 日历实例数据获取结果:",data)
+    const selectDates = data.calendar.selectedDates
+    console.log("[debug] 选中的日期:",selectDates)
+    console.log("[debug] selectedDay:",selectedDay)
+    const dates = data.calendar.dates
+    let array = selectDates
+    console.log("[debug] array:",array)
+
+    if(selectedDay.length < 3){//选中不足三个
+      // enableDays.push(''+e.detail.year+'-'+e.detail.month+'-'+e.detail.date)
+      // console.log("[debug] enableDays:",enableDays)
+      // calendar.enableArea(['2018-11-12', '2018-11-30'])
+      const calendar = this.selectComponent('#calendar').calendar
+      // calendar.enableArea([])
+    }
+    else if(selectedDay.length == 3){//选中三个
+      for(let i=0;i<3;i++){
+        let iday = selectedDay[i]
+        enableDays.push(''+iday.year+'-'+iday.month+'-'+iday.date)
+      }
+      console.log("[debug] enableDays:",enableDays)
+      // calendar.enableArea([])
+      // calendar.enableDates(enableDays)
+    }
+    else{
+      const cancelDates = [//选中超过三个
+        {
+          year: selectedDay[3].year,
+          month: selectedDay[3].month,
+          date: selectedDay[3].date
+        }
+      ]
+      console.log("[debug] cancelDates",cancelDates)
+      calendar.cancelSelectedDates(cancelDates)//将选中的取消
+      wx.showToast({
+        title: '最多选择三天',
+        icon: 'none',
+        duration: 2000
+      })
+      
+    }
+    
   },
   /**
    * 当日历滑动时触发
@@ -180,6 +234,7 @@ Page({
   onShow: function () {
     console.log("[debug] 显示calendarConfig:",this.data.calendarConfig)
     // calendar = this.selectComponent('.calendar')
+    
   },
 
   /**

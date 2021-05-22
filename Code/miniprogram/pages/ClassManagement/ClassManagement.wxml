@@ -1,0 +1,13 @@
+<!--miniprogram/pages/ClassManagement/ClassManagement.wxml-->
+<!-- <text>miniprogram/pages/ClassManagement/ClassManagement.wxml</text> -->
+
+<!-- <Class className="团支部"></Class>
+
+<Class className="团支部"></Class>
+ -->
+
+<view wx:for="{{classGroup}}" wx:key="{{index}}" class="view_item" >
+  <Class classData="{{classGroup[index]}}" id="class-{{index}}"></Class>
+</view>
+
+<button class="bg-green accept margin-xl" bindtap="newClass">新增类</button>

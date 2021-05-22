@@ -1,17 +1,24 @@
-// pages/Stat/Stat.js
+// miniprogram/pages/ClassManagement/ClassManagement.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    TableInfo:{
-      Name:"属于Stat的标题",
-      Context:"属于Stat的简介，简介和标题都在页面内在生命周期函数中用this.setData获取\n之后传值给组件TitleAndIntor进行显示",
-      Status:1,
-      Days:['2021.4.3','2021.4.4','2021.4.5'],
-      SaveFlag:1
-    },
+    classGroup:[
+      {
+        name:'团支部'
+      },
+      {
+        name:'求是潮'
+      },
+      {
+        name:'思修小组'
+      },
+      {
+        name:'沟通技巧'
+      }
+    ]
   },
 
   /**
