@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "Class":"../../components/ClassBar/ClassBar"
+  }
+}

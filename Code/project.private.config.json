@@ -78,6 +78,30 @@
           "pathName": "pages/Aboutus/Aboutus",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/Aboutus/Aboutus",
+          "pathName": "pages/Aboutus/Aboutus",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/TimeMain/TimeMain",
+          "pathName": "pages/TimeMain/TimeMain",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/FormShared/FormShared",
+          "pathName": "pages/FormShared/FormShared",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/ClassManagement/ClassManagement",
+          "pathName": "pages/ClassManagement/ClassManagement",
+          "query": "",
+          "scene": null
         }
       ]
     }

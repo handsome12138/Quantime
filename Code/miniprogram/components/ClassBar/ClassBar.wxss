@@ -1,0 +1,70 @@
+/* components/ClassBar/ClassBar.wxss */
+@import "../../colorui/main.wxss";
+@import "../../colorui/icon.wxss";
+
+.container {
+  margin: 10px;
+  padding: 5px;
+
+  background-color: #fff;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  border-radius: 20px;
+}
+
+.name {
+  margin:10px;
+  padding: 0px 15px 0px 15px;
+}
+
+.ClassName {
+  font-size: 1.5em;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.edit {
+  /* margin:10px; */
+  margin: 12px 0px 10px 0px;
+}
+
+.up {
+  margin-top: 2px;
+}
+
+.down {
+  margin-bottom: 2px;
+}
+
+.icon-size {
+  /* width: 128rpx; */
+	/* height: 128rpx; */
+	font-size: 3em;
+}
+
+.icon-pen-size {
+  /* width: 128rpx; */
+  /* height: 128rpx; */
+  padding: 10.5px 10.5px 10.5px 10.5px;
+	font-size: 1.5em;
+}
+
+.icon-up-size {
+  /* width: 128rpx; */
+  /* height: 128rpx; */
+  /* padding-top: 10px; */
+	font-size: 3em;
+}
+
+.icon-down-size {
+  /* width: 128rpx; */
+  /* height: 128rpx; */
+  /* padding-bottom: 10px; */
+	font-size: 3em;
+}
