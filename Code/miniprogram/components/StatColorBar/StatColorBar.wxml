@@ -2,7 +2,7 @@
 <!-- <text>components/StatColorBar/StatColorBar.wxml</text> -->
 <view class="container">
   <!-- <view class="box">  -->
-    <block wx:for="{{_array}}" class="colorarea">
+    <block wx:for="{{_array}}" class="colorarea" wx:key="index">
       <view class="pairpart">
         <!-- {{index}}: {{item}} -->
         <view class="quantum" style="background-color:{{_colorArray[index]}}">

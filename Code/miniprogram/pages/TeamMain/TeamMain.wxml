@@ -1,6 +1,9 @@
 <!--pages/Quantime/TeamMain/TeamMain.wxml-->
 <!-- <text>pages/Quantime/TeamMain/TeamMain.wxml</text> -->
 
+<view class="text-center">
+  下拉此处刷新 ↓
+</view>
   <view class="cu-bar search bg-white topbar">
     <view class="search-form round">
       <text class="cuIcon-search"></text>
@@ -12,6 +15,10 @@
     </view>
   </view>
 
+
+<view wx:if="{{tblist.length==0}}">
+  请到我的信息->类管理中新增你的类哦
+</view>
 <!-- <button class="mini-btn margin-top" type="primary" bindtap="ShowModal"> 新建 </button> -->
 <Formlist display="{{true}}" itemlist="{{item.TimeTables}}" title="{{item.ClassName}}" wx:for="{{tblist}}" wx:key="ClassID"></Formlist>
 <!-- 下面debug用 -->

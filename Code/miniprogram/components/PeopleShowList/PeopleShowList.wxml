@@ -12,9 +12,9 @@
 </view> -->
 
 <scroll-view class="contact_list" scroll-into-view="{{toViewId}}" style="height:100%;" scroll-y scroll-with-animation="true">
-  <block wx:for="{{EmptyContactObj}}" wx:for-item="item" wx:key="kind" wx:for-index="index">
+  <block wx:for="{{EmptyContactObj}}" wx:for-item="item" wx:key="kind" wx:for-index="index"  wx:if="{{!fn.CheckSelectEmpty(item, SelectDay, SelectHour)}}">
   <!-- <block wx:for="{{EmptyContactObj}}" wx:for-item="item" wx:key="kind" wx:for-index="index" wx:if="{{(!filter || !fn.CheckEmptyKind(item.entitys)) && !fn.CheckSearchKind(item.entitys, search_string)}}"> -->
-    <view class="padding" style="text-align:left;" id="{{index}}" wx:if="{{!fn.CheckSelectEmpty(item, SelectDay, SelectHour)}}">
+    <view class="padding" style="text-align:left;" id="{{index}}">
       {{index}}
     </view>
     <view class="cu-list menu-avatar no-padding">
@@ -34,7 +34,7 @@
             <!-- <view style="margin-right:50rpx;" wx:if="{{check}}">
               <checkbox value="test" bindtap="HandleCheckBox" data-kindindex="{{kindindex}}" data-itemindex="{{itemindex}}" data-mychecked="{{itemJ.checked}}" checked="{{itemJ.checked}}"/>
             </view> -->
-        </view>
+      </view>
     </view>
   </block>
 </scroll-view>

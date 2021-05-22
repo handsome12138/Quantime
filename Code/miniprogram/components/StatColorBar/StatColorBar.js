@@ -33,50 +33,55 @@ Component({
 
   lifetimes:{
     attached: function(e){
-      console.log("Components:StatColorBar is attached.")
-      console.log(this.data.array)
-      
-      let i,tempArray=[],temp_normal=[],tempColorArray=[]
-      for( i=0; i<24; i++){
-        tempArray.push( Math.round(Math.random()*30))
-      }
-      // this.setData({
-      //   _array:tempArray
-      // })
-      this.setData({
-        _array:this.properties.num_participants
-      })
-
-      this.setData({
-        max: Math.max(...this.data._array),//更新最大值
-      })
-      console.log("MAX:",this.data.max)
-
-      
-      for( i=0; i<24; i++){
-        temp_normal.push( this.data._array[i]/this.data.max )//计算百分比（人数/最大人数）数组
-      }
-      this.setData({
-        normal_array: temp_normal,//更新百分比（人数/最大人数）数组
-        
-      })
-      // console.log("temp_normal:", temp_normal)
-      console.log("this.data.normal_array:",this.data.normal_array)
-
-      for( i=0; i<24; i++){
-        tempColorArray.push(`rgb(255,255,${255-Math.round(this.data.normal_array[i]*255)})`)//根据百分比计算RGB数组
-      }
-      console.log("tempColorArray:",tempColorArray)
-      this.setData({
-        _colorArray: tempColorArray//更新RGB数组
-        
-      })
+      // console.log("Components:StatColorBar is attached.")
+      // console.log(this.data.array)
     },
 
 
     ready: function(e){
-      console.log("Components:StatColorBar is ready.")
-      
+      // console.log("Components:StatColorBar is ready.", this.data.num_participants)
+    }
+  },
+  observers:{
+    'num_participants'(num_participants){
+      // console.log('observer num_parti change', num_participants)
+      if(num_participants.length > 0){
+        let i,tempArray=[],temp_normal=[],tempColorArray=[]
+        for( i=0; i<24; i++){
+          tempArray.push( Math.round(Math.random()*30))
+        }
+        // this.setData({
+        //   _array:tempArray
+        // })
+        this.setData({
+          _array:this.properties.num_participants
+        })
+  
+        this.setData({
+          max: Math.max(...this.data._array),//更新最大值
+        })
+        // console.log("MAX:",this.data.max)
+  
+        
+        for( i=0; i<24; i++){
+          temp_normal.push( this.data._array[i]/this.data.max )//计算百分比（人数/最大人数）数组
+        }
+        this.setData({
+          normal_array: temp_normal,//更新百分比（人数/最大人数）数组
+          
+        })
+        // console.log("temp_normal:", temp_normal)
+        // console.log("this.data.normal_array:",this.data.normal_array)
+  
+        for( i=0; i<24; i++){
+          tempColorArray.push(`rgb(255,255,${255-Math.round(this.data.normal_array[i]*255)})`)//根据百分比计算RGB数组
+        }
+        // console.log("tempColorArray:",tempColorArray)
+        this.setData({
+          _colorArray: tempColorArray//更新RGB数组
+          
+        })
+      }
     }
   }
 })

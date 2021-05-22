@@ -3,5 +3,6 @@
     "Formunit":"../../components/Formunit/Formunit",
     "Formlist":"../../components/Formlist/Formlist"
   },
-  "component":true
+  "component":true,
+  "enablePullDownRefresh": true
 }
