@@ -1,1 +1,28 @@
 /* miniprogram/pages/Quantime/Login/Login.wxss */
+page{
+  height:100%;
+  }
+
+.background {
+  width: 100%;
+  height: 100%;
+  position:fixed; 
+  background-size:100% 100%;
+  z-index: -1;
+}
+
+.button-area {
+  position:fixed;
+  bottom:10%;
+  display:flex;
+  width:100%;
+  justify-content:center;
+}
+
+.button-get {
+  
+
+  /* position: fixed;
+  bottom: 10%; */
+  /* left: 0; */
+}

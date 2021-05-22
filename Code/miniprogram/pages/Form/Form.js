@@ -122,14 +122,14 @@ Page({
     let array = selectDates
     console.log("[debug] array:",array)
 
-    if(selectedDay.length < 3){
+    if(selectedDay.length < 3){//选中不足三个
       // enableDays.push(''+e.detail.year+'-'+e.detail.month+'-'+e.detail.date)
       // console.log("[debug] enableDays:",enableDays)
       // calendar.enableArea(['2018-11-12', '2018-11-30'])
       const calendar = this.selectComponent('#calendar').calendar
       // calendar.enableArea([])
     }
-    else if(selectedDay.length == 3){
+    else if(selectedDay.length == 3){//选中三个
       for(let i=0;i<3;i++){
         let iday = selectedDay[i]
         enableDays.push(''+iday.year+'-'+iday.month+'-'+iday.date)
@@ -139,7 +139,7 @@ Page({
       // calendar.enableDates(enableDays)
     }
     else{
-      const cancelDates = [
+      const cancelDates = [//选中超过三个
         {
           year: selectedDay[3].year,
           month: selectedDay[3].month,
@@ -147,7 +147,13 @@ Page({
         }
       ]
       console.log("[debug] cancelDates",cancelDates)
-      calendar.cancelSelectedDates(cancelDates)
+      calendar.cancelSelectedDates(cancelDates)//将选中的取消
+      wx.showToast({
+        title: '最多选择三天',
+        icon: 'none',
+        duration: 2000
+      })
+      
     }
     
   },
