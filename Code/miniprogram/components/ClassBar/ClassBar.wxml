@@ -9,14 +9,18 @@
     <view class="edit" bindtap="touchEdit">
       <text class="cuIcon-writefill icon-pen-size"></text>
     </view>
+
+    <view class="delete" bindtap="touchDelete">
+      <text class="cuIcon-deletefill icon-delete-size"></text>
+    </view>
     
-    <view class='up'>
+    <!-- <view class='up'>
       <text class="cuIcon-triangleupfill icon-up-size"></text>
     </view>
 
     <view class='down'> 
       <text class="cuIcon-triangledownfill icon-down-size"></text>
-    </view>
+    </view> -->
   </view>
   
   

@@ -4,7 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    num_participants: Array,
   },
 
   /**
@@ -40,8 +40,11 @@ Component({
       for( i=0; i<24; i++){
         tempArray.push( Math.round(Math.random()*30))
       }
+      // this.setData({
+      //   _array:tempArray
+      // })
       this.setData({
-        _array:tempArray
+        _array:this.properties.num_participants
       })
 
       this.setData({

@@ -12,7 +12,10 @@
     <view wx:for="{{TableInfo.Days}}" wx:key="index" wx:for-index="index">
       <view class="DateAndBar">
         <view class = "date">{{TableInfo.Days[index]}}</view>
-        <StatColorBar id="Bar-{{index}}" class="StatColorBar"></StatColorBar>
+        
+        <StatColorBar id="Bar-{{index}}" class="StatColorBar" num_participants="{{participants[index]}}"></StatColorBar>
+        
+        
       </view>
       
     </view>

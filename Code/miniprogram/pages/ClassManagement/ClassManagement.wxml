@@ -10,4 +10,18 @@
   <Class classData="{{classGroup[index]}}" id="class-{{index}}"></Class>
 </view>
 
-<button class="bg-green accept margin-xl" bindtap="newClass">新增类</button>
+<button class="bg-green accept margin-xl" bindtap="ShowModal">新增类</button>
+
+<view class="cu-modal modal {{modalname=='Create'?'show':''}}">
+  <view class='modal-content cu-dialog'>
+    <view class="cu-form-group margin">
+      新建类类名：
+      <input type="text" placeholder="请输入类名" model:value="{{newClassName}}"/>
+    </view>
+    <view class="flex margin">
+      <button class="flex-sub cu-btn line-green text-green shadow" style="width:150px;margin-left:50px;margin-right:20px" bindtap="Submit">提交</button>
+      <button class="flex-sub cu-btn line-green text-green shadow" style="width:150px;margin-left:50px;margin-right:20px" bindtap="HideModal">返回</button>
+    </view>
+  </view>
+    
+</view>
