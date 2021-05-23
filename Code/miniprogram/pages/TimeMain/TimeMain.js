@@ -198,5 +198,10 @@ Page({
         Status: NewStatus
       }
     })
+  },
+  GotoPeopleList: function(){
+    wx.navigateTo({
+      url: '/pages/PeopleList/PeopleList?TableID=' + this.data.TableID,
+    })
   }
 })

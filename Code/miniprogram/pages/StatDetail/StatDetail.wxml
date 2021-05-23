@@ -6,7 +6,7 @@
 bindtap="ShowSelected" bind:ChangePeople="ChangePeople"></TimeBar_Stat>
 
 <view style="height:{{windowHeight-150}}px">
-  <PeopleShowList JoinInfo="{{JoinInfo}}" SelectDay="{{Day}}" SelectHour="{{Hour}}"> </PeopleShowList>
+  <PeopleShowList JoinInfo="{{JoinInfo}}" SelectDay="{{Day}}" SelectHour="{{Hour}}" Select="{{true}}" Filter="{{false}}" FilterSet="{{FilterSet}}"> </PeopleShowList>
 </view>
 
 

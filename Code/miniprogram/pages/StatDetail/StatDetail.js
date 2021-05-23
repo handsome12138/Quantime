@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    FilterSet: new Set(),//过滤集合，暂时不用
     TableID: '',
     TableInfo: {},
     JoinInfo: [],

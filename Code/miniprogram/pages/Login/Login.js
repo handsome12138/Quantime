@@ -73,13 +73,30 @@ Page({
         app.globalData.NickName = res.userInfo.nickName;
         app.globalData.hasUserInfo = true;
         
-        db.collection('User').add({
-          data:{
-            'OpenID': app.globalData.openid, //OpenID
-            'avatarURL': res.userInfo.avatarUrl,
-            'NickName': res.userInfo.nickName
+        db.collection('User').where({
+          OpenID: app.globalData.openid
+        }).get().then(res => {
+          console.log('Login check res', res)
+          if(res.data.length > 0){
+            db.collection('User').where({
+              'OpenID': app.globalData.openid, //OpenID
+            }).update({
+              data:{
+                'avatarURL': res.userInfo.avatarUrl,
+                'NickName': res.userInfo.nickName
+              }
+            });
+          }else{
+            db.collection('User').add({
+              data:{
+                'OpenID': app.globalData.openid, //OpenID
+                'avatarURL': res.userInfo.avatarUrl,
+                'NickName': res.userInfo.nickName
+              }
+            });
           }
-        });
+        })
+        
         console.log('[debug]Login Userinfo', res.userInfo);
         wx.reLaunch({
           url: '/pages/TeamMain/TeamMain'

@@ -12,13 +12,13 @@
 </view> -->
 
 <scroll-view class="contact_list" scroll-into-view="{{toViewId}}" style="height:100%;" scroll-y scroll-with-animation="true">
-  <block wx:for="{{EmptyContactObj}}" wx:for-item="item" wx:key="kind" wx:for-index="index"  wx:if="{{!fn.CheckSelectEmpty(item, SelectDay, SelectHour)}}">
+  <block wx:for="{{EmptyContactObj}}" wx:for-item="item" wx:key="kind" wx:for-index="index"  wx:if="{{!fn.CheckSelectEmpty(item, SelectDay, SelectHour, Select)}}">
   <!-- <block wx:for="{{EmptyContactObj}}" wx:for-item="item" wx:key="kind" wx:for-index="index" wx:if="{{(!filter || !fn.CheckEmptyKind(item.entitys)) && !fn.CheckSearchKind(item.entitys, search_string)}}"> -->
     <view class="padding" style="text-align:left;" id="{{index}}">
       {{index}}
     </view>
     <view class="cu-list menu-avatar no-padding">
-      <view class="cu-item" wx:for="{{item}}" wx:for-item="itemJ" wx:key="_id" wx:for-index="itemindex" wx:if="{{true && itemJ.SelectTime[SelectDay][SelectHour]>0}}">
+      <view class="cu-item" wx:for="{{item}}" wx:for-item="itemJ" wx:key="_id" wx:for-index="itemindex" wx:if="{{!Select || itemJ.SelectTime[SelectDay][SelectHour]>0}}">
         <!-- 这里先不做筛选 -->
           <!-- <view class="cu-item" wx:for="{{item}}" wx:for-item="itemJ" wx:key="_id" wx:if="{{(itemJ.checked || !filter) && fn.CheckSearchItem(itemJ, search_string)}}" wx:for-index="itemindex"> -->
             <!-- <view class="cu-avatar round lg">{{itemJ.avatarURL}}</view> -->
@@ -44,9 +44,9 @@
 
 <wxs module="fn">
   module.exports = {
-    CheckSelectEmpty: function(array, day, hour){
+    CheckSelectEmpty: function(array, day, hour, select){
       for(var i=0; i < array.length; i++){
-        if( array[i].SelectTime[day][hour] > 0){
+        if( !select || array[i].SelectTime[day][hour] > 0){
           return false;
         }
       }

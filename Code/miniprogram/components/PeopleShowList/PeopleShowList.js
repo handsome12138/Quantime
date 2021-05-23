@@ -9,6 +9,10 @@ Component({
       type: 'list',
       value: []
     },
+    Select: {
+      type: Boolean,
+      value: false
+    },
     SelectDay: {
       type: 'int',
       value: 0
@@ -16,6 +20,14 @@ Component({
     SelectHour: {
       type: 'int',
       value: 0
+    },
+    Filter:{
+      type: Boolean,
+      value: false
+    },
+    FilterSet:{
+      type: Set,
+      value: new Set()
     }
   },
 

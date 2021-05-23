@@ -29,10 +29,10 @@
 		<view class="title">查看统计结果</view>
 		<view class="arrow"></view>
 	</view>
-	<!-- <view class="cu-form-group">
+	<view class="cu-form-group" bindtap="GotoPeopleList">
     <view class="title">查看参与人数</view>
     <view class="arrow"></view>
-	</view> -->
+	</view>
 	<!-- <view class="cu-form-group margin-bottom">
 		<view class="title">编辑表单（新增统计时间）</view>
 		<view class="arrow"></view>
