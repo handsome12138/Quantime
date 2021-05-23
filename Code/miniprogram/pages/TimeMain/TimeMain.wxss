@@ -1,8 +1,4 @@
 /* pages/TimeMain/TimeMain.wxss */
-.container {
-  /* display: flex;
-  flex-direction: column; */
-}
 .cu-form-group .title {
   min-width: calc(4em + 30rpx);
 }
@@ -80,3 +76,24 @@
 .peoplecount{
   font-size:12px;
 }
+
+Button{
+  background-color: rgb(247, 247, 247);
+  border-radius: 0px !important;
+  padding: 0px !important;
+  margin: 0px !important;
+  display: inline-block;
+  line-height: 1 !important;
+  width: 100% !important;
+  padding: 1rpx 30rpx !important;
+  font-weight: normal !important;
+}
+
+button::after{ /*button的边框样式是通过::after方式实现的*/
+  border:none;
+  }
+
+.button-hover{ /*点击后样式*/
+  color:#000;
+  background-color: rgb(247, 247, 247);
+  }
