@@ -34,6 +34,11 @@
   margin: 12px 0px 10px 0px;
 }
 
+.check {
+  /* margin:10px; */
+  margin: 12px 0px 10px 0px;
+}
+
 .delete {
   /* margin:10px; */
   margin: 12px 0px 10px 0px;
@@ -54,6 +59,13 @@
 }
 
 .icon-pen-size {
+  /* width: 128rpx; */
+  /* height: 128rpx; */
+  padding: 10.5px 10.5px 10.5px 10.5px;
+	font-size: 1.5em;
+}
+
+.icon-check-size {
   /* width: 128rpx; */
   /* height: 128rpx; */
   padding: 10.5px 10.5px 10.5px 10.5px;

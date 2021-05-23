@@ -2,13 +2,18 @@
 <view wx:if="{{myshow}}">
   <view class="container">
     <view class="name">
-      <text class="ClassName">{{ClassObj.ClassName}}</text>
+      <!-- <text class="ClassName">{{ClassObj.ClassName}}</text> -->
+      <input class="ClassName" model:value="{{ClassObj.ClassName}}" disabled="{{!editHidden}}"></input>
     </view>
     
     <!-- <text class="cuIcon-creativefill text-yellow"></text> -->
     <view class="button-group">
-      <view class="edit" bindtap="touchEdit">
+      <view class="edit" hidden='{{editHidden}}' bindtap="touchEdit" >
         <text class="cuIcon-writefill icon-pen-size"></text>
+      </view>
+
+      <view class="check" hidden='{{checkHidden}}' bindtap="touchCheck" >
+        <text class="cuIcon-roundcheck icon-check-size"></text>
       </view>
   
       <view class="delete" bindtap="HandleDelete">

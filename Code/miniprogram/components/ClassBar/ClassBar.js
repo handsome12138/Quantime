@@ -14,7 +14,9 @@ Component({
    * 组件的初始数据
    */
   data: {
-    myshow: true
+    myshow: true,
+    editHidden: false,
+    checkHidden: true,
   },
 
   /**
@@ -51,6 +53,24 @@ Component({
         }
   
       })
-    }
-  }
+    },
+    touchEdit(){
+      console.log('[debug] touchEdit()')
+      this.setData({
+        editHidden: true,
+        checkHidden: false,
+      })
+    },
+  
+    touchCheck(){
+      console.log('[debug] touchCheck()')
+      this.setData({
+        editHidden: false,
+        checkHidden: true,
+      })
+  
+    },
+  },
+
+  
 })

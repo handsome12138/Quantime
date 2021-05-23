@@ -175,6 +175,9 @@ Page({
           NewClassID: this.data.ClassIDList[this.data.MoveTableIdx]
         }
       })
+    }else if(e.currentTarget.dataset.modalname == "MoveTable")
+    {
+      // 复制表单
     }
     wx.showToast({
       title: '移动成功',
@@ -205,3 +208,4 @@ Page({
     })
   }
 })
+

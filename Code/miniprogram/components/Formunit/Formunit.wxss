@@ -10,17 +10,17 @@
   height: 200rpx;
   justify-content: space-between;
   /* padding-bottom: 40px; */
-  padding-left: 20px;
-  padding-right: 20px;
-  width: 325px;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  width: 650rpx;
 }
 
 .headline{
   margin-top:16px;
-  font-size:18px;
+  font-size:36rpx;
 }
 .content{
-  font-size:13px;
+  font-size:26rpx;
 }
 .status {
   display: flex;
@@ -33,23 +33,23 @@
 }
 .text{
   padding-bottom: 14px;
-  padding-left: 8px;
-  font-size:12px;
+  padding-left: 16rpx;
+  font-size:24rpx;
 }
 .circle-true{
-    width: 12px;
+    width: 24rpx;
     height: 12px;
     background: #7fee1d;
     border-radius: 6px;
     margin-top:2px;
 }
 .circle-false{
-    width: 12px;
+    width: 24rpx;
     height: 12px;
     background: red;
     border-radius: 6px;
     margin-top:2px;
 }
 .peoplecount{
-  font-size:12px;
+  font-size:24rpx;
 }

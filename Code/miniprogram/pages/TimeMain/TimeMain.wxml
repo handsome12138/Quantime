@@ -50,11 +50,13 @@
   </view>
   
   <view class="margin-top margin-left">表单管理</view>
-  <view class="cu-form-group margin-top">
-		<view class="title">分享表单</view>
+  <view class="margin-top">
+    <button class="ShareButton cu-form-group" open-type="share">
+    <view class="title">分享表单</view>
 		<view class="arrow"></view>
+    </button>
 	</view>
-	<view class="cu-form-group">
+	<view class="cu-form-group" bindtap="ShowModal" data-modalname="CopyTable">
     <view class="title">拷贝表单</view>
     <view class="arrow"></view>
   </view>
@@ -82,6 +84,23 @@
     </view>
     <view class="flex margin">
         <button class="flex-sub cu-btn line-green text-green shadow" style="width:150px;margin-left:50px;margin-right:20px" bindtap="SubmitModal" data-modalname="MoveTable">提交</button>
+        <button class="flex-sub cu-btn line-green text-green shadow" style="width:150px;margin-left:50px;margin-right:20px" bindtap="HideModal">返回</button>
+      </view>
+  </view>
+</view>
+
+<view class="cu-modal {{modalname=='CopyTable'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-form-group margin-top">
+        <view class="title">复制到的类别</view>
+        <picker model:value="{{MoveTableIdx}}" range="{{ClassNameList}}">
+            <view class="picker">
+            {{ClassNameList[MoveTableIdx]}}
+            </view>
+        </picker>
+    </view>
+    <view class="flex margin">
+        <button class="flex-sub cu-btn line-green text-green shadow" style="width:150px;margin-left:50px;margin-right:20px" bindtap="SubmitModal" data-modalname="CopyTable">提交</button>
         <button class="flex-sub cu-btn line-green text-green shadow" style="width:150px;margin-left:50px;margin-right:20px" bindtap="HideModal">返回</button>
       </view>
   </view>
