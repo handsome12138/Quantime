@@ -28,7 +28,7 @@
       </navigator>
     </view>
     <view class="cu-item arrow">
-      <navigator class="content" url="../Involved/Involved" hover-class="none">
+      <navigator class="content" url="../MySavedTable/MySavedTable" hover-class="none">
         <text class="cuIcon-friendaddfill text-orange"></text>
         <text class="text-grey">我参与的时间统计</text>
       </navigator>

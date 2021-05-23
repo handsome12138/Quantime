@@ -45,7 +45,7 @@
 	</view>
 	<view class="cu-form-group">
     <view class="title">是否允许其他用户保存</view>
-    <switch class="green sm" checked></switch>
+    <switch class="green sm" checked="{{TableInfo.Save}}" bindchange="AlterTableSave"></switch>
     <!-- 这里需要数据库增加一个bool变量以设置 checked同上“是否发布” -->
   </view>
   

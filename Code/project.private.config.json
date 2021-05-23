@@ -106,6 +106,12 @@
         {
           "name": "pages/ClassManagement/ClassManagement",
           "pathName": "pages/ClassManagement/ClassManagement",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/MySavedTable/MySavedTable",
+          "pathName": "pages/MySavedTable/MySavedTable",
           "scene": null
         }
       ]

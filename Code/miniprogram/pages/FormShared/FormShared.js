@@ -56,11 +56,12 @@ Page({
           TableID: options.TableID,
           UserID: app.globalData.openid
         }).get().then(res => {
-          if(res.data.length > 0){
-            wx.navigateTo({
-              url: '/pages/TimeSelect/TimeSelect?TableID='+options.TableID,
-            })
-          }
+          // 禁用自动跳转
+          // if(res.data.length > 0){
+          //   wx.navigateTo({
+          //     url: '/pages/TimeSelect/TimeSelect?TableID='+options.TableID,
+          //   })
+          // }
         })
       }
     })
@@ -126,6 +127,24 @@ Page({
       }
     }).then(res => {
       console.log('Formshared Call Join res=', res);
+    })
+    wx.navigateTo({
+      url: '/pages/TimeSelect/TimeSelect?TableID=' + this.data.TableID,
+    })
+  },
+  HandleSaveToMine: function(){
+    wx.cloud.callFunction({
+      name:'SaveToMine',
+      data:{
+        TableID: this.data.TableID
+      }
+    }).then(res => {
+      console.log('Formshared SaveToMine=', res);
+      if(res.result.AlreadyIn == 1){
+        wx.showToast({
+          title: '已经保存',
+        })
+      }
     })
     wx.navigateTo({
       url: '/pages/TimeSelect/TimeSelect?TableID=' + this.data.TableID,

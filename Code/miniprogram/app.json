@@ -15,7 +15,8 @@
     "pages/StatDetail/StatDetail",
     "pages/Index/Index",
     "pages/ClassManagement/ClassManagement",
-    "pages/PeopleList/PeopleList"
+    "pages/PeopleList/PeopleList",
+    "pages/MySavedTable/MySavedTable"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

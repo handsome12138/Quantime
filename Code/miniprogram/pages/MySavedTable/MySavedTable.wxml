@@ -1,0 +1,10 @@
+<!-- miniprogram/pages/MySavedTable/MySavedTable.wxml -->
+<!-- <text>miniprogram/pages/MySavedTable/MySavedTable.wxml</text> -->
+<view wx:if="{{TableList.length == 0}}">
+  暂无保存的表单
+</view>
+<view wx:else>
+  <view wx:for="{{TableList}}" wx:key="_id">
+    <Formunit item="{{item}}" data-id="{{item.TableID}}" bindtap="GotoStat"></Formunit>
+  </view>
+</view>

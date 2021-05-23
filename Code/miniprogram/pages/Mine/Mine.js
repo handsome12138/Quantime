@@ -26,9 +26,9 @@ Page({
     console.log(this.data.avatarURL)
   },
   GotoUser: function(){
-    wx.navigateTo({
-      url: '/pages/User/User',
-    })
+    // wx.navigateTo({
+    //   url: '/pages/User/User',
+    // })
   },
   
   

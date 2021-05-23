@@ -7,7 +7,7 @@ cloud.init()
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const db = cloud.database()
-  if(!(event.Name && (typeof(event.Status)!="undefined") && event.Context && event.BelongClassID && event.Days)){
+  if(!(event.Name && (typeof(event.Status)!="undefined") && (typeof(event.Save)!="undefined") && event.Context && event.BelongClassID && event.Days)){
     // 传入的参数不足
     console.log("[数据库] [新增数据] TimeTable FAIL: 参数不足", event);
     return {info:'error 参数不足', event:event};
@@ -31,7 +31,8 @@ exports.main = async (event, context) => {
       Days: event.Days,
       CreateTime: CreateTime,
       ClassID: event.BelongClassID,
-      Avaliable: Avaliable
+      Avaliable: Avaliable,
+      Save: Save
     },
   }).catch(res => {
     console.log("[数据库] [新增数据] TimeTable FAIL: ", res);

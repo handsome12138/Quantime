@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    ShowRefreshText: false,
+    BeginShowText: false,
     _tblist: [],//保存this.GetTableInfo()获取的源数据
     tblist: [],
     modalname: null,
@@ -111,13 +113,6 @@ Page({
   },
 
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
@@ -139,6 +134,9 @@ Page({
     wx.showLoading({
       title: '刷新中...',
     })
+    this.setData({
+      ShowRefreshText: true
+    })
     this.GetTableInfo();
   },
   GetTableInfo: function(){
@@ -152,7 +150,8 @@ Page({
       console.log('[debug][TeamMain] call cloud:', res);
       this.setData({
         _tblist : res.result.tblist,
-        tblist: res.result.tblist
+        tblist: res.result.tblist,
+        BeginShowText: true
       }, ()=>{
         console.log(this.data.tblist);
       })
@@ -163,6 +162,9 @@ Page({
     wx.hideNavigationBarLoading();
     //停止下拉刷新
     wx.stopPullDownRefresh();
+    this.setData({
+      ShowRefreshText: false
+    })
   },
   ShowModal: function(){
     this.setData({

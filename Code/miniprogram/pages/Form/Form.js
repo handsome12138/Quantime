@@ -309,7 +309,8 @@ submit_next:function(){
       Status: 0,
       Context: this.data.TableContext,
       BelongClassID: this.data.ClassIDList[this.data.ClassIndex],
-      Days: SelecteDayList
+      Days: SelecteDayList,
+      Save: 1
     }
   }).then(res => {
     console.log('[debug] Form.js call AddTable', res);

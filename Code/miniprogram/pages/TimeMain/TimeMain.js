@@ -129,6 +129,7 @@ Page({
     })
   },
   HandleDeleteTable:function(){
+    var that = this;
     wx.showModal({
       title: '提示',
       content: '是否确认删除',
@@ -137,7 +138,7 @@ Page({
           wx.cloud.callFunction({
             name: 'DeleteTimeTable',
             data:{
-              TableID: this.data.TableID
+              TableID: that.data.TableID
             }
           })
           wx.showToast({
@@ -199,6 +200,26 @@ Page({
     }).update({
       data : {
         Status: NewStatus
+      }
+    })
+  },
+  AlterTableSave: function(){
+    const db = wx.cloud.database();
+    let NewSave;
+    if( typeof(this.data.TableInfo.Save) != "undefined"){
+      NewSave = 1 - this.data.TableInfo.Save
+    }else{
+      NewSave = 1
+    }
+    console.log('Alter TimeTable Status',NewSave,this.data.TableInfo)
+    this.setData({
+      'TableInfo.Save': NewSave
+    })
+    db.collection('TimeTable').where({
+      _id: this.data.TableID
+    }).update({
+      data : {
+        Save: NewSave
       }
     })
   },

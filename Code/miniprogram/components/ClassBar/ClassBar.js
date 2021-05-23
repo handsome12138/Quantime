@@ -14,6 +14,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    MyClassName: '',
     myshow: true,
     editHidden: false,
     checkHidden: true,
@@ -55,7 +56,7 @@ Component({
       })
     },
     touchEdit(){
-      console.log('[debug] touchEdit()')
+      // console.log('[debug] touchEdit()')
       this.setData({
         editHidden: true,
         checkHidden: false,
@@ -63,14 +64,30 @@ Component({
     },
   
     touchCheck(){
-      console.log('[debug] touchCheck()')
+      console.log('[debug] touchCheck()', this.data.ClassObj)
       this.setData({
         editHidden: false,
         checkHidden: true,
       })
+      const db = wx.cloud.database();
+      db.collection('TimeTableClass').where({
+        _id: this.data.ClassObj._id
+      }).update({
+        data:{
+          ClassName: this.data.MyClassName
+        }
+      })
   
     },
   },
-
+  observers:{
+    'ClassObj'(ClassObj){
+      if(ClassObj){
+        this.setData({
+          MyClassName: ClassObj.ClassName
+        })
+      }
+    }
+  }
   
 })

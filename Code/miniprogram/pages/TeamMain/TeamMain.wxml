@@ -1,22 +1,22 @@
 <!--pages/Quantime/TeamMain/TeamMain.wxml-->
 <!-- <text>pages/Quantime/TeamMain/TeamMain.wxml</text> -->
 
-<view class="text-center">
+<!-- <view class="text-center padding">
   下拉此处刷新 ↓
-</view>
+</view> -->
   <view class="cu-bar search bg-white topbar">
     <view class="search-form round">
       <text class="cuIcon-search"></text>
-      <input type="text" placeholder="搜索类、表单" confirm-type="search" model:value="{{subsequence}}"></input>
+      <input type="text" placeholder="搜索类、表单" confirm-type="search" model:value="{{subsequence}}" bindblur="doSearch"></input>
     </view>
     <view class="action_btn">
-      <button class="cu-btn bg-green shadow-blur round"  bindtap="doSearch">搜索</button>
+      <!-- <button class="cu-btn bg-green shadow-blur round"  bindtap="doSearch">搜索</button> -->
       <button class="cu-btn bg-green shadow-blur round"  bindtap="GotoForm">新建</button>
     </view>
   </view>
 
 
-<view wx:if="{{tblist.length==0}}">
+<view wx:if="{{tblist.length==0 && BeginShowText}}">
   请到我的信息->类管理中新增你的类哦
 </view>
 <!-- <button class="mini-btn margin-top" type="primary" bindtap="ShowModal"> 新建 </button> -->
