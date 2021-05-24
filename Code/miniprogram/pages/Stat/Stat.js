@@ -34,7 +34,7 @@ Page({
         TableID: options.TableID
       }
     }).then(res => {
-      console.log('[debug] stat res data = ', res.result)
+      // console.log('[debug] stat res data = ', res.result)
       this.setData({
         TableInfo: res.result.TableInfo,
         PeopleCount: res.result.PeopleCount,

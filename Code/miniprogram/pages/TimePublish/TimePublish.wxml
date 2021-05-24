@@ -13,7 +13,7 @@
       <view class="DateAndBar">
         <view class = "date">{{TableInfo.Days[index]}}</view>
         <!-- <TimeSelectionBar id="Bar-{{index}}" pageName="{{pageName}}" particle="{{quant[index]}}" class="TimeSelectionBar"></TimeSelectionBar> -->
-        <TimeSelectionBar id="Bar-{{index}}" pageName="{{pageName}}"  class="TimeSelectionBar"></TimeSelectionBar>
+        <TimeSelectionBar id="Bar-{{index}}" pageName="{{pageName}}" particle="{{TableInfo.Avaliable[index].choose}}" class="TimeSelectionBar"></TimeSelectionBar>
         
       </view>
       

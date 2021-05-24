@@ -6,7 +6,7 @@ Component({
    */
   properties: {
     JoinInfo:{
-      type: 'list',
+      type: Array,
       value: []
     },
     Select: {
@@ -14,11 +14,11 @@ Component({
       value: false
     },
     SelectDay: {
-      type: 'int',
+      type: Number,
       value: 0
     },
     SelectHour: {
-      type: 'int',
+      type: Number,
       value: 0
     },
     Filter:{
