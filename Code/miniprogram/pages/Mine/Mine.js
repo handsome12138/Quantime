@@ -16,9 +16,36 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     // userInfo: '',
     obj: '',
-    
+    editHidden: false,
+    checkHidden: true,
+    modalname: '',
   },
 
+
+  touchEdit(){
+    // console.log('[debug] touchEdit()')
+    this.setData({
+      editHidden: true,
+      checkHidden: false,
+    })
+  },
+
+  touchCheck(){
+    // console.log('[debug] touchCheck()', this.data.ClassObj)
+    this.setData({
+      editHidden: false,
+      checkHidden: true,
+    })
+    // const db = wx.cloud.database();
+    // db.collection('TimeTableClass').where({
+    //   _id: this.data.ClassObj._id
+    // }).update({
+    //   data:{
+    //     ClassName: this.data.MyClassName
+    //   }
+    // })
+
+  },
   bindViewTap: function(e){
     console.log(this.data.avatarURL)
   },
@@ -26,6 +53,36 @@ Page({
     // wx.navigateTo({
     //   url: '/pages/User/User',
     // })
+  },
+  ShowModal: function(e){
+    this.setData({
+      modalname: e.currentTarget.dataset.modalname
+    })
+  },
+  HideModal: function(){
+    this.setData({
+      modalname: null
+    })
+  },
+  SubmitModal: function(e){
+    var that = this;
+    if(e.currentTarget.dataset.modalname == "EditNickname"){
+      // 修改昵称
+      // wx.cloud.callFunction({
+      //   name: 'AlterTimeTableBelong',
+      //   data:{
+      //     TableID: this.data.TableID,
+      //     NewClassID: this.data.ClassIDList[this.data.MoveTableIdx]
+      //   }
+      // })
+      wx.showToast({
+        title: '修改成功',
+        duration: 500,
+        success(){
+          that.HideModal();
+        }
+      })
+    }
   },
   
   
