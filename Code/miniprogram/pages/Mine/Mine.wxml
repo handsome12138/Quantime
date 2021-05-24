@@ -11,10 +11,20 @@
       <view class="avatar_nickname">
         <image bindtap="bindViewTap" class="userinfo-avatar" src="{{avatarURL}}" ></image>
         <view class="nickname">{{NickName}} </view>
+        <!-- <input class="ClassName" model:value="{{MyClassName}}" disabled="{{!editHidden}}" focus="{{editHidden}}" cursor="0"></input> -->
       </view>
-      <view class="arrow_part" bindtap="GotoUser">
+      <view class="arrow_part" bindtap="ShowModal" data-modalname="EditNickname">
         <view class="right_arrow"></view>
       </view>
+      <!-- <view class="button-group">
+        <view class="edit" hidden='{{editHidden}}' bindtap="touchEdit" >
+          <text class="cuIcon-writefill icon-pen-size"></text>
+        </view>
+
+        <view class="check" hidden='{{checkHidden}}' bindtap="touchCheck" >
+          <text class="cuIcon-roundcheck icon-check-size"></text>
+        </view>
+      </view> -->
     </view>
   </view>
 </view>
@@ -58,3 +68,20 @@
     
   </view>
   <view class="cu-tabbar-height"></view>
+
+
+<!-- 以下部分是模态框 -->
+
+<!-- 编辑昵称模态框 -->
+<view class="cu-modal {{modalname=='EditNickname'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-form-group margin-top">
+        <!-- <view class="title">编辑标题</view> -->
+        <input class="Q_input" prompt="昵称" placeholder="请输入昵称" model:value="{{NickName}}"></input>
+    </view>
+    <view class="flex margin">
+        <button class="flex-sub cu-btn line-green text-green shadow" style="width:150px;margin-left:50px;margin-right:20px" bindtap="SubmitModal" data-modalname="EditNickname">提交</button>
+        <button class="flex-sub cu-btn line-green text-green shadow" style="width:150px;margin-left:50px;margin-right:20px" bindtap="HideModal">返回</button>
+      </view>
+  </view>
+</view>

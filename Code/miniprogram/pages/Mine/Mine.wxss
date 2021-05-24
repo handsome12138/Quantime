@@ -78,3 +78,53 @@
   color: white;
   text-shadow: 0 0 6rpx black;
 }
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  font-size: 25px;
+  margin: 0 20px 0px 20px;
+}
+
+.edit {
+  /* margin:10px; */
+  margin: 12px 0px 10px 0px;
+}
+
+.check {
+  /* margin:10px; */
+  margin: 12px 0px 10px 0px;
+}
+
+.delete {
+  /* margin:10px; */
+  margin: 12px 0px 10px 0px;
+}
+
+.up {
+  margin-top: 2px;
+}
+
+.down {
+  margin-bottom: 2px;
+}
+
+.icon-size {
+  /* width: 128rpx; */
+	/* height: 128rpx; */
+	font-size: 30em;
+}
+
+.icon-pen-size {
+  /* width: 128rpx; */
+  /* height: 128rpx; */
+  padding: 10.5px 10.5px 10.5px 10.5px;
+	/* font-size: 50px; */
+}
+
+.icon-check-size {
+  /* width: 128rpx; */
+  /* height: 128rpx; */
+  padding: 10.5px 10.5px 10.5px 10.5px;
+	/* font-size: 30em; */
+}
