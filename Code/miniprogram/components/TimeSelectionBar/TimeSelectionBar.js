@@ -72,7 +72,7 @@ Component({
         }) 
       }
       else{
-        console.log('[debug] control is false')
+        // console.log('[debug] control is false')
       }
       
       
@@ -87,7 +87,7 @@ Component({
 
   lifetimes:{
     attached: function(e){
-      console.log("[debug] Components:TimeSelectionBar is attached.")
+      // console.log("[debug] Components:TimeSelectionBar is attached.")
       // console.log("_particle:",this.data._particle)
       // console.log("pageName:",this.properties.pageName)
       

@@ -315,7 +315,7 @@ submit_next:function(){
   }).then(res => {
     console.log('[debug] Form.js call AddTable', res);
     wx.navigateTo({
-      url: '/pages/TimePublish/TimePublish?TableID='+res.result.id,
+      url: '/pages/TimePublish/TimePublish?TableID='+res.result.id+'&control=1',
     })
   })
   

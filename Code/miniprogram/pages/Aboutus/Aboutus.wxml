@@ -9,7 +9,39 @@
   </view> -->
   <view class="cu-list menu-avatar">
     
-    <view class='text-left margin-bottom text-xl  text-grey'>产品</view>
+    
+    <view class='text-left margin-bottom text-xl  text-grey'>设计</view>
+    <view class="cu-item">
+      <view class="cu-avatar round lg" style="background-image:url(https://6465-development-7g9q612v12e4c773-1305475033.tcb.qcloud.la/src/aboutus/qjcd2.jpg?sign=db7badeffb8f600d4ba97733bba5c0f1&t=1621852555);"></view>
+      <view class="content flex-sub">
+        <view class="text-grey">青椒炒蛋</view>
+        <view class="text-gray flex justify-between">
+          别写了，吃饭去了
+        </view>
+      </view>
+    </view>
+    
+    <view class='text-left margin-bottom text-xl  text-grey'>产品/前端</view>
+    <view class="cu-item">
+      <view class="cu-avatar round lg" style="background-image:url(https://6465-development-7g9q612v12e4c773-1305475033.tcb.qcloud.la/src/aboutus/qcs.jpg?sign=40cd0850d3ed473c7ed1a828b957a403&t=1621852579);"></view>
+      <view class="content flex-sub">
+        <view class="text-grey">屈臣氏</view>
+        <view class="text-gray flex justify-between">
+          克里斯缇娜一生推
+        </view>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="cu-avatar round lg" style="background-image:url(https://6465-development-7g9q612v12e4c773-1305475033.tcb.qcloud.la/src/aboutus/wanshe.jpg?sign=94263fdfe94c02a979b67875b0a2bb46&t=1617714416);"></view>
+      <view class="content flex-sub">
+        <view class="text-grey">豌射</view>
+        <view class="text-gray flex justify-between">
+          寂寞披衣起坐数寒星
+        </view>
+      </view>
+    </view>
+    
+    <view class='text-left margin-bottom text-xl  text-grey'>产品/后端</view>
     <view class="cu-item">
       <view class="cu-avatar round lg" style="background-image:url(https://6465-development-7g9q612v12e4c773-1305475033.tcb.qcloud.la/src/test.jpg?sign=76f3d3893b1d33fedd3ca3b704a6a127&t=1617714571);"></view>
       <view class="content flex-sub">
@@ -19,20 +51,6 @@
         </view>
       </view>
     </view>
-    
-    <view class='text-left margin-bottom text-xl  text-grey'>设计</view>
-    
-    <view class='text-left margin-bottom text-xl  text-grey'>开发</view>
-    <view class="cu-item">
-      <view class="cu-avatar round lg" style="background-image:url(https://6465-development-7g9q612v12e4c773-1305475033.tcb.qcloud.la/src/aboutus/wanshe.jpg?sign=94263fdfe94c02a979b67875b0a2bb46&t=1617714416);"></view>
-      <view class="content flex-sub">
-        <view class="text-grey">豌射</view>
-        <view class="text-gray flex justify-between">
-          别写了，吃饭去了
-        </view>
-      </view>
-    </view>
-    
 
   </view>
 </view>

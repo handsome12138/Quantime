@@ -1,13 +1,15 @@
 <!-- miniprogram/pages/MySavedTable/MySavedTable.wxml -->
 <!-- <text>miniprogram/pages/MySavedTable/MySavedTable.wxml</text> -->
 <view class="mainpart">
-  <view wx:if="{{TableList.length == 0 && BeginShowText}}">
+  <view style="text-align:center;margin: 20rpx 0 0 0" wx:if="{{TableList.length == 0 && BeginShowText}}">
     暂无保存的表单
   </view>
   <view wx:else class="list">
     <view wx:for="{{TableList}}" wx:key="_id">
-      <Formunit item="{{item}}" data-id="{{item.TableID}}" bindtap="GotoStat"></Formunit>
+      <Formunit item="{{item}}" data-id="{{item.TableID}}" data-index="{{index}}" bindtap="GotoStat" bindlongtap="HandleLongTap"></Formunit>
     </view>
   </view>
+
+<!-- {{TableList.length}} -->
  
 </view>

@@ -21,22 +21,21 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.cloud.callFunction({
-      name: 'GetSavedTable'
-    }).then(res => {
-      console.log('MySavedTable call res=', res)
-      this.setData({
-        TableList: res.result.TableList,
-        BeginShowText: true
-      })
-    })
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    wx.cloud.callFunction({
+      name: 'GetSavedTable'
+    }).then(res => {
+      // console.log('MySavedTable call res=', res)
+      this.setData({
+        TableList: res.result.TableList,
+        BeginShowText: true
+      })
+    })
   },
 
   /**
@@ -77,6 +76,32 @@ Page({
     console.log("MySavedTable Goto Stat", e);
     wx.navigateTo({
       url: '/pages/Stat/Stat?TableID=' + e.target.dataset.id,
+    })
+  },
+  HandleLongTap: function(e){
+    // 实际上是delete
+    var that = this;
+    wx.showModal({
+      title: '提示',
+      content: '确认删除保存的表单',
+      success(res){
+        if(res.confirm){
+          wx.cloud.database().collection("TimeTable_Save_Relation").where({
+            TableID: e.target.dataset.id
+          }).remove()
+          wx.showToast({
+            title: '删除成功',
+            duration: 1000,
+          })
+          var NewTableList = that.data.TableList;
+          NewTableList.splice(e.target.dataset.index, 1);
+          that.setData({
+            TableList: NewTableList
+          })
+          console.log('after splice', that.data.TableList)
+        }
+      }
+
     })
   }
 })

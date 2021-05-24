@@ -31,10 +31,10 @@ App({
       }
     }).then(res =>{
       // console.log('App.js call login:', res);
-      this.globalData['openid'] = res.result.openid;
+      // this.globalData['openid'] = res.result.openid;
+      // this.globalData['avatarURL'] = res.result.avatarURL;
+      // this.globalData['NickName'] = res.result.NickName;
       this.globalData['RegisterStatus'] = res.result.RegisterStatus;
-      this.globalData['avatarURL'] = res.result.avatarURL;
-      this.globalData['NickName'] = res.result.NickName;
       this.globalData['hasUserInfo'] = (res.result.RegisterStatus == 1)
       if(res.result.RegisterStatus != 1){
         wx.redirectTo({

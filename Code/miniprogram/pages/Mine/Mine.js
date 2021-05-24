@@ -7,10 +7,7 @@ Page({
    */
   data: {
     avatarURL: '',
-    // avatarURL: 'https://thirdwx.qlogo.cn/mmopen/vi_32/Df6Xk0PLxDjkDndxQtjEJLcRelmHweKve3qJPiaLqhiaBlgJrODOn02gdicy1ybO1pvgj3hyeK7Vr0cVCefPpQYRA/132',
-    
     NickName: 'default',
-    
     recents: [],
     collections: [],
     motto: 'Hello World',
@@ -36,16 +33,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (app.globalData.avatarURL && app.globalData.NickName){
-      this.setData({
-        avatarURL: app.globalData.avatarURL,
-        NickName: app.globalData.NickName
-      })
-    } else {
-      wx.navigateTo({
-        url: '/pages/Login/Login',
-      })
-    }
+    wx.cloud.callFunction({
+      name: 'getUserInfo'
+    }).then(res =>{
+      console.log('Mine getUserInfo res=',res)
+      if(!res.result.HasUserInfo){
+        wx.navigateTo({
+          url: '/pages/Login/Login',
+        })
+      }else{
+        this.setData({
+          avatarURL: res.result.avatarURL,
+          NickName: res.result.NickName
+        })
+      }
+    })
     
   },
 

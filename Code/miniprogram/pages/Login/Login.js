@@ -69,37 +69,21 @@ Page({
     wx.getUserProfile({
       desc: '用于完善资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
-        app.globalData.avatarURL = res.userInfo.avatarUrl;
-        app.globalData.NickName = res.userInfo.nickName;
+        // app.globalData.avatarURL = res.userInfo.avatarUrl;
+        // app.globalData.NickName = res.userInfo.nickName;
         app.globalData.hasUserInfo = true;
         
-        db.collection('User').where({
-          OpenID: app.globalData.openid
-        }).get().then(res => {
-          console.log('Login check res', res)
-          if(res.data.length > 0){
-            db.collection('User').where({
-              'OpenID': app.globalData.openid, //OpenID
-            }).update({
-              data:{
-                'avatarURL': res.userInfo.avatarUrl,
-                'NickName': res.userInfo.nickName
-              }
-            });
-          }else{
-            db.collection('User').add({
-              data:{
-                'OpenID': app.globalData.openid, //OpenID
-                'avatarURL': res.userInfo.avatarUrl,
-                'NickName': res.userInfo.nickName
-              }
-            });
+        wx.cloud.callFunction({
+          name: 'UserRegister',
+          data:{
+            NickName: res.userInfo.nickName,
+            avatarURL: res.userInfo.avatarUrl
           }
-        })
-        
-        console.log('[debug]Login Userinfo', res.userInfo);
-        wx.reLaunch({
-          url: '/pages/TeamMain/TeamMain'
+        }).then(res => {
+          console.log('[debug]Login Userinfo', res);
+          wx.reLaunch({
+            url: '/pages/TeamMain/TeamMain'
+          })
         })
       }
     })

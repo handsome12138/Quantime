@@ -5,13 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    control: true,
     TableID: '',
     TableInfo: {},
     pageName:"TimePublish",
     _index: [],
     date: ["2021.4.3","2021.4.4","2021.4.5"],
-    // quant:[[0,0,0,0,0],[]],
-    quant:[],
     item:{
       Name:"属于TimePublish的标题",
       Context:"属于TimePublish的简介，简介和标题都在页面内在生命周期函数中用this.setData获取\n之后传值给组件TitleAndIntor进行显示",
@@ -51,9 +50,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("Page:TimePublish is onLoad.")
+    // console.log("Page:TimePublish is onLoad.")
     this.setData({
-      TableID: options.TableID
+      TableID: options.TableID,
+      control: options.control == 1
     })
     const db = wx.cloud.database();
     db.collection('TimeTable').where({
@@ -62,7 +62,7 @@ Page({
       this.setData({
         TableInfo: res.data[0]
       })
-      console.log('[debug]TimePublish TableInfo', res.data[0]);
+      // console.log('[debug]TimePublish TableInfo', res.data[0]);
     })
 
     //初始化_index
@@ -76,22 +76,6 @@ Page({
       _index: o_index
     })
 
-    //初始化quant
-    let tempArray=[]
-    let date = this.data.date
-    for( i=0; i<date.length; i++){
-      let tempSubArray=[]
-      for( j=0; j<24; j++){
-        // tempArray.push( Math.round(Math.random()*2)-1)
-        tempSubArray.push(0)
-      }
-      tempArray.push(tempSubArray)
-    }
-    
-    this.setData({
-      quant:tempArray
-    })
-    console.log("[debug] this.data.quant", this.data.quant)
     // console.log("[debug] this.onShow()",this.onShow())
 
   },

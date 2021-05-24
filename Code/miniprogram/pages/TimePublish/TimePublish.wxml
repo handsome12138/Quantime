@@ -12,9 +12,7 @@
     <view wx:for="{{TableInfo.Days}}" wx:key="index" wx:for-index="index">
       <view class="DateAndBar">
         <view class = "date">{{TableInfo.Days[index]}}</view>
-        <!-- <TimeSelectionBar id="Bar-{{index}}" pageName="{{pageName}}" particle="{{quant[index]}}" class="TimeSelectionBar"></TimeSelectionBar> -->
-        <TimeSelectionBar id="Bar-{{index}}" pageName="{{pageName}}" iniParticle="{{quant[index]}}"  class="TimeSelectionBar"></TimeSelectionBar>
-        
+        <TimeSelectionBar id="Bar-{{index}}" pageName="{{pageName}}" control="{{control}}" iniParticle="{{TableInfo.Avaliable[index].choose}}"  class="TimeSelectionBar"></TimeSelectionBar>
       </view>
       
     </view>
@@ -22,7 +20,7 @@
   
   <!-- <button class="bg-green laststep" bindtap="GoBack">上一步</button>
    -->
-  <button class="bg-green finish" bindtap="GoFinish">完成</button>
+  <button class="bg-green finish" bindtap="GoFinish" wx:if="{{control}}">完成</button>
   
 </view>
 

@@ -50,6 +50,12 @@
       </navigator>
     </view> -->
     <view class="cu-item arrow">
+      <navigator class="content" url="/pages/Login/Login" hover-class="none">
+        <text class="cuIcon-creativefill text-cyan"></text>
+        <text class="text-grey">更新个人资料</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
       <navigator class="content" url="/pages/Aboutus/Aboutus" hover-class="none">
         <text class="cuIcon-group_fill text-cyan"></text>
         <text class="text-grey">关于我们</text>

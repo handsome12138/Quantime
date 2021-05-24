@@ -23,7 +23,10 @@
   </view>
   <view wx:if="{{TableInfo.Save == 1}}"> 
     <view class="button_zone margin-top">
-      <button class="bg-green accept_save margin-top" bindtap="HandleSaveToMine">接受并保存到我的</button>
+      <button class="bg-green accept_save margin-top" bindtap="HandleSaveToMine">保存到我的</button>
     </view>
+  </view>
+  <view wx:else>
+    拥有者已禁止他人保存
   </view>
 </view>

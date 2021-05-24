@@ -88,7 +88,7 @@
         {
           "name": "pages/FormShared/FormShared",
           "pathName": "pages/FormShared/FormShared",
-          "query": "",
+          "query": "TableID=cbddf0af608ffca705da729849fec9fa&InviterID=oYVXc5d63E3GvanFbhfDdlW597nQ",
           "scene": null
         },
         {
@@ -112,6 +112,7 @@
         {
           "name": "pages/MySavedTable/MySavedTable",
           "pathName": "pages/MySavedTable/MySavedTable",
+          "query": "",
           "scene": null
         }
       ]

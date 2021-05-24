@@ -77,7 +77,7 @@ Page({
     //     url: '/pages/Login/Login',
     //   })
     // }
-    console.log('TeamMain onLoad');
+    // console.log('TeamMain onLoad');
     // this.GetTableInfo();//似乎wx.relaunch不会触发onShow只会触发onLoad?现在又可以了，故每次在onShow获取
   },
   
@@ -85,7 +85,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log('TeamMain onReady');
+    // console.log('TeamMain onReady');
     // setTimeout(this.GetTableInfo, 1500);
   },
 
@@ -93,7 +93,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log('TeamMain onShow');
+    // console.log('TeamMain onShow');
     if(typeof(this.getTabBar) === 'function' && this.getTabBar()){
       this.getTabBar().setData({
         curSelected: 0

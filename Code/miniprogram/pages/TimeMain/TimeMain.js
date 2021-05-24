@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    EditTableName: '',
+    EditTableContext: '',
     ClassIDList: [],
     ClassNameList: [],
     MoveTableIdx: 0,
@@ -65,9 +67,11 @@ Page({
     db.collection('TimeTable').where({
       '_id': options.id //ID
     }).get().then(res=>{
-      console.log('timemain tableid:',this.data.TableID ,'tableinfo:', res.data);
+      // console.log('timemain tableid:',this.data.TableID ,'tableinfo:', res.data);
       this.setData({
-        TableInfo: res.data[0]
+        TableInfo: res.data[0],
+        EditTableName: res.data[0].Name,
+        EditTableContext: res.data[0].Context
       })
     })
   },
@@ -167,6 +171,7 @@ Page({
   },
   SubmitModal: function(e){
     var that = this;
+    const db = wx.cloud.database();
     if(e.currentTarget.dataset.modalname == "MoveTable"){
       // 移动表单
       wx.cloud.callFunction({
@@ -178,10 +183,7 @@ Page({
       })
       wx.showToast({
         title: '移动成功',
-        duration: 500,
-        success(){
-          that.HideModal();
-        }
+        duration: 500
       })
     }else if(e.currentTarget.dataset.modalname == "CopyTable")
     {
@@ -195,30 +197,38 @@ Page({
       })
       wx.showToast({
         title: '复制成功',
-        duration: 500,
-        success(){
-          that.HideModal();
-        }
+        duration: 500
       })
     }
     else if(e.currentTarget.dataset.modalname == "EditTitle"){
-      wx.showToast({
-        title: '编辑成功了吗',
-        duration: 500,
-        success(){
-          that.HideModal();
+      db.collection('TimeTable').doc(that.data.TableID).update({
+        data:{
+          Name: that.data.EditTableName
         }
+      })
+      that.setData({
+        'TableInfo.Name': that.data.EditTableName
+      })
+      wx.showToast({
+        title: '编辑名称成功',
+        duration: 500
       })
     }
     else if(e.currentTarget.dataset.modalname == "EditIntro"){
-      wx.showToast({
-        title: '编辑成功了吗',
-        duration: 500,
-        success(){
-          that.HideModal();
+      db.collection('TimeTable').doc(that.data.TableID).update({
+        data:{
+          Context: that.data.EditTableContext
         }
       })
+      that.setData({
+        'TableInfo.Context': that.data.EditTableContext
+      })
+      wx.showToast({
+        title: '编辑简介成功',
+        duration: 500
+      })
     }
+    that.HideModal();
     
   },
   AlterTableStatus: function(){
@@ -259,6 +269,11 @@ Page({
   GotoPeopleList: function(){
     wx.navigateTo({
       url: '/pages/PeopleList/PeopleList?TableID=' + this.data.TableID,
+    })
+  },
+  GotoTimeShow: function(){
+    wx.navigateTo({
+      url: '/pages/TimePublish/TimePublish?TableID=' + this.data.TableID + '&control=0',
     })
   }
 })

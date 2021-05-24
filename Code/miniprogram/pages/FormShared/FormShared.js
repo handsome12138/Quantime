@@ -6,9 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    TableID: null,
+    TableID: '',
     TableInfo: {},
-    InviterID: null,
+    InviterID: '',
     InviterInfo: {},
     nickname:"Animagus",
     title:"属于FormShared的标题",
@@ -35,6 +35,14 @@ Page({
       InviterID: options.InviterID
     })
     const db = wx.cloud.database();
+    db.collection('User').where({
+      OpenID: options.InviterID
+    }).get().then(res => {
+      console.log('timemain inviterid:',this.data.InviterID ,'inviterinfo:', res.data);
+      this.setData({
+        InviterInfo: res.data[0]
+      })
+    })
     db.collection('TimeTable').where({
       '_id': options.TableID //ID
     }).get().then(res=>{
@@ -42,28 +50,21 @@ Page({
       this.setData({
         TableInfo: res.data[0]
       })
-      if(res.data[0].Status == 1){
-        db.collection('User').where({
-          OpenID: options.InviterID
-        }).get().then(res => {
-          console.log('timemain inviterid:',this.data.InviterID ,'inviterinfo:', res.data);
-          this.setData({
-            InviterInfo: res.data[0]
-          })
-        })
+      // if(res.data[0].Status == 1){
+        
         // 以下是检验是否注册过了
-        db.collection('TimeTable_Member_Relation').where({
-          TableID: options.TableID,
-          UserID: app.globalData.openid
-        }).get().then(res => {
+        // db.collection('TimeTable_Member_Relation').where({
+        //   TableID: options.TableID,
+        //   UserID: app.globalData.openid
+        // }).get().then(res => {
           // 禁用自动跳转
           // if(res.data.length > 0){
           //   wx.navigateTo({
           //     url: '/pages/TimeSelect/TimeSelect?TableID='+options.TableID,
           //   })
           // }
-        })
-      }
+        // })
+      // }
     })
     
 
@@ -146,8 +147,8 @@ Page({
         })
       }
     })
-    wx.navigateTo({
-      url: '/pages/TimeSelect/TimeSelect?TableID=' + this.data.TableID,
-    })
+    // wx.navigateTo({
+    //   url: '/pages/TimeSelect/TimeSelect?TableID=' + this.data.TableID,
+    // })
   }
 })
