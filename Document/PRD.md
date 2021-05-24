@@ -1,5 +1,9 @@
 # Quantime 需求文档
 
+[TOC]
+
+
+
 ## 文档说明
 
 ### 更新日志
@@ -77,14 +81,7 @@
 
 
 
-## 开发时间轴
 
-+ 四月第一周：原型，简单页面结构搭建
-+ 四月第二周：简单页面的前端完成（美化前的版本），设计稿完成
-+ 四月第三周：主要技术攻关统计结果页面，简单后端搭建与学习
-+ 四月第四周：考试周，各自努力
-+ 五月第一周：完成前端的所有工作
-+ 五月第二周：完成后端的所有工作
 
 ## 页面结构
 
@@ -128,79 +125,106 @@
 
 
 
-## 数据库设计
+## 云开发
 
-实体：
+### 数据库设计
 
-User
+使用小程序的云数据库，基于其自动生成主键`_id`，可以较为方便的存储对象，列表等特性，我们可以简化我们的数据库设计。
+
+#### 实体集：
+
+**User**
 
 ```sql
 create table User(
+    _id varchar(20) NOT NULL COMMENT '使用小程序自动生成的_id',
 	OpenID varchar(20) NOT NULL COMMENT 'VX OpenID',
-    Name varchar(20) NOT NULL COMMENT 'Name displayed',
-    Avatar varchar(100) COMMENT 'user avatar from vx itself',
-    primary key(OpenID)
+    NickName varchar(20) NOT NULL COMMENT 'Name displayed',
+    avatarURL varchar(100) COMMENT 'user avatar from vx itself',
+    primary key(_id)
 )
 ```
 
 
 
-TimeTableClass
+**TimeTableClass**
 
 ```sql
 create table TimeTableLClass(
-	TableID int NOT NULL auto increment COMMENT 'TableID Level 1'
-    Name varchar(20) NOT NULL COMMENT 'Name of Table'
+    _id varchar(20) NOT NULL COMMENT '使用小程序自动生成的Class的_id， aka, Class',
+    ClassName varchar(20) NOT NULL COMMENT 'Name of Class'
     OpenID varchar(20) NOT NULL COMMENT 'User OpenID belonged to'
-    primary key(TableID)
+    primary key(_id)
 )
 ```
 
 
 
-TimeTable
+**TimeTable**
 
 ```sql
 create table TimeTable(
-	TableID varchar(20) NOT NULL auto increment COMMENT 'TableID Level 2'
+    _id varchar(20) NOT NULL COMMENT '使用小程序自动生成的Table的_id， aka, TableID',
     Name varchar(20) NOT NULL COMMENT 'Name of Table',
     Context varchar(100) NOT NULL comment 'Context',
     Status int NOT NULL COMMENT 'Status of the table listed in the following',
-    Days varchar(20) NOT NULL comment 'up to 5 days selected stored in string',
+    Save int NOT NULL COMMENT 'Whether the table can be saved by others'
+    Days List NOT NULL comment 'up to 3 days selected stored in string',
+    Avaliable List NOT NUMM comment 'The quantum time situation marked for each Day, -1 means disabled, 0 means abled',
     CreateTime datetime not null comment 'Create Time',
     ClassID varchar(20) not null comment 'Class ID belonged to'
     primary key(TableID)
 )
 ```
 
-| statu code bit  | 状态                 |
-| --------------- | -------------------- |
-| 0b00000000**1** | 是否发布             |
-| 0b0000000**1**0 | 是否允许用户查看结果 |
+| status code | 状态                 |
+| ----------- | -------------------- |
+| **0**       | 未发布，禁止用户填写 |
+| **1**       | 发布，允许用户填写   |
+
+| save code | 状态         |
+| --------- | ------------ |
+| **0**     | 禁止用户保存 |
+| **1**     | 允许用户保存 |
 
 
 
 
 
-关系：
+#### 关系集
 
-一个Table对应多个用户
+**TimeTable_Member_Relation**： 用户填写表单的关系记录
 
 ```sql
 create table TimeTable_Member_Relation(
-    ID INT NOT NULL AUTO INCREMENT COMMENT 'ID',
+    _id varchar(20) NOT NULL COMMENT '使用小程序自动生成的关系的_id',
     TableID int not null comment 'Time Table ID',
     UserID varchar(20) not null comment 'User open id',
-    SelectTime varchar(100) not null comment 'Selected time in json',
-    primary key(ID)
+    SelectTime List not null comment 'Selected time in List Form',
+    primary key(_id)
 )
 ```
 
 
 
-## API开发
+**TimeTable_Save_Relation**：用户保存表单到本地的关系记录
+
+```sql
+create table TimeTable_Save_Relation(
+    _id varchar(20) NOT NULL COMMENT '使用小程序自动生成的关系的_id',
+    TableID int not null comment 'Time Table ID',
+    UserID varchar(20) not null comment 'User open id',
+    primary key(_id)
+)
+```
 
 
+
+
+
+### API开发
+
+通过云函数的方式，在小程序端提供调用数据库及进行简单数据处理的接口
 
 #### AddTimeTableClass
 

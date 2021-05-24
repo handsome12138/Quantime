@@ -28,7 +28,7 @@ exports.main = async (event, context) => {
     console.log("[DEBUG]: TableList: ", TableIDList);
   })
 
-  // 一共有三张表中相关的数据要被删除
+  // 一共有四张表中相关的数据要被删除
   // TimeTableClass本身
   db.collection('TimeTableClass').where({
     _id: event.ClassID
@@ -40,6 +40,12 @@ exports.main = async (event, context) => {
     TableID: _.in(TableIDList)
   }).remove().then(res => {
     console.log("[数据库] [删除数据] Delete TimeTableClass related TimeTable in TimeTable_Member_Relation SUCCESS", res);
+  })
+  // 相关TimeTable和保存用户的关系表
+  db.collection('TimeTable_Save_Relation').where({
+    TableID: _.in(TableIDList)
+  }).remove().then(res => {
+    console.log("[数据库] [删除数据] Delete TimeTableClass related TimeTable in TimeTable_Save_Relation SUCCESS", res);
   })
   // 相关TimeTable本身
   db.collection('TimeTable').where({

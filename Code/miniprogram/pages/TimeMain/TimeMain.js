@@ -176,9 +176,16 @@ Page({
           NewClassID: this.data.ClassIDList[this.data.MoveTableIdx]
         }
       })
-    }else if(e.currentTarget.dataset.modalname == "MoveTable")
+    }else if(e.currentTarget.dataset.modalname == "CopyTable")
     {
       // 复制表单
+      wx.cloud.callFunction({
+        name: 'CopyTable',
+        data:{
+          TableID: this.data.TableID,
+          ClassID: this.data.ClassIDList[this.data.MoveTableIdx]
+        }
+      })
     }
     wx.showToast({
       title: '移动成功',
