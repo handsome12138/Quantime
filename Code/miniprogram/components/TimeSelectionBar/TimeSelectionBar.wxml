@@ -12,5 +12,3 @@
   <image hidden="{{!pick[index]}}" class="particle" bindtap="catchParticle" data-id='{{index}}' data-target="{{item}}" src='../../images/RoundedRect_lightblue_skyblue1.svg'> </image> -->
   
 </block>
-
-<!-- <button>喵喵喵？</button> -->

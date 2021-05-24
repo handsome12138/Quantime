@@ -5,7 +5,11 @@ Component({
    */
   properties: {
     pageName: String,
-    particle: Array,
+    iniParticle:Array,
+    control:{
+      type: Boolean,
+      value: true
+    }
   },
 
   /**
@@ -13,7 +17,7 @@ Component({
    */
   data: {
     _particle:[],// 0:橘色（可选），-1：灰色（锁定无法在Selcet页选择），1：蓝色（选中表示有空）
-    // particle:[0,1,2,3,4,5,6],
+    
     index: null,
     item: null,
   },
@@ -23,58 +27,55 @@ Component({
    */
   methods: {
     catchParticle: function(e){
-      // this.setData({
-      //   _particle:this.properties.particle
-      // })
+      
       let i = e.currentTarget.dataset.id
-      let pick_i = "pick["+i+"]"
-      // this.properties[i] = 1
+      console.log("[debug] i:", i)
+      
       this.setData({
         index: e.currentTarget.dataset.id,
         item: e.currentTarget.dataset.target,
-        // [pick_i]: !this.data.pick[i]
       })
       
-      console.log(this.data.index," is catchParticle")
+      console.log('[debug] ',this.data.index," is catchParticle")
 
       let e_particle = this.data._particle
       // console.log("e_particle:", e_particle)
-
-      // 方法1：在用组件的data渲染的条件下判断组件所处页面，从而决定点击形态
-      switch(this.properties.pageName){
-        case "TimePublish":
-          if(e_particle[i] == 1){
-            console.log("ERROR! wrong state of _particle", i)
+      if(this.properties.control){
+        // 方法1：在用组件的data渲染的条件下判断组件所处页面，从而决定点击形态
+        switch(this.properties.pageName){
+          case "TimePublish":
+            if(e_particle[i] == 1){
+              // console.log("ERROR! wrong state of _particle", i)
+              break
+            }
+            e_particle[i] = (e_particle[i] - 1)%2
+            // console.log("[debug] TimePublish change e_particle", i)
             break
-          }
-          e_particle[i] = (e_particle[i] - 1)%2
-          this.setData({
-            _particle: e_particle
-          })
-          // console.log("this.data._particle:",this.data._particle)
-          // console.log("e_particle:", e_particle)
-          break
-        case "TimeSelect":
-          if(e_particle[i] == -1){
-            console.log("Warning! catch the block quantime:", i)
+            
+          case "TimeSelect":
+            if(e_particle[i] == -1){
+              // console.log("Warning! catch the block quantime:", i)
+              break
+            }
+            e_particle[i] = (e_particle[i] + 1)%2
             break
-          }
-          e_particle[i] = (e_particle[i] + 1)%2
-          this.setData({
-            _particle: e_particle
-          })
-          break
-        default:
+          default:
 
-            break;
+              break;
+        }
+
+        // console.log("e_particle:", e_particle)
+        // console.log("this.data._particle:",this.data._particle)
+        
+        this.setData({
+          _particle: e_particle
+        }) 
       }
-
-      // console.log("[debug] this.data._particle",this.data._particle)
-      // console.log("[debug] this.properties.particle",this.properties.particle)
-      this.properties.particle = this.data._particle
-      // console.log("[debug] this.data._particle",this.data._particle)
-      // console.log("[debug] this.properties.particle",this.properties.particle)
-      this.onShow
+      else{
+        console.log('[debug] control is false')
+      }
+      
+      
       // this.triggerEvent('returnIndex',{index: this.data.index})
 
       // this.setData({
@@ -86,41 +87,37 @@ Component({
 
   lifetimes:{
     attached: function(e){
-      // console.log("Components:TimeSelectionBar is attached.")
+      console.log("[debug] Components:TimeSelectionBar is attached.")
       // console.log("_particle:",this.data._particle)
       // console.log("pageName:",this.properties.pageName)
       
       //随机初始化TimeSelectionBar.wxml
       let i,tempArray=[],temp_normal=[],tempColorArray=[]
       
+      //原版随机初始化tempArray
+      // switch(this.properties.pageName){
+      //   case "TimePublish":
+      //     for( i=0; i<24; i++){
+      //       // tempArray.push( Math.round(Math.random()*2)-1)
+      //       tempArray.push(0)
+      //     }
+      //     break
+      //   case "TimeSelect":
+      //     for( i=0; i<24; i++){
+      //       tempArray.push( Math.round(Math.random()*1)-1)
+      //       // tempArray.push(0)
+      //     }
+      //     break
+      //   default:
 
-      switch(this.properties.pageName){
-        case "TimePublish":
-          for( i=0; i<24; i++){
-            // tempArray.push( Math.round(Math.random()*2)-1)
-            tempArray.push(0)
-          }
-          break
-        case "TimeSelect":
-          for( i=0; i<24; i++){
-            tempArray.push( Math.round(Math.random()*1)-1)
-            // tempArray.push(0)
-          }
-          break
-        default:
-
-            break; 
-      }
-      
+      //       break; 
+      // }
+      //新版tempArray = this.properties.iniParticle
+      tempArray = this.properties.iniParticle
+      // console.log("[debug] tempArray:",tempArray)
       this.setData({
-        _particle:tempArray
+        _particle: tempArray
       })
-      // this.properties.particle = tempArray
-      // this.setData({
-      //   _particle:this.properties.particle
-      // })
-      // console.log("[debug] this.properties.particle:",this.properties.particle)
-      // console.log("[debug] this.data._particle:",this.data._particle)
 
     },
 

@@ -91,7 +91,7 @@ Page({
     this.setData({
       quant:tempArray
     })
-    // console.log("[debug] this.data.quant", this.data.quant)
+    console.log("[debug] this.data.quant", this.data.quant)
     // console.log("[debug] this.onShow()",this.onShow())
 
   },
