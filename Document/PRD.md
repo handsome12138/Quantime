@@ -226,7 +226,29 @@ create table TimeTable_Save_Relation(
 
 通过云函数的方式，在小程序端提供调用数据库及进行简单数据处理的接口
 
-#### AddTimeTableClass
+云函数与参数一栏
+
+| 类型                 | 名称                 | 参数                                            | 功能                                     |
+| -------------------- | -------------------- | ----------------------------------------------- | ---------------------------------------- |
+| Get - 用户信息       | Login                | /                                               | app.js中判断用户注册状态                 |
+| Post - 用户信息      | UserRegister         | avatarURL<br/>NickName                          | 注册/更新用户的头像与昵称                |
+| Get - 用户信息       | getUserInfo          | /                                               | 获取用户的头像与昵称                     |
+| Post - add - 类信息  | AddTimeTableClass    | ClassName                                       | 为用户新增类                             |
+| Post - add - 表单    | AddTimeTable         | Name/Context/BelongClassID<br/>Days/Status/Save | 为某个类新增一个表单                     |
+| Post - add - 关系    | JoinTimeTable        | TableID                                         | 用户加入填写某一表单                     |
+| Post - alter - 表单  | AlterTimeTableInfo   | TableID<br>可选：NewStatus/NewSave...等更新信息 | 更新表单内容                             |
+| Post - alter - 类    | AlterTimeSelected    | TableID / SelectTime                            | 修改已选择的日期                         |
+| Get - 类与表信息     | GetTableInfo         | /                                               | 获取用户所有的类与表的信息               |
+| Get - 仅类信息       | GetClassList         | /                                               | 仅获取用户所有的类的信息                 |
+| Post - delete - 表单 | DeleteTimeTable      | TableID                                         | 删除表单与其相关的关系中的信息           |
+| Post - delete - 类   | DeleteTimeTableClass | ClassID                                         | 删除类并递归删除所有属于该类的表单的信息 |
+| Post - CopyTable     | CopyTable            | ClassID / TableID                               | 将表单拷贝到对应的类下                   |
+| Post - 保存表单      | SaveToMine           | TableID                                         | 保存对应的表单                           |
+| Get - 保存表信息     | GetSavedTable        | /                                               | 获取用户所有保存的表单列表               |
+| Get - 统计信息       | GetStat              | TableID                                         | 获取表单的统计结果                       |
+| Get - SelectTime     | GetSelectTime        | TableID                                         | 获取用户在某个表单的选择时间结果         |
+
+ 
 
 新增一个TimeTableClass
 

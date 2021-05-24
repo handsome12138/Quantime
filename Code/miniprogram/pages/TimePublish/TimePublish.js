@@ -137,16 +137,16 @@ Page({
     for(var idx in this.data.TableInfo.Days){
       var obj = {
         date: this.data.TableInfo.Days[idx],
-        choose: this.selectComponent('#Bar-' + idx).data.particle
+        choose: this.selectComponent('#Bar-' + idx).data._particle
       }
       Avaliable.push(obj);
     }
     console.log('[debug]TimePublish, TableInfo=', this.data.TableInfo, 'Avaliable list=', Avaliable);
     wx.cloud.callFunction({
-      name: 'AlterTableDaysAvaliable',
+      name: 'AlterTimeTableInfo',
       data: {
         TableID: this.data.TableID,
-        Avaliable: Avaliable
+        NewAvaliable: Avaliable
       }
     })
     wx.reLaunch({

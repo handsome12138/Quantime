@@ -175,7 +175,7 @@ Page({
     if(e.currentTarget.dataset.modalname == "MoveTable"){
       // 移动表单
       wx.cloud.callFunction({
-        name: 'AlterTimeTableBelong',
+        name: 'AlterTimeTableInfo',
         data:{
           TableID: this.data.TableID,
           NewClassID: this.data.ClassIDList[this.data.MoveTableIdx]

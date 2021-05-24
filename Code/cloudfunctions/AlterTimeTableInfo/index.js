@@ -16,6 +16,8 @@ exports.main = async (event, context) => {
   if(typeof(event.NewStatus) != "undefined"){    UpdData["Status"] = event.NewStatus;   }
   if(typeof(event.NewContext) != "undefined"){    UpdData["Context"] = event.NewContext;   }
   if(typeof(event.NewSave) != "undefined"){    UpdData["Save"] = event.NewSave;   }
+  if(typeof(event.NewClassID) != "undefined"){    UpdData["ClassID"] = event.NewClassID;   }
+  if(typeof(event.NewAvaliable) != "undefined"){    UpdData["Avaliable"] = event.NewAvaliable;   }
   db.collection('TimeTable').doc(event.TableID).update({
     data: UpdData
   }).then(res => {
