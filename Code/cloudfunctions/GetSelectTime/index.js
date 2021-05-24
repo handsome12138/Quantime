@@ -16,6 +16,7 @@ exports.main = async (event, context) => {
   await db.collection('TimeTable').where({
     '_id': event.TableID //ID
   }).get().then(res=>{
+    console.log('GetSelectTime', res)
     for(var idx in res.data[0].Days){
       SelectTime.push(res.data[0].Avaliable[idx].choose)
     }
@@ -24,12 +25,13 @@ exports.main = async (event, context) => {
     //   SelectTime: SelectTime
     // }
   })
-
+  console.log('SelectTime now = ', SelectTime);
   await db.collection('TimeTable_Member_Relation').where({
     TableID: event.TableID,
     UserID: wxContext.OPENID
   }).get().then(res => {
-    if(res.data.length == 0 || res.data[0].SelectTime == []){
+    console.log(res)
+    if(res.data.length == 0  || res.data[0].SelectTime.length == 0){
 
     }else{
       SelectTime = res.data[0].SelectTime

@@ -13,7 +13,7 @@ exports.main = async (event, context) => {
   }
   const db = cloud.database();
   var AlreadyIn = 0;
-  db.collection('TimeTable_Save_Relation').where({
+  await db.collection('TimeTable_Save_Relation').where({
     TableID: event.TableID
   }).get().then(res => {
     if(res.data.length > 0){

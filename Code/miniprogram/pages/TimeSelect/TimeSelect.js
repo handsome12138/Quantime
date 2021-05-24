@@ -16,6 +16,7 @@ Page({
       Status:1,
       SaveFlag:1
     },
+    _particle: []
     // title:"属于TimeSelect的标题",
     // intro:"属于TimeSelect的简介，简介和标题都在页面内在生命周期函数中用this.setData获取\n之后传值给组件TitleAndIntor进行显示",
   },
@@ -30,7 +31,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    console.log("TimeSelect is onLoad.", options)
+    // console.log("TimeSelect is onLoad.", options)
     this.setData({
       TableID: options.TableID
     })
@@ -38,7 +39,7 @@ Page({
     db.collection('TimeTable').where({
       '_id': options.TableID //ID
     }).get().then(res=>{
-      console.log('timeselect tableid:',this.data.TableID ,'tableinfo:', res.data);
+      // console.log('timeselect tableid:',this.data.TableID ,'tableinfo:', res.data);
       this.setData({
         TableInfo: res.data[0]
       })
@@ -51,7 +52,7 @@ Page({
         TableID:options.TableID
       }
     }).then(res => {
-      console.log('TimeSelect Call GetSelectTime', res);
+      // console.log('TimeSelect Call GetSelectTime', res);
       for(var idx in res.result.SelectTime){
         var TimeBar = this.selectComponent('#Bar-'+idx);
         TimeBar.setData({

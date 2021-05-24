@@ -19,7 +19,7 @@
     </view>
   </view>
   <view wx:else>
-    拥有者已停止问卷分享
+    <text style="margin:10rpx 0 10rpx 0"> 拥有者已停止问卷分享 </text>
   </view>
   <view wx:if="{{TableInfo.Save == 1}}"> 
     <view class="button_zone margin-top">
@@ -27,6 +27,6 @@
     </view>
   </view>
   <view wx:else>
-    拥有者已禁止他人保存
+    <text style="margin:10rpx 0 10rpx 0"> 拥有者已禁止他人保存 </text>
   </view>
 </view>

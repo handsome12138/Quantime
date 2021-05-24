@@ -12,7 +12,7 @@
     <view wx:for="{{TableInfo.Days}}" wx:key="index" wx:for-index="index">
       <view class="DateAndBar">
         <view class = "date">{{TableInfo.Days[index]}}</view>
-        <TimeSelectionBar id="Bar-{{index}}" pageName="{{pageName}}"  class="TimeSelectionBar"></TimeSelectionBar>
+        <TimeSelectionBar id="Bar-{{index}}" control="{{true}}" pageName="{{pageName}}" iniParticle="{{_oarticle}}" class="TimeSelectionBar"></TimeSelectionBar>
       </view>
       
     </view>

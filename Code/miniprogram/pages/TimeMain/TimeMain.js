@@ -50,7 +50,13 @@ Page({
    */
   onLoad: function (options) {
     const db = wx.cloud.database();
-
+    wx.cloud.callFunction({
+      name: 'getUserInfo'
+    }).then(res => {
+      this.setData({
+        OpenID: res.result.openid
+      })
+    })
     wx.cloud.callFunction({
       name: 'GetClassList'
     }).then(res=>{
@@ -124,7 +130,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '邀请你加入时间统计',
-      path: '/pages/FormShared/FormShared?TableID='+this.data.TableID + '&InviterID=' + app.globalData.openid
+      path: '/pages/FormShared/FormShared?TableID='+this.data.TableID + '&InviterID=' + this.data.OpenID
     }
   },
   GotoStat: function(){

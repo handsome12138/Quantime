@@ -5,7 +5,7 @@
     暂无保存的表单
   </view>
   <view wx:else class="list">
-    <view wx:for="{{TableList}}" wx:key="_id">
+    <view wx:for="{{TableList}}" wx:key="_id" style="margin-top:30rpx">
       <Formunit item="{{item}}" data-id="{{item.TableID}}" data-index="{{index}}" bindtap="GotoStat" bindlongtap="HandleLongTap"></Formunit>
     </view>
   </view>
