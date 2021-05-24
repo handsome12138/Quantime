@@ -24,6 +24,11 @@ exports.main = async (event, context) => {
   }).remove().then(res => {
     console.log("[数据库] [删除数据] Delete TimeTable_Member_Relation SUCCESS: ", res);
   })
+  db.collection('TimeTable_Save_Relation').where({
+    TableID: event.TableID
+  }).remove().then(res => {
+    console.log("[数据库] [删除数据] Delete TimeTable_Save_Relation SUCCESS: ", res);
+  })
 
   return {
     event,
