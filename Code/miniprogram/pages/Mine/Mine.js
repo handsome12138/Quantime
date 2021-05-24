@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    EditNickName: '',
     avatarURL: '',
     NickName: 'default',
     recents: [],
@@ -67,16 +68,20 @@ Page({
   SubmitModal: function(e){
     var that = this;
     if(e.currentTarget.dataset.modalname == "EditNickname"){
-      // 修改昵称
-      // wx.cloud.callFunction({
-      //   name: 'AlterTimeTableBelong',
-      //   data:{
-      //     TableID: this.data.TableID,
-      //     NewClassID: this.data.ClassIDList[this.data.MoveTableIdx]
-      //   }
-      // })
+      that.setData({
+        NickName: that.data.EditNickName
+      })
+      wx.cloud.callFunction({
+        name: 'UserRegister',
+        data:{
+          NickName: that.data.EditNickName,
+          avatarURL: that.data.avatarURL
+        }
+      }).then(res => {
+        console.log('UserRegister in Mine res=',res);
+      })
       wx.showToast({
-        title: '修改成功',
+        title: '修改昵称成功',
         duration: 500,
         success(){
           that.HideModal();
@@ -101,7 +106,8 @@ Page({
       }else{
         this.setData({
           avatarURL: res.result.avatarURL,
-          NickName: res.result.NickName
+          NickName: res.result.NickName,
+          EditNickName: res.result.NickName
         })
       }
     })

@@ -83,7 +83,7 @@
   <view class="cu-dialog">
     <view class="cu-form-group margin-top">
         <!-- <view class="title">编辑标题</view> -->
-        <input class="Q_input" prompt="昵称" placeholder="请输入昵称" model:value="{{NickName}}"></input>
+        <input class="Q_input" prompt="昵称" placeholder="请输入昵称" model:value="{{EditNickName}}"></input>
     </view>
     <view class="flex margin">
         <button class="flex-sub cu-btn line-green text-green shadow" style="width:150px;margin-left:50px;margin-right:20px" bindtap="SubmitModal" data-modalname="EditNickname">提交</button>
