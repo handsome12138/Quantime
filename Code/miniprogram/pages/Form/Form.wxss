@@ -18,6 +18,25 @@
 	justify-content: space-between;
 }
 
+.Q-form-group {
+
+}
+
+.Q_title {
+	font-size: 16px;
+	margin: 8px;
+}
+
+.Q_input {
+	font-size: 14px;
+	margin: 8px 8px 8px 8px;
+}
+
+.Q_textarea {
+	font-size: 14px;
+	margin: 12px 8px 8px 8px;
+}
+
 .calendar {
   /* width: 0%; */
 }

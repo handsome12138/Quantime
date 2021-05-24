@@ -105,7 +105,7 @@ Page({
    */
   afterTapDate(e) {
     let enableDays=[]
-    console.log('afterTapDate', e.detail) // => { year: 2019, month: 12, date: 3, ...}
+    // console.log('afterTapDate', e.detail) // => { year: 2019, month: 12, date: 3, ...}
     // const component = this.selectComponent('#calendar')
     const calendar = this.selectComponent('#calendar').calendar
     // console.log("[debug] component:",component)
@@ -114,13 +114,13 @@ Page({
     const data = this.selectComponent('#calendar').__data__
     // console.log("[debug] 日历实例获取:",this.selectComponent('#calendar'))
 
-    console.log("[debug] 日历实例数据获取结果:",data)
+    // console.log("[debug] 日历实例数据获取结果:",data)
     const selectDates = data.calendar.selectedDates
-    console.log("[debug] 选中的日期:",selectDates)
-    console.log("[debug] selectedDay:",selectedDay)
+    // console.log("[debug] 选中的日期:",selectDates)
+    // console.log("[debug] selectedDay:",selectedDay)
     const dates = data.calendar.dates
     let array = selectDates
-    console.log("[debug] array:",array)
+    // console.log("[debug] array:",array)
 
     if(selectedDay.length < 3){//选中不足三个
       // enableDays.push(''+e.detail.year+'-'+e.detail.month+'-'+e.detail.date)
@@ -134,7 +134,7 @@ Page({
         let iday = selectedDay[i]
         enableDays.push(''+iday.year+'-'+iday.month+'-'+iday.date)
       }
-      console.log("[debug] enableDays:",enableDays)
+      // console.log("[debug] enableDays:",enableDays)
       // calendar.enableArea([])
       // calendar.enableDates(enableDays)
     }
@@ -146,7 +146,7 @@ Page({
           date: selectedDay[3].date
         }
       ]
-      console.log("[debug] cancelDates",cancelDates)
+      // console.log("[debug] cancelDates",cancelDates)
       calendar.cancelSelectedDates(cancelDates)//将选中的取消
       wx.showToast({
         title: '最多选择三天',

@@ -176,6 +176,13 @@ Page({
           NewClassID: this.data.ClassIDList[this.data.MoveTableIdx]
         }
       })
+      wx.showToast({
+        title: '移动成功',
+        duration: 500,
+        success(){
+          that.HideModal();
+        }
+      })
     }else if(e.currentTarget.dataset.modalname == "CopyTable")
     {
       // 复制表单
@@ -186,14 +193,33 @@ Page({
           ClassID: this.data.ClassIDList[this.data.MoveTableIdx]
         }
       })
+      wx.showToast({
+        title: '复制成功',
+        duration: 500,
+        success(){
+          that.HideModal();
+        }
+      })
     }
-    wx.showToast({
-      title: '移动成功',
-      duration: 500,
-      success(){
-        that.HideModal();
-      }
-    })
+    else if(e.currentTarget.dataset.modalname == "EditTitle"){
+      wx.showToast({
+        title: '编辑成功了吗',
+        duration: 500,
+        success(){
+          that.HideModal();
+        }
+      })
+    }
+    else if(e.currentTarget.dataset.modalname == "EditIntro"){
+      wx.showToast({
+        title: '编辑成功了吗',
+        duration: 500,
+        success(){
+          that.HideModal();
+        }
+      })
+    }
+    
   },
   AlterTableStatus: function(){
     const db = wx.cloud.database();

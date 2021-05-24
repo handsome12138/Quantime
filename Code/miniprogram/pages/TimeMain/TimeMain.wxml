@@ -4,7 +4,7 @@
 <view>
   <view class="display">
     <view class="headline_status">
-      <view class="headline">{{TableInfo.Name}}</view>
+      <view class="headline" bindtap="ShowModal" data-modalname="EditTitle">{{TableInfo.Name}}</view>
       <view class="status">
         <view class="flag" wx:if="{{TableInfo.Status}}">
           <view class="circle-true"></view>
@@ -16,7 +16,7 @@
         </view>
       </view>
     </view>
-    <view class="content">{{TableInfo.Context}}</view>
+    <view class="content" bindtap="ShowModal" data-modalname="EditIntro">{{TableInfo.Context}}</view>
     
     <!-- <view class="peoplecount">已答人数：{{item.peoplecount}}</view> -->
   </view>
@@ -50,11 +50,12 @@
   </view>
   
   <view class="margin-top margin-left">表单管理</view>
-  <view class="margin-top">
+  <view class="Q-form-group margin-top">
     <button class="ShareButton cu-form-group" open-type="share">
     <view class="title">分享表单</view>
 		<view class="arrow"></view>
     </button>
+    
 	</view>
 	<view class="cu-form-group" bindtap="ShowModal" data-modalname="CopyTable">
     <view class="title">拷贝表单</view>
@@ -71,7 +72,37 @@
 	
 </view>
 
+<!-- 以下部分是模态框 -->
 
+<!-- 编辑标题模态框 -->
+<view class="cu-modal {{modalname=='EditTitle'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-form-group margin-top">
+        <!-- <view class="title">编辑标题</view> -->
+        <input class="Q_input" prompt="标题" placeholder="请输入标题" model:value="{{TableInfo.Name}}"></input>
+    </view>
+    <view class="flex margin">
+        <button class="flex-sub cu-btn line-green text-green shadow" style="width:150px;margin-left:50px;margin-right:20px" bindtap="SubmitModal" data-modalname="EditTitle">提交</button>
+        <button class="flex-sub cu-btn line-green text-green shadow" style="width:150px;margin-left:50px;margin-right:20px" bindtap="HideModal">返回</button>
+      </view>
+  </view>
+</view>
+
+<!-- 编辑简介模态框 -->
+<view class="cu-modal {{modalname=='EditIntro'?'show':''}}">
+  <view class="cu-dialog ">
+    <view class="cu-form-group margin-top">
+        <!-- <view class="title">编辑简介</view> -->
+        <textarea class="Q_textarea" maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入简介" model:value="{{TableInfo.Context}}"></textarea>
+    </view>
+    <view class="flex margin">
+        <button class="flex-sub cu-btn line-green text-green shadow" style="width:150px;margin-left:50px;margin-right:20px" bindtap="SubmitModal" data-modalname="EditIntro">提交</button>
+        <button class="flex-sub cu-btn line-green text-green shadow" style="width:150px;margin-left:50px;margin-right:20px" bindtap="HideModal">返回</button>
+      </view>
+  </view>
+</view>
+
+<!-- 移动表单模态框 -->
 <view class="cu-modal {{modalname=='MoveTable'?'show':''}}">
   <view class="cu-dialog">
     <view class="cu-form-group margin-top">
@@ -89,6 +120,7 @@
   </view>
 </view>
 
+<!-- 复制表单模态框 -->
 <view class="cu-modal {{modalname=='CopyTable'?'show':''}}">
   <view class="cu-dialog">
     <view class="cu-form-group margin-top">

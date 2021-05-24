@@ -2378,7 +2378,7 @@ button.icon.lg {
 
 .cu-form-group input {
 	flex: 1;
-	font-size: 30rpx;
+	/* font-size: 30rpx; */
 	color: #555;
 	padding-right: 20rpx;
 }
@@ -2390,7 +2390,7 @@ button.icon.lg {
 }
 
 .cu-form-group textarea {
-	margin: 32rpx 0 30rpx;
+	/* margin: 32rpx 0 30rpx; */
 	height: 4.6em;
 	width: 100%;
 	line-height: 1.2em;

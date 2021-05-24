@@ -3,7 +3,7 @@
   <view class="container">
     <view class="name">
       <!-- <text class="ClassName">{{ClassObj.ClassName}}</text> -->
-      <input class="ClassName" model:value="{{MyClassName}}" disabled="{{!editHidden}}"></input>
+      <input class="ClassName" model:value="{{MyClassName}}" disabled="{{!editHidden}}" focus="{{!editHidden}}" cursor="0"></input>
     </view>
     
     <!-- <text class="cuIcon-creativefill text-yellow"></text> -->

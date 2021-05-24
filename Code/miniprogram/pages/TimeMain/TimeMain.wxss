@@ -50,6 +50,28 @@
   flex-direction: row;
   justify-content: space-around;
 }
+
+.Q_title {
+	font-size: 16px;
+	margin: 8px;
+}
+
+.Q_input {
+	font-size: 14px;
+	margin: 8px 8px 8px 8px;
+}
+
+.Q-dialog {
+
+}
+
+.Q_textarea {
+	font-size: 14px;
+  margin: 12px 8px 8px 8px;
+  display: flex;
+  flex-direction: row;
+}
+
 .flag {
   display: flex;
   flex-direction: row;
@@ -77,23 +99,28 @@
   font-size:12px;
 }
 
-Button{
-  background-color: rgb(247, 247, 247);
+.ShareButton{
+  background-color: rgb(255, 255, 255);
+  color:#333333;
   border-radius: 0px !important;
   padding: 0px !important;
   margin: 0px !important;
-  display: inline-block;
+  display: flex;
   line-height: 1 !important;
   width: 100% !important;
   padding: 1rpx 30rpx !important;
   font-weight: normal !important;
 }
 
-button::after{ /*button的边框样式是通过::after方式实现的*/
+Button::after{ /*button的边框样式是通过::after方式实现的*/
   border:none;
   }
 
-.button-hover{ /*点击后样式*/
+.Q-form-group+.cu-form-group {
+  border-top: 1rpx solid #eee;
+}
+
+.ShareButton-hover{ /*点击后样式*/
   color:#000;
   background-color: rgb(247, 247, 247);
   }

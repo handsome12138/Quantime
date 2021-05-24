@@ -29,14 +29,14 @@ Component({
     catchParticle: function(e){
       
       let i = e.currentTarget.dataset.id
-      console.log("[debug] i:", i)
+      // console.log("[debug] i:", i)
       
       this.setData({
         index: e.currentTarget.dataset.id,
         item: e.currentTarget.dataset.target,
       })
       
-      console.log('[debug] ',this.data.index," is catchParticle")
+      // console.log('[debug] ',this.data.index," is catchParticle")
 
       let e_particle = this.data._particle
       // console.log("e_particle:", e_particle)

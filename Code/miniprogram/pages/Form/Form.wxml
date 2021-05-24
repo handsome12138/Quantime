@@ -1,20 +1,20 @@
 <view class="container">
     <form>
         <view class="cu-form-group margin-top">
-            <view class="title">类别</view>
+            <view class="Q_title">类别</view>
             <picker model:value="{{ClassIndex}}" range="{{ClassNameList}}">
                 <view class="picker">
                 {{ClassNameList[ClassIndex]}}
                 </view>
             </picker>
         </view>
-        <view class="cu-form-group align-start">
-            <view class="title">标题</view>
-            <input prompt="标题" placeholder="请输入标题" model:value="{{TableName}}"></input>
+        <view class="cu-form-group align-start Q-form-group">
+            <view class="Q_title">标题</view>
+            <input class="Q_input" prompt="标题" placeholder="请输入标题" model:value="{{TableName}}"></input>
         </view>
-        <view class="cu-form-group align-start">
-            <view class="title">简介</view>
-            <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入简介" model:value="{{TableContext}}"></textarea>
+        <view class="cu-form-group align-start Q-form-group">
+            <view class="Q_title">简介</view>
+            <textarea class="Q_textarea" maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入简介" model:value="{{TableContext}}"></textarea>
         </view>
 
         <!-- <view class="cut-off-line"></view> -->
@@ -49,7 +49,7 @@
         </view> -->
     </form>
 
-    <view class="submitmodule">
+    <view class="submitmodule margin-top">
         <button class="cu-btn bg-blue shadow-blur round" bindtap="submit_next">下一步</button>
     </view>
 
