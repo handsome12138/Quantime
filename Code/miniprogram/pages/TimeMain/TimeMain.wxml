@@ -33,10 +33,10 @@
     <view class="title">查看参与人数</view>
     <view class="arrow"></view>
 	</view>
-	<!-- <view class="cu-form-group margin-bottom">
-		<view class="title">编辑表单（新增统计时间）</view>
+	<view class="cu-form-group margin-bottom" bindtap="GotoTimeShow">
+		<view class="title">查看统计时间</view>
 		<view class="arrow"></view>
-  </view> -->
+  </view>
   
   <view class="margin-top margin-left">表单状态修改</view>
   <view class="cu-form-group margin-top">

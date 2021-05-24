@@ -96,6 +96,7 @@ Page({
         curSelected: 0
       })
     }
+    this.GetTableInfo()
   },
 
   /**

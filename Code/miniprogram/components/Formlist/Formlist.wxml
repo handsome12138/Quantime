@@ -1,10 +1,10 @@
 <!--components/Formlist/Formlist.wxml-->
 <!-- <text>components/Formlist/Formlist.wxml</text> -->
 <!-- <Formunit></Formunit> -->
-<view class="mainpart" bindtap="teamclick">
-  <view class="headline">
-  <view class="team">{{title}}</view>
-  <text class="{{flag?'cuIcon-unfold':'cuIcon-right'}} lg text-black icon"></text>
+<view class="mainpart">
+  <view class="headline" bindtap="teamclick">
+    <view class="team">{{title}}</view>
+    <text class="{{flag?'cuIcon-unfold':'cuIcon-right'}} lg text-black icon"></text>
   </view>
   <view class="list">
   <view wx:if="{{flag}}" wx:for="{{itemlist}}" wx:for-index="index" wx:for-item="item" wx:key="item">

@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    BeginShow: false,
     TableID: '',
     TableInfo:{
       Name:"属于Stat的标题",
@@ -38,7 +39,8 @@ Page({
         TableInfo: res.result.TableInfo,
         PeopleCount: res.result.PeopleCount,
         JoinInfo: res.result.JoinInfo,
-        UserObj: res.result.UserObj
+        UserObj: res.result.UserObj,
+        BeginShow: true
       })
     })
   },

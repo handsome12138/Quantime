@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    TableList: []
+    TableList: [],
+    BeginShowText: false
   },
 
   /**
@@ -25,7 +26,8 @@ Page({
     }).then(res => {
       console.log('MySavedTable call res=', res)
       this.setData({
-        TableList: res.result.TableList
+        TableList: res.result.TableList,
+        BeginShowText: true
       })
     })
   },

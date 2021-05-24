@@ -1,7 +1,7 @@
 <!--pages/Stat/Stat.wxml-->
 <!-- <text>pages/Stat/Stat.wxml</text> -->
 
-<view class="container">
+<view class="container" wx:if="BeginShow">
   <TitleAndIntro title="{{TableInfo.Name}}" intro="{{TableInfo.Context}}"></TitleAndIntro>
   <!-- <view class="DateAndBar">
     <StatColorBar class="StatColorBar"></StatColorBar>

@@ -33,22 +33,22 @@
         <text class="text-grey">我参与的时间统计</text>
       </navigator>
     </view>
-    <view class="cu-item arrow">
+    <!-- <view class="cu-item arrow">
       <navigator class="content" url="../RecycleBin/RecycleBin" hover-class="none">
         <text class="cuIcon-deletefill text-green"></text>
         <text class="text-grey">回收站</text>
       </navigator>
-    </view>
+    </view> -->
   </view>
 
 
   <view class="cu-list menu card-menu  shadow-lg radius">
-    <view class="cu-item arrow">
+    <!-- <view class="cu-item arrow">
       <navigator class="content" url="/pages/Help/Help" hover-class="none">
         <text class="cuIcon-creativefill text-yellow"></text>
         <text class="text-grey">使用帮助</text>
       </navigator>
-    </view>
+    </view> -->
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/Aboutus/Aboutus" hover-class="none">
         <text class="cuIcon-group_fill text-cyan"></text>

@@ -1,1 +1,6 @@
 /* miniprogram/pages/MySavedTable/MySavedTable.wxss */
+.list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

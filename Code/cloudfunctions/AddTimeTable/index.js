@@ -19,7 +19,7 @@ exports.main = async (event, context) => {
   for(var idx in event.Days){
     var obj = {
       date: event.Days[idx],
-      choose: Array(24).fill(0)
+      choose: Array(24).fill(-1)
     }
     Avaliable.push(obj);
   }
@@ -32,7 +32,7 @@ exports.main = async (event, context) => {
       CreateTime: CreateTime,
       ClassID: event.BelongClassID,
       Avaliable: Avaliable,
-      Save: Save
+      Save: event.Save
     },
   }).catch(res => {
     console.log("[数据库] [新增数据] TimeTable FAIL: ", res);
