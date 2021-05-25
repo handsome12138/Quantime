@@ -638,12 +638,12 @@ Page({
     //   })
     // }
   },
-  // ChangePeople:function(e){
+  ChangePeople:function(e){
     // console.log("ChangePeople", e.detail.Day, e.detail.Hour)
-    // this.setData({
-    //   Day:e.detail.Day,
-    //   Hour:e.detail.Hour
-    // })
+    this.setData({
+      Day:e.detail.Day,
+      Hour:e.detail.Hour
+    })
     // console.log("Data in StatDetail", this.data.Day, this.data.Hour)
-  // }
+  }
 })

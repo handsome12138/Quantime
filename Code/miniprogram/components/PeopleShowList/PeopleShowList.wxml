@@ -18,7 +18,7 @@
       {{index}}
     </view>
     <view class="cu-list menu-avatar no-padding">
-      <view class="cu-item" wx:for="{{item}}" wx:for-item="itemJ" wx:key="_id" wx:for-index="itemindex" wx:if="{{!Select || itemJ.SelectTime[SelectDay][SelectHour]>0}}">
+      <view class="cu-item" wx:for="{{item}}" wx:for-item="itemJ" wx:key="_id" wx:for-index="itemindex" wx:if="{{!Select || (itemJ.SelectTime.length >= 0 && itemJ.SelectTime[SelectDay][SelectHour]>0 ) }}">
         <!-- 这里先不做筛选 -->
           <!-- <view class="cu-item" wx:for="{{item}}" wx:for-item="itemJ" wx:key="_id" wx:if="{{(itemJ.checked || !filter) && fn.CheckSearchItem(itemJ, search_string)}}" wx:for-index="itemindex"> -->
             <!-- <view class="cu-avatar round lg">{{itemJ.avatarURL}}</view> -->
