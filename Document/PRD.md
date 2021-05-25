@@ -27,6 +27,8 @@
 + 用户画像
 + 产品结构
 + 功能列表
++ （选做）交互设计的原则与思路
++ （选做）运营与推广
 + ……
 
 前端手册应当包括
@@ -34,6 +36,7 @@
 + 页面说明
 + 页面逻辑
 + 重点前端构思的说明（我们的那个滑动）及实现方法
++ ColorUI等引用库的说明
 
 云开发手册应当包括
 
@@ -290,6 +293,43 @@ create table TimeTable_Save_Relation(
 | Get - SelectTime     | GetSelectTime        | TableID                                         | 获取用户在某个表单的选择时间结果         |
 
  
+
+### 云开发过程中的重点
+
+#### lookup联表查询
+
+类似于sql中表的连接查询，这时我们可以使用小程序云数据库中的`aggregate lookup`实现.
+
+以下是API: `GetSavedTable`的实现过程的一部分。将`TimeTable_Save_Relation`表中的`TableID`与`TimeTableInfo`表中的`_id`字段做自然连接。
+
+```javascript
+  const wxContext = cloud.getWXContext()
+  const db = cloud.database();
+  var $ = db.command.aggregate;
+  var TableList = [];
+  await db.collection('TimeTable_Save_Relation').aggregate().match({
+    UserID: wxContext.OPENID
+  }).lookup({
+    from: 'TimeTable',
+    localField: 'TableID',
+    foreignField: '_id',
+    as: 'TableInfo',
+  }).replaceRoot({
+    newRoot: $.mergeObjects([ $.arrayElemAt(['$TableInfo', 0]), '$$ROOT' ])
+  }).project({
+    TableInfo: 0
+  }).end().then(res => {
+    console.log('MySavedTable lookup here', res)
+    TableList = res.list
+  })
+  .catch(err => console.error(err))
+```
+
+
+
+#### getUserProfile
+
+
 
 ### 前后端联调
 
