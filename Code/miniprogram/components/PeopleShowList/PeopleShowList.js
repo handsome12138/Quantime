@@ -583,6 +583,7 @@ Component({
       if( JoinInfo.length > 0){
         let SingleJoinInfo;
         for(SingleJoinInfo of this.data.JoinInfo){
+          console.log(SingleJoinInfo.NickName, pinyin.getFirstLetter(SingleJoinInfo.NickName))
           let IdxLetter = pinyin.getFirstLetter(SingleJoinInfo.NickName)[0].toLocaleUpperCase(); 
           if( IdxLetter <='Z' && IdxLetter >= 'A'){
             let setidx = "EmptyContactObj." + IdxLetter;

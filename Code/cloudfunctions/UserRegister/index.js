@@ -29,7 +29,7 @@ exports.main = async (event, context) => {
       db.collection('User').add({
         data:{
           'OpenID': wxContext.OPENID, //OpenID
-          'avatarURL': event.avatarUrl,
+          'avatarURL': event.avatarURL,
           'NickName': event.NickName
         }
       });

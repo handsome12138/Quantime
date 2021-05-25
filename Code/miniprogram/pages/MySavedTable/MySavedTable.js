@@ -30,7 +30,7 @@ Page({
     wx.cloud.callFunction({
       name: 'GetSavedTable'
     }).then(res => {
-      // console.log('MySavedTable call res=', res)
+      console.log('MySavedTable call res=', res)
       this.setData({
         TableList: res.result.TableList,
         BeginShowText: true

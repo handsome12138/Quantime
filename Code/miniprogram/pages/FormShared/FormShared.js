@@ -146,9 +146,10 @@ Page({
           title: '已经保存',
         })
       }else{
-          wx.showToast({
-            title: '保存成功',
-          })
+        wx.showToast({
+          title: '保存成功',
+          duration: 1000
+        })
       }
     })
     // wx.navigateTo({
