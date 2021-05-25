@@ -32,21 +32,7 @@
         />
 
         </view>
-        <!-- <button bindtap="testGetCalendar">测试日历获取</button> -->
-        <!-- <view class="cu-form-group align-start"> -->
-        <!-- <view class="title">选择所属分类</view>
-        <van-dropdown-menu>
-            <van-dropdown-item value="{{ value_classify }}" options="{{ option_classify }}" />         
-        </van-dropdown-menu>  -->
-        <!-- </view> -->
-        <!-- <view class="cu-bar bg-white margin-top">
-            <view class="action">
-                <text class="title text-orange "></text> 选择所属分类:
-            </view>
-            <view class="action">
-                <button class="cu-btn  shadow" bindtap="showModal" data-target="RadioModal">{{option_classify[value_classify].text}}</button>
-            </view>
-        </view> -->
+        
     </form>
 
     <view class="submitmodule margin-top">
