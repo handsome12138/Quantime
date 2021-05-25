@@ -1,0 +1,16 @@
+<!--miniprogram/pages/UpdateLog/UpdateLog.wxml-->
+<!-- <text>miniprogram/pages/UpdateLog/UpdateLog.wxml</text> -->
+<text class="title">
+ver 1.3.5 更新内容
+</text>
+
+<text>{{'\n'}}</text>
+
+<view class="MsgMain">
+  <view class="msg">1. 修复了用户头像无法正常获取的Bug,点击我的信息->更新个人资料可以刷新</view>
+  <view class="msg">2. 现在会为新注册的用户新建默认类</view>
+  <view class="msg">3. 首页表单过多时被Tabbar遮挡的问题已修复</view>
+  <view class="msg">4. 详细统计结果处错误的字母显示已修复</view>
+  <view class="msg">5. 详细统计结果处点击切换颜色的bug已修复</view>
+  <view class="msg">6. 新增了本UpdateLog页面</view>
+</view>

@@ -53,12 +53,12 @@
 
 
   <view class="cu-list menu card-menu  shadow-lg radius">
-    <!-- <view class="cu-item arrow">
-      <navigator class="content" url="/pages/Help/Help" hover-class="none">
-        <text class="cuIcon-creativefill text-yellow"></text>
-        <text class="text-grey">使用帮助</text>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/UpdateLog/UpdateLog" hover-class="none">
+        <text class="cuIcon-icloading text-yellow"></text>
+        <text class="text-grey">更新日志</text>
       </navigator>
-    </view> -->
+    </view>
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/Login/Login" hover-class="none">
         <text class="cuIcon-creativefill text-cyan"></text>

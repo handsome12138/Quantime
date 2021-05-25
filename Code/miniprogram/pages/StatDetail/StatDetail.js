@@ -623,27 +623,27 @@ Page({
     })
   },
   ShowSelected:function(){
-    this.setData({
-      Select:!this.data.Select
-    })
+    // this.setData({
+    //   Select:!this.data.Select
+    // })
     // console.log(this.data.Select)
-    if(this.data.Select)
-    {
-      this.setData({
-        NowPeopleCount:this.data.SelectPeopleCount
-    })
-    }else{
-      this.setData({
-        NowPeopleCount:this.data.TotalPeopleCount
-      })
-    }
+    // if(this.data.Select)
+    // {
+    //   this.setData({
+    //     NowPeopleCount:this.data.SelectPeopleCount
+    // })
+    // }else{
+    //   this.setData({
+    //     NowPeopleCount:this.data.TotalPeopleCount
+    //   })
+    // }
   },
-  ChangePeople:function(e){
+  // ChangePeople:function(e){
     // console.log("ChangePeople", e.detail.Day, e.detail.Hour)
-    this.setData({
-      Day:e.detail.Day,
-      Hour:e.detail.Hour
-    })
+    // this.setData({
+    //   Day:e.detail.Day,
+    //   Hour:e.detail.Hour
+    // })
     // console.log("Data in StatDetail", this.data.Day, this.data.Hour)
-  }
+  // }
 })

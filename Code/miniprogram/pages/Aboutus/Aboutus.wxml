@@ -51,12 +51,12 @@
         </view>
       </view>
     </view>
-
+    
   </view>
 </view>
 
-<view class="cu-list menu card-menu  shadow-lg radius">
-    <!-- <view class="cu-item arrow">
+<!-- <view class="cu-list menu card-menu  shadow-lg radius"> -->
+  <!-- <view class="cu-item arrow">
       <navigator class="content" url="../user/user" hover-class="none">
         <text class="cuIcon-peoplefill text-black"></text>
         <text class="text-grey">个人中心</text>
@@ -80,5 +80,7 @@
         <text class="text-grey">意见反馈</text>
       </button>
     </view> -->
-  </view>
-  <view class="cu-tabbar-height"></view>
+  <!-- </view> -->
+  <!-- <view class="cu-tabbar-height"></view> -->
+  
+  <view class='text-center margin-bottom text-xxl  text-grey'>Quantime ver 1.3.5</view>

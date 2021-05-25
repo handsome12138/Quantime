@@ -21,7 +21,7 @@ exports.main = async (event, context) => {
         'OpenID': wxContext.OPENID, //OpenID
       }).update({
         data:{
-          'avatarURL': event.avatarUrl,
+          'avatarURL': event.avatarURL,
           'NickName': event.NickName
         }
       });
@@ -33,6 +33,13 @@ exports.main = async (event, context) => {
           'NickName': event.NickName
         }
       });
+      // 创建默认类
+      db.collection('TimeTableClass').add({
+        data: {
+          ClassName: '默认',
+          OpenID: wxContext.OPENID
+        },
+      })
     }
   })
   return {

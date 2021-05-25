@@ -46,8 +46,11 @@
   module.exports = {
     CheckSelectEmpty: function(array, day, hour, select){
       for(var i=0; i < array.length; i++){
-        if( !select || array[i].SelectTime[day][hour] > 0){
+        if( !select ){
           return false;
+        }
+        if(array[i].SelectTime.length != 0 && array[i].SelectTime[day][hour] > 0 ){
+          return false
         }
       }
       return true;

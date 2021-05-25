@@ -72,7 +72,7 @@ Page({
         // app.globalData.avatarURL = res.userInfo.avatarUrl;
         // app.globalData.NickName = res.userInfo.nickName;
         app.globalData.hasUserInfo = true;
-        
+        console.log('Login GetUserProfile res=',res);
         wx.cloud.callFunction({
           name: 'UserRegister',
           data:{

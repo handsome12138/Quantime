@@ -39,23 +39,16 @@ Page({
   Submit: function(e){
     // 新建类
     // console.log('[debug][ClassManagement]: addclass:', this.data.newClassName);
-    const db = wx.cloud.database();
-    db.collection('TimeTableClass').add({
+    wx.cloud.callFunction({
+      name: 'AddTimeTableClass',
       data:{
         ClassName: this.data.newClassName,
-        OpenID: app.globalData.openid
       }
-    }).catch(res => {
-      console.log("Add new class FAIL: ", res);
-      wx.showToast({
-        title: '新增类失败',
-        duration: 1000
-      })
     }).then(res => {
       console.log('Add new class', this.data.newClassName, res)
       var tmpclasslist = this.data.ClassList;
       tmpclasslist.push({
-        _id: res._id,
+        _id: res.result.id,
         ClassName: this.data.newClassName,
         OpenID: app.globalData.openid
       })

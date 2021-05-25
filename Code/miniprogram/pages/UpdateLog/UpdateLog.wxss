@@ -1,0 +1,8 @@
+/* miniprogram/pages/UpdateLog/UpdateLog.wxss */
+.title{
+  text-align: center;
+  font-size: larger;
+}
+.msg{
+  margin: 20rpx 20rpx 20rpx 20rpx;
+}

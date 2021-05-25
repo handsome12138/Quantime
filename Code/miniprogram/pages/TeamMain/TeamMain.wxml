@@ -16,11 +16,13 @@
   </view>
 
 
-<view wx:if="{{tblist.length==0 && BeginShowText}}">
+<view wx:if="{{tblist.length==0 && BeginShowText}}" class="text-center">
   请到我的信息->类管理中新增你的类哦
 </view>
 <!-- <button class="mini-btn margin-top" type="primary" bindtap="ShowModal"> 新建 </button> -->
+<view style="margin-bottom: 100rpx">
 <Formlist display="{{true}}" itemlist="{{item.TimeTables}}" title="{{item.ClassName}}" wx:for="{{tblist}}" wx:key="ClassID"></Formlist>
+</view>
 <!-- 下面debug用 -->
 <!-- <Formlist display="{{true}}"></Formlist> -->
 <!-- 

@@ -114,6 +114,12 @@
           "pathName": "pages/MySavedTable/MySavedTable",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/UpdateLog/UpdateLog",
+          "pathName": "pages/UpdateLog/UpdateLog",
+          "query": "TableID=79550af260a9f25919596b0b4f094402&InviterID=oYVXc5bmgStWQw6SyG0wmMhhuVJg",
+          "scene": null
         }
       ]
     }
