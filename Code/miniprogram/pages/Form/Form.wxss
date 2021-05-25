@@ -18,9 +18,9 @@
 	justify-content: space-between;
 }
 
-.Q-form-group {
+/* .Q-form-group {
 
-}
+} */
 
 .Q_title {
 	font-size: 16px;

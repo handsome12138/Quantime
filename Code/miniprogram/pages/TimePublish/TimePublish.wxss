@@ -14,21 +14,21 @@
 }
 
 ._24hour {
-  margin-top: 40rpx;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 ._24hour_part {
-  margin: 17rpx;
-  font-size: 30rpx;
+  margin: 9px;
+  font-size: 14px;
 }
 
 .date {
-  font-size: 30rpx;
-  font-size-adjust: 30rpx;
-  margin-left: 44rpx;
+  font-size: 14px;
+  font-size-adjust: 14px;
+  margin-left: 18px;
 }
 
 .laststep + .finish {
