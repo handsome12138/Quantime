@@ -165,5 +165,12 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  showQQcode: function(){
+    wx.previewImage({
+      urls: ['cloud://development-7g9q612v12e4c773.6465-development-7g9q612v12e4c773-1305475033/src/QQcode.jpg'],
+      current: 'cloud://development-7g9q612v12e4c773.6465-development-7g9q612v12e4c773-1305475033/src/QQcode.jpg' // 当前显示图片的http链接      
+    })
+  
   }
 })
