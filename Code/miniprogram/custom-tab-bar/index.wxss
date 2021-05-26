@@ -5,6 +5,10 @@
 
 .tabbar{
   background-color: white;
+  /* position: fixed;
+  bottom: 0;
+  width: 100%; */
+  /* 试图用fix的方式解决tabbar下拉刷新的问题，没有效果 */
 }
 .active{
   /* color: #ffe082; */
