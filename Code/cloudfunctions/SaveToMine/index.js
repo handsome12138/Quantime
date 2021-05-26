@@ -14,7 +14,8 @@ exports.main = async (event, context) => {
   const db = cloud.database();
   var AlreadyIn = 0;
   await db.collection('TimeTable_Save_Relation').where({
-    TableID: event.TableID
+    TableID: event.TableID,
+    UserID: wxContext.OPENID
   }).get().then(res => {
     if(res.data.length > 0){
       AlreadyIn = 1;

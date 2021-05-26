@@ -51,6 +51,17 @@
         </view>
       </view>
     </view>
+
+    <view class='text-left margin-bottom text-xl  text-grey'>鸣谢</view>
+    <view class="cu-item">
+      <view class="cu-avatar round lg" style="background-image:url(https://6465-development-7g9q612v12e4c773-1305475033.tcb.qcloud.la/src/aboutus/zzb2.jpg?sign=80817956eb6e12fe236319f0d02c957f&t=1621942489);"></view>
+      <view class="content flex-sub">
+        <view class="text-grey">真知棒</view>
+        <view class="text-gray flex justify-between">
+          欢迎来求是潮找男朋友
+        </view>
+      </view>
+    </view>
     
   </view>
 </view>
@@ -84,3 +95,4 @@
   <!-- <view class="cu-tabbar-height"></view> -->
   
   <view class='text-center margin-bottom text-xxl  text-grey'>Quantime ver 1.3.5</view>
+  <view class='text-center margin-bottom text-l  text-grey'>浙江大学 求是潮工作团队</view>

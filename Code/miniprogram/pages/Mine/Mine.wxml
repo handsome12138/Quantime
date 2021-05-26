@@ -40,7 +40,13 @@
     <view class="cu-item arrow">
       <navigator class="content" url="../MySavedTable/MySavedTable" hover-class="none">
         <text class="cuIcon-friendaddfill text-orange"></text>
-        <text class="text-grey">我参与的时间统计</text>
+        <text class="text-grey">我保存的时间统计</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/Login/Login" hover-class="none">
+        <text class="cuIcon-creativefill text-cyan"></text>
+        <text class="text-grey">更新个人资料</text>
       </navigator>
     </view>
     <!-- <view class="cu-item arrow">
@@ -51,7 +57,6 @@
     </view> -->
   </view>
 
-
   <view class="cu-list menu card-menu  shadow-lg radius">
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/UpdateLog/UpdateLog" hover-class="none">
@@ -60,10 +65,10 @@
       </navigator>
     </view>
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/Login/Login" hover-class="none">
-        <text class="cuIcon-creativefill text-cyan"></text>
-        <text class="text-grey">更新个人资料</text>
-      </navigator>
+      <view class="content" bindtap="showQQcode">
+        <text class="cuIcon-repairfill text-red"></text>
+        <text class="text-grey">用户反馈</text>
+      </view>
     </view>
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/Aboutus/Aboutus" hover-class="none">

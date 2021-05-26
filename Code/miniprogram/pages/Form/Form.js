@@ -290,6 +290,24 @@ Page({
 submit_next:function(){
   const calendar = this.selectComponent('#calendar').calendar
   const selectedDay = calendar.getSelectedDates(calendar)
+  if(this.data.ClassNameList.length == 0){
+    wx.showToast({
+      title: '请去 我的信息->类管理中创建类别',
+    });
+    return;
+  }
+  if(this.data.TableName.length == 0){
+    wx.showToast({
+      title: '请填写标题',
+    });
+    return;
+  }
+  if(this.data.TableContext.length == 0){
+    wx.showToast({
+      title: '请填写简介',
+    });
+    return;
+  }
   if(selectedDay.length == 0){
     wx.showToast({
       title: '请选择日期',
