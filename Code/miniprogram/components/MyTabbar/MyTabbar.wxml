@@ -1,0 +1,25 @@
+<!--components/MyTabbar/MyTabbar.wxml-->
+<view class="cu-bar tabbar bg-white foot">
+  <!-- Here -->
+  <view class="action {{PageCur=='time'?'':'text-gray'}}" data-cur="time" bindtap="NavChange">
+    <view class="cuIcon-homefill" >
+      <!-- <image src="https://6465-development-7g9q612v12e4c773-1305475033.tcb.qcloud.la/src/icon/time.png?sign=94b2a99a37279c29affe8ae3bcc4ddb3&t=1618031186" alt=""> </image> -->
+      <!-- <view class="cu-tag badge">5</view> -->
+      <!-- 这里是右上角红点数字 -->
+    </view> 
+    统计
+  </view>
+  <!-- <navigator class="action" bindtap="sendMsg" hover-class="none" url="/pages/post/post">
+    <view class="action text-gray light add-action" >
+    <button class="cu-btn cuIcon-add bg-grey shadow"></button>
+    发布
+    </view>
+  </navigator> -->
+  <view class="action {{PageCur=='mine'?'':'text-gray'}} " data-cur="mine" bindtap="NavChange">
+    <view class="cuIcon-my">
+      <!-- <view class="cu-tag badge"></view> -->
+      <!-- 这里是右上角红点 -->
+    </view>
+    我的
+  </view>
+</view>
