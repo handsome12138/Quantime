@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "tabbar": "/components/MyTabbar/MyTabbar",
     "index-list": "/components/Index_list/Index_list",
     "UserAlphabet": "/components/UserAlphabet/UserAlphabet",
     "PeopleShowList": "/components/PeopleShowList/PeopleShowList"

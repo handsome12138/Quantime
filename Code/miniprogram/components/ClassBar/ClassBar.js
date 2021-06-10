@@ -70,6 +70,7 @@ Component({
         checkHidden: true,
       })
       const db = wx.cloud.database();
+      // 疑似这里出问题，会修改所有的class name
       db.collection('TimeTableClass').where({
         _id: this.data.ClassObj._id
       }).update({
