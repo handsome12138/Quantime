@@ -1,1 +1,10 @@
 /* miniprogram/pages/Instruction.wxss */
+.myvideo{
+  width:100%;
+}
+.title{
+  margin:auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: large;
+}
