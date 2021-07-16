@@ -1,4 +1,5 @@
 const app = getApp();
+var lastSubmitTime = 0;//用于标注上一次Submit操作的时间，消除重复添加的BUG（方法3）
 // pages/Form/Form.js
 // 引入插件安装器
 import plugin from '../../3partylib/wx_calendar/plugins/index'
@@ -16,6 +17,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    formSubmitFlag: false,//用于标注是否已成功Submit，消除重复添加的BUG（方法1失败）
     ClassIDList: [],
     ClassNameList: [],
     ClassIndex: 0,
@@ -287,55 +289,98 @@ Page({
    this.onLoad();
 
 },//在onrefresh中完成重新渲染
-submit_next:function(){
-  const calendar = this.selectComponent('#calendar').calendar
-  const selectedDay = calendar.getSelectedDates(calendar)
-  if(this.data.ClassNameList.length == 0){
-    wx.showToast({
-      title: '请去 我的信息->类管理中创建类别',
-    });
-    return;
-  }
-  if(this.data.TableName.length == 0){
-    wx.showToast({
-      title: '请填写标题',
-    });
-    return;
-  }
-  if(this.data.TableContext.length == 0){
-    wx.showToast({
-      title: '请填写简介',
-    });
-    return;
-  }
-  if(selectedDay.length == 0){
-    wx.showToast({
-      title: '请选择日期',
-    });
-    return ;
-  }
 
-  var SelecteDayList = [];
-  for(var day of selectedDay){
-    SelecteDayList.push(day.year + '-' + day.month + '-' + day.date);
-  }
-  console.log('[debug]Form submit', SelecteDayList);
-  wx.cloud.callFunction({
-    name: 'AddTimeTable',
-    data:{
-      Name: this.data.TableName,
-      Status: 0,
-      Context: this.data.TableContext,
-      BelongClassID: this.data.ClassIDList[this.data.ClassIndex],
-      Days: SelecteDayList,
-      Save: 1
+submit_next:function(){
+  console.log('[DEBUG] '+'submit_next')
+  //检测 this.data.formSubmitFlag 以避免重复提交，消除BUG(方法1失败)
+  // if (this.data.formSubmitFlag == true){
+  //   wx.showToast({
+  //     title: '加载中',
+  //     icon: 'loading',
+  //     duration: 2000
+  //   });
+  //   return ;
+  // }//此方法修复BUG失败
+
+  var that = this;
+  let d = new Date();//(方法3成功)
+  let nowtime = d.getTime();//获取点击时间
+  console.log('[DEBUG] '+'nowtime: '+nowtime)
+  console.log('[DEBUG] '+'lastSubmitTime: '+lastSubmitTime)
+  if (nowtime - lastSubmitTime > 1500) {//1500ms内无法识别再点击
+    //添加自己的代码段
+    const _this = this
+    const calendar = this.selectComponent('#calendar').calendar
+    const selectedDay = calendar.getSelectedDates(calendar)
+    if(this.data.ClassNameList.length == 0){
+      wx.showToast({
+        title: '请去 我的信息->类管理中创建类别',
+      });
+      return;
     }
-  }).then(res => {
-    console.log('[debug] Form.js call AddTable', res);
-    wx.navigateTo({
-      url: '/pages/TimePublish/TimePublish?TableID='+res.result.id+'&control=1',
+    if(this.data.TableName.length == 0){
+      wx.showToast({
+        title: '请填写标题',
+        icon: 'error'
+      });
+      return;
+    }
+    // 将来设置简介非必填
+    if(this.data.TableContext.length == 0){
+      wx.showToast({
+        title: '请填写简介',
+      });
+      return;
+    }
+    if(selectedDay.length == 0){
+      wx.showToast({
+        title: '请选择日期',
+        icon: 'error'
+      });
+      return ;
+    }
+
+    //尝试使用带透明蒙板的避免重复点击的BUG（好很多，基本上最多只会2次）（方法2还行）
+    wx.showLoading({
+      title: '加载中',
+      mask: true,
     })
-  })
+    
+    // setTimeout(function () {
+    //   wx.hideLoading()
+    // }, 2000)
+
+    var SelecteDayList = [];
+    for(var day of selectedDay){
+      SelecteDayList.push(day.year + '-' + day.month + '-' + day.date);
+    }
+    
+    
+
+    console.log('[debug]Form submit', SelecteDayList);
+    wx.cloud.callFunction({
+      name: 'AddTimeTable',
+      data:{
+        Name: this.data.TableName,
+        Status: 0,
+        Context: this.data.TableContext,
+        BelongClassID: this.data.ClassIDList[this.data.ClassIndex],
+        Days: SelecteDayList,
+        Save: 1
+      }
+    }).then(res => {
+      // _this.data.formSubmitFlag = true //标记this.data.formSubmitFlag，（方法1失败）
+      console.log('[debug] Form.js call AddTable', res);
+      wx.navigateTo({
+        url: '/pages/TimePublish/TimePublish?TableID='+res.result.id+'&control=1',
+      })
+    })
+
+  }
+  lastSubmitTime = nowtime;
+
   
-}
+},
+
+
 })

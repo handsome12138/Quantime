@@ -126,6 +126,12 @@
           "pathName": "pages/Instruction/Instruction",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/TimeMain/TimeMain",
+          "pathName": "pages/TimeMain/TimeMain",
+          "query": "",
+          "scene": null
         }
       ]
     }

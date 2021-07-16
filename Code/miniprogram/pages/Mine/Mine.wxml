@@ -58,12 +58,12 @@
   </view>
 
   <view class="cu-list menu card-menu  shadow-lg radius">
-    <view class="cu-item arrow">
+    <!-- <view class="cu-item arrow">
       <navigator class="content" url="/pages/Instruction/Instruction" hover-class="none">
         <text class="cuIcon-read text-yellow"></text>
         <text class="text-grey">使用说明</text>
       </navigator>
-    </view>
+    </view> -->
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/UpdateLog/UpdateLog" hover-class="none">
         <text class="cuIcon-icloading text-yellow"></text>
