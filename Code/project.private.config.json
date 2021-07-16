@@ -120,6 +120,12 @@
           "pathName": "pages/UpdateLog/UpdateLog",
           "query": "TableID=79550af260a9f25919596b0b4f094402&InviterID=oYVXc5bmgStWQw6SyG0wmMhhuVJg",
           "scene": null
+        },
+        {
+          "name": "pages/Instruction/Instruction",
+          "pathName": "pages/Instruction/Instruction",
+          "query": "",
+          "scene": null
         }
       ]
     }

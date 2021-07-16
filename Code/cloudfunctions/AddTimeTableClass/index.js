@@ -12,7 +12,7 @@ exports.main = async (event, context) => {
     return {event: event};
   }
   var ClassName = event.ClassName;
-  var id = '';
+  var id = 'not null';
   // console.log('Here is AddTimeTableClass');
   const db = cloud.database()
   await db.collection('TimeTableClass').add({
