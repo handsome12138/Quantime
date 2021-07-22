@@ -1333,7 +1333,8 @@ button.cuIcon.lg {
 	text-align: center;
 	font-size: 34upx;
 	font-family: cuIcon;
-	line-height: 30upx
+	line-height: 30upx;
+	
 }
 
 .cu-list.menu>.cu-item button.content {

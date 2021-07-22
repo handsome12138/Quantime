@@ -28,7 +28,7 @@ Component({
       var that = this;
       wx.showModal({
         title: '提示',
-        content: '是否确认删除，这将递归删除类下的所有表单',
+        content: '是否确认删除，这将同时永久删除此类下的所有表单',
         success(res){
           if(res.confirm){
             wx.cloud.callFunction({

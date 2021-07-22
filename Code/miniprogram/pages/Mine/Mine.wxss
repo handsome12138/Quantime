@@ -47,6 +47,11 @@
   justify-content: space-between;
 }
 
+.content {
+  /* width:150vw; */
+  margin: 10px 0 10px 0;
+}
+
 .arrow_part {
   /* padding-right: 90upx; */
   margin-right: 25px;

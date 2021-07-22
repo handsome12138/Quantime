@@ -1373,7 +1373,8 @@ button.icon.lg {
 }
 
 .cu-list.menu>.cu-item.arrow {
-	padding-right: 90rpx
+	/* padding-right: 90rpx */
+	/* 注释以扩大选区面积至arrow */
 }
 
 .cu-list.menu>.cu-item.arrow:before {
@@ -1390,7 +1391,8 @@ button.icon.lg {
 	text-align: center;
 	font-size: 34rpx;
 	font-family: "cuIcon";
-	line-height: 30rpx
+	line-height: 30rpx;
+	z-index: -9999;
 }
 
 .cu-list.menu>.cu-item button.content {

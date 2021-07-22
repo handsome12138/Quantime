@@ -31,51 +31,52 @@
     
   </view>
 
-  <view class="cu-form-group margin-top" bindtap="GotoStat">
-		<view class="title">查看统计结果</view>
-		<view class="arrow"></view>
-	</view>
-	<view class="cu-form-group" bindtap="GotoPeopleList">
-    <view class="title">查看参与人数</view>
-    <view class="arrow"></view>
-	</view>
-	<view class="cu-form-group margin-bottom" bindtap="GotoTimeShow">
-		<view class="title">查看统计时间</view>
-		<view class="arrow"></view>
-  </view>
-  
-  <view class="margin-top margin-left">表单状态修改</view>
-  <view class="cu-form-group margin-top">
-		<view class="title">是否发布</view>
-		<switch class="green sm" checked="{{TableInfo.Status}}" bindchange="AlterTableStatus"></switch>
-	</view>
-	<view class="cu-form-group">
-    <view class="title">是否允许其他用户保存</view>
-    <switch class="green sm" checked="{{TableInfo.Save}}" bindchange="AlterTableSave"></switch>
-    <!-- 这里需要数据库增加一个bool变量以设置 checked同上“是否发布” -->
-  </view>
-  
-  <view class="margin-top margin-left">表单管理</view>
-  <view class="Q-form-group margin-top">
-    <button class="ShareButton cu-form-group" open-type="share">
-    <view class="title">分享表单</view>
-		<view class="arrow"></view>
-    </button>
+  <view>
+    <view class="cu-form-group margin-top" bindtap="GotoStat">
+      <view class="title">查看统计结果</view>
+      <view class="arrow"></view>
+    </view>
+    <view class="cu-form-group" bindtap="GotoPeopleList">
+      <view class="title">查看参与人数</view>
+      <view class="arrow"></view>
+    </view>
+    <view class="cu-form-group margin-bottom" bindtap="GotoTimeShow">
+      <view class="title">查看统计时间</view>
+      <view class="arrow"></view>
+    </view>
     
-	</view>
-	<view class="cu-form-group" bindtap="ShowModal" data-modalname="CopyTable">
-    <view class="title">拷贝表单</view>
-    <view class="arrow"></view>
+    <view class="margin-top margin-left">表单状态修改</view>
+    <view class="cu-form-group margin-top">
+      <view class="title">是否发布</view>
+      <switch class="green sm" checked="{{TableInfo.Status}}" bindchange="AlterTableStatus"></switch>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">是否允许其他用户保存</view>
+      <switch class="green sm" checked="{{TableInfo.Save}}" bindchange="AlterTableSave"></switch>
+      <!-- 这里需要数据库增加一个bool变量以设置 checked同上“是否发布” -->
+    </view>
+    
+    <view class="margin-top margin-left">表单管理</view>
+    <view class="Q-form-group margin-top">
+      <button class="ShareButton cu-form-group" open-type="share">
+      <view class="title">分享表单</view>
+      <view class="arrow"></view>
+      </button>
+      
+    </view>
+    <view class="cu-form-group" bindtap="ShowModal" data-modalname="CopyTable">
+      <view class="title">拷贝表单</view>
+      <view class="arrow"></view>
+    </view>
+    <view class="cu-form-group" bindtap="ShowModal" data-modalname="MoveTable">
+      <view class="title">移动表单</view>
+      <view class="arrow"></view>
+    </view>
+    <view class="cu-form-group" bindtap="HandleDeleteTable">
+      <view class="title">删除表单</view>
+      <view class="arrow"></view>
+    </view>
   </view>
-  <view class="cu-form-group" bindtap="ShowModal" data-modalname="MoveTable">
-    <view class="title">移动表单</view>
-    <view class="arrow"></view>
-  </view>
-  <view class="cu-form-group" bindtap="HandleDeleteTable">
-    <view class="title">删除表单</view>
-    <view class="arrow"></view>
-	</view>
-	
 </view>
 
 <!-- 以下部分是模态框 -->
@@ -99,7 +100,8 @@
   <view class="cu-dialog ">
     <view class="cu-form-group margin-top">
         <!-- <view class="title">编辑简介</view> -->
-        <textarea class="Q_textarea" maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入简介" model:value="{{EditTableContext}}"></textarea>
+        <textarea class="Q_textarea " maxlength="-1" disabled="{{modalname=='EditIntro'?false:true}}" bindinput="textareaBInput" placeholder="{{modalname=='EditIntro'?'请输入简介':''}}" model:value="{{modalname=='EditIntro'?EditTableContext:''}}"></textarea>
+        <!-- <textarea class="Q_textarea " maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="{{'请输入简介'}}" model:value="{{EditTableContext}}"></textarea> -->
     </view>
     <view class="flex margin">
         <button class="flex-sub cu-btn line-green text-green shadow" style="width:150px;margin-left:50px;margin-right:20px" bindtap="SubmitModal" data-modalname="EditIntro" disabled="{{EditTableContext.length == 0}}">提交</button>
