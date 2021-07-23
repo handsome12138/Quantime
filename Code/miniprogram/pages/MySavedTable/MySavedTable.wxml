@@ -2,7 +2,7 @@
 <!-- <text>miniprogram/pages/MySavedTable/MySavedTable.wxml</text> -->
 <view class="mainpart">
   <view style="text-align:center;margin: 20rpx 0 0 0" wx:if="{{TableList.length == 0 && BeginShowText}}">
-    暂无保存的表单
+    暂无保存的时间统计表单
   </view>
   <view wx:else class="list">
     <view wx:for="{{TableList}}" wx:key="_id" style="margin-top:30rpx">

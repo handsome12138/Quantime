@@ -23,7 +23,8 @@ Page({
       }
     ],
     newClassName:'',
-    modalname:''
+    modalname:'',
+    BeginShowText: false,
   },
 
 
@@ -72,7 +73,8 @@ Page({
         OpenID: app.globalData.openid
       })
       this.setData({
-        ClassList: tmpclasslist
+        ClassList: tmpclasslist,
+        
       })
     })
     this.setData({
@@ -91,7 +93,8 @@ Page({
     }).then(res =>{
       console.log('GetClassList in ClassManagerment', res);
       this.setData({
-        ClassList: res.result.ClassList
+        ClassList: res.result.ClassList,
+        BeginShowText: true
       })
     })
   },
