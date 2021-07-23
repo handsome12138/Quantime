@@ -1,13 +1,13 @@
-<!--miniprogram/pages/Instruction.wxml-->
+<!-- miniprogram/pages/Instruction.wxml-->
 <!-- <text>miniprogram/pages/Instruction.wxml</text> -->
-<text class="title">  演示视频  </text>
+<!-- <text class="title">  演示视频  </text>
 
 <view>
   <video class="myvideo"
       id="myVideo" 
       src="https://6465-development-7g9q612v12e4c773-1305475033.tcb.qcloud.la/src/Quantime2.mp4?sign=0147152dba15c5654a0cc962376cd628&t=1626348062" 
     ></video>
-</view>
+</view> -->
       <!-- binderror="videoErrorCallback" 
       danmu-list="{{danmuList}}" 
       enable-danmu 
