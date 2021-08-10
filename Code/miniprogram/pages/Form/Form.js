@@ -329,6 +329,7 @@ submit_next:function(){
     if(this.data.TableContext.length == 0){
       wx.showToast({
         title: '请填写简介',
+        icon: 'error'
       });
       return;
     }

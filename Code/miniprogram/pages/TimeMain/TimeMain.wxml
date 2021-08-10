@@ -100,7 +100,7 @@
   <view class="cu-dialog ">
     <view class="cu-form-group margin-top">
         <!-- <view class="title">编辑简介</view> -->
-        <textarea class="Q_textarea " maxlength="-1" disabled="{{modalname=='EditIntro'?false:true}}" bindinput="textareaBInput" placeholder="{{modalname=='EditIntro'?'请输入简介':''}}" model:value="{{modalname=='EditIntro'?EditTableContext:''}}"></textarea>
+        <textarea class="Q_textarea " maxlength="-1" disabled="{{modalname=='EditIntro'?false:true}}" bindinput="textareaBInput" placeholder="{{modalname=='EditIntro'?'请输入简介':''}}" model:value="{{EditTableContext}}"></textarea>
         <!-- <textarea class="Q_textarea " maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="{{'请输入简介'}}" model:value="{{EditTableContext}}"></textarea> -->
     </view>
     <view class="flex margin">

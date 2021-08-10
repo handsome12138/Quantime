@@ -7,7 +7,8 @@ Page({
   data: {
     TableID: '',
     windowHeight: 0,
-    JoinInfo: []
+    JoinInfo: [],
+    BeginShowText: false,
   },
 
   /**
@@ -25,7 +26,8 @@ Page({
     }).then(res => {
       console.log('PeopleList GetStat res=',res)
       this.setData({
-        JoinInfo: res.result.JoinInfo
+        JoinInfo: res.result.JoinInfo,
+        BeginShowText: true
       })
     })
     this.handleGetSystemInfo();

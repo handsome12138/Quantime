@@ -2,6 +2,10 @@
 <!-- <text>miniprogram/pages/PeopleList/PeopleList.wxml</text>
 {{TableID}} -->
 
+<view wx:if="{{JoinInfo.length==0 && BeginShowText}}" class="text-center">
+  还没有人参与统计哦
+</view>
+
 <view style="height:{{windowHeight}}px">
   <PeopleShowList JoinInfo="{{JoinInfo}}"Select="{{false}}" > </PeopleShowList>
 </view>

@@ -6,6 +6,10 @@
 <Class className="团支部"></Class>
  -->
 
+
+<view wx:if="{{ClassList.length==0 && BeginShowText}}" class="text-center">
+  你还没有类哦，点击按钮新增一个吧
+</view>
 <view wx:for="{{ClassList}}" wx:key="index" class="view_item" >
   <Class ClassObj="{{item}}" Index="{{index}}"></Class>
   <!-- <Class ClassObj="{{item}}" classData="{{ClassGroup[index]}}" id="class-{{index}}"></Class> -->
