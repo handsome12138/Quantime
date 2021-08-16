@@ -152,5 +152,10 @@ Page({
     wx.reLaunch({
       url: '/pages/TeamMain/TeamMain',
     })
+
+    //WE分析上报事件代码，事件ID为"newform_calladdformtable"
+    wx.reportEvent("newform_finishsettime", {
+
+    })
   }
 })

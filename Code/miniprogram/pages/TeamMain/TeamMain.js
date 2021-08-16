@@ -249,5 +249,10 @@ Page({
     wx.navigateTo({
       url: '/pages/Form/Form',
     })
+
+    //WE分析上报事件代码，事件ID为"newform_gotoform"
+    wx.reportEvent("newform_gotoform", {
+      "test": ""
+    })
   }
 })

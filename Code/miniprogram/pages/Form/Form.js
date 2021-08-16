@@ -314,7 +314,9 @@ submit_next:function(){
     const selectedDay = calendar.getSelectedDates(calendar)
     if(this.data.ClassNameList.length == 0){
       wx.showToast({
-        title: '请去 我的信息->类管理中创建类别',
+        // title: '请去 我的信息->类管理中创建类别',
+        title: '请新建类别',
+        icon: 'error'
       });
       return;
     }
@@ -375,6 +377,11 @@ submit_next:function(){
       wx.navigateTo({
         url: '/pages/TimePublish/TimePublish?TableID='+res.result.id+'&control=1',
       })
+      //WE分析上报事件代码，事件ID为"newform_calladdformtable"
+      wx.reportEvent("newform_calladdformtable", {
+
+      })
+
     })
 
   }
